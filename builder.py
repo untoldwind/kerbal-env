@@ -23,7 +23,22 @@ def main(ctx, debug, config_file):
 def install_game(ctx):
     actions.install_game.run(config = ctx.obj.config, debug = ctx.obj.debug)
 
+@click.command()
+@click.pass_context
+def list_mods(ctx):
+    for name, mod_config in ctx.obj.config.mods.items():
+        print("%-20s: %s" % (name, mod_config.source))
+
+@click.command()
+@click.argument("name")
+@click.pass_context
+def build_mod(ctx, name):
+    mod_config = ctx.obj.config.mods[name]
+    actions.build_mod.run(name = name, config = mod_config, debug = ctx.obj.debug)
+
 main.add_command(install_game)
+main.add_command(list_mods)
+main.add_command(build_mod)
 
 if __name__ == '__main__':
     main(obj = Context())

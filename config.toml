@@ -4,3 +4,10 @@ target_dir = "~/KSP"
 base = "~/Downloads/ksp-linux-1.5.0.zip"
 dlc1 = "~/Downloads/KSP-Making_History_Expansion-en-us-lin-1.5.0.zip"
 
+[mods.ModuleManager]
+source = "https://github.com/sarbian/ModuleManager"
+branch = "master"
+
+[mods.KOS]
+source = "https://github.com/KSP-KOS/KOS"
+branch = "master"

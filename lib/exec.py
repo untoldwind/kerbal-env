@@ -1,9 +1,9 @@
 import subprocess
 
-def run_command(pwd, command, debug):
+def run_command(cwd, command, debug):
     if debug:
-        print("Exec command in '%s': %s" % (pwd, command))
-    result = subprocess.run(command, cwd = pwd, capture_output=True)
+        print("Exec command in '%s': %s" % (cwd, command))
+    result = subprocess.run(command, cwd = cwd, capture_output=True)
     if debug:
         print("Exit code: %d" % (result.returncode))
     if result.returncode != 0:

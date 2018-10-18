@@ -1,1 +1,1 @@
-from . import install_game
+from . import build_mod, install_game
