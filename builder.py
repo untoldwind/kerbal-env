@@ -2,6 +2,7 @@
 
 import click
 import logging
+import coloredlogs
 
 from lib.config import Config
 from lib import actions
@@ -18,9 +19,9 @@ class Context:
 @click.pass_context
 def main(ctx, debug, config_file):
     if debug:
-        logging.basicConfig(level=logging.DEBUG)
+        coloredlogs.install(level=logging.DEBUG, fmt="%(levelname)s %(message)s")
     else:
-        logging.basicConfig(level=logging.INFO)
+        coloredlogs.install(level=logging.INFO, fmt="%(levelname)s %(message)s")
     ctx.ensure_object(Context)
     ctx.obj.debug = debug
     ctx.obj.config = Config(config_file)
@@ -46,10 +47,18 @@ def build_mod(ctx, name):
     mod_config = ctx.obj.config.mods[name]
     actions.build_mod.run(name=name, config=mod_config)
 
+@click.command()
+@click.argument("name")
+@click.pass_context
+def install_mod(ctx, name):
+    mod_config = ctx.obj.config.mods[name]
+    actions.install_mod.run(name=name, config=mod_config)
+
 
 main.add_command(install_game)
 main.add_command(list_mods)
 main.add_command(build_mod)
+main.add_command(install_mod)
 
 if __name__ == '__main__':
     main(obj=Context())

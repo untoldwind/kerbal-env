@@ -9,6 +9,16 @@ def rm(dir, glob):
     for file in pathlib.Path(dir).glob(glob):
         file.unlink()
 
+def rm_rf(dir):
+    path = pathlib.Path(dir)
+    if not path.exists():
+        return
+    if path.is_file():
+        path.unlink()
+        return
+    for child in path.iterdir():
+       rm_rf(child)
+    path.rmdir()
 
 def exists(dir):
     return pathlib.Path(dir).exists()

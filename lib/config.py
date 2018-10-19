@@ -39,6 +39,10 @@ class ModConfig:
         self._mod_config = mod_config
 
     @property
+    def source_type(self):
+        return self._mod_config["source_type"]
+
+    @property
     def source(self):
         return self._mod_config["source"]
 

@@ -1,17 +1,23 @@
 target_dir = "~/KSP"
 
 [install]
-base = "~/Downloads/ksp-linux-1.5.0.zip"
-dlc1 = "~/Downloads/KSP-Making_History_Expansion-en-us-lin-1.5.0.zip"
+base = "~/Downloads/ksp-linux-1.5.1.zip"
+dlc1 = "~/Downloads/KSP-Making_History_Expansion-en-us-lin-1.5.1.zip"
+
+[mods.adopted]
+source_type = "adopted"
 
 [mods.ModuleManager]
+source_type = "git"
 source = "https://github.com/sarbian/ModuleManager"
 branch = "master"
 
 [mods.KOS]
+source_type = "git"
 source = "https://github.com/KSP-KOS/KOS"
 branch = "master"
 
 [mods.Kopernicus]
+source_type = "git"
 source = "https://github.com/Kopernicus/Kopernicus"
 tag = "release-1.5.0-1"
