@@ -2,8 +2,10 @@ import toml
 
 from os import path
 
+
 def expanded(p):
     return path.expandvars(path.expanduser(p))
+
 
 class Config:
     def __init__(self, file_name):
@@ -29,6 +31,7 @@ class Config:
     @property
     def mods(self):
         return {name: ModConfig(self.game_dir, mod_config) for name, mod_config in self._config["mods"].items()}
+
 
 class ModConfig:
     def __init__(self, game_dir, mod_config):

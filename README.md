@@ -2,17 +2,17 @@
 
 Contrary to CKAN the idea is to build everything.
 
-## Requirements
+# Requirements
 
-* Kerbal (obviously) >= 1.5.0
+* Kerbal(obviously) >= 1.5.0
 * mono: "mono" + "monodevelop-stable" on archlinux
-  * actually msbuild might suffice
+* actually msbuild might suffice
 * python >= 3.5
 
-## Setup python venv
+# Setup python venv
 
 ```
-python -m venv .venv
+python - m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+pip install - r requirements.txt
 ```
