@@ -43,5 +43,9 @@ class ModConfig:
         return self._mod_config["source"]
 
     @property
-    def branch(self):
-        return self._mod_config["branch"]
+    def checkout(self):
+        if "branch" in self._mod_config:
+            return self._mod_config["branch"]
+        elif "tag" in self._mod_config:
+            return self._mod_config["tag"]
+        return "master"

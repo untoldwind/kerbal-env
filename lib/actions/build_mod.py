@@ -14,10 +14,10 @@ def run(name, config):
         run_command(cwd=build_dir, command=[
                     "git", "clone", config.source])
         run_command(cwd=project_dir, command=[
-                    "git", "checkout", config.branch])
+                    "git", "checkout", config.checkout])
     else:
         logging.info("Updating %s" % config.source)
-        run_command(cwd = project_dir, command = ["git", "checkout", config.branch])
+        run_command(cwd = project_dir, command = ["git", "checkout", config.checkout])
         run_command(cwd = project_dir, command = ["git", "pull"])
     receipt = find_receipt(name)
     logging.info("Running build receipt: %s" % name)
