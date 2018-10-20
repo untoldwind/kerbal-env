@@ -29,3 +29,29 @@ enabled = false
 source_type = "git"
 source = "https://github.com/Galileo88/Outer-Planets-Mod.git"
 depends = ["Kopernicus"]
+
+[mods.PlanetaryBaseSystems]
+source_type = "git"
+source = "https://github.com/Nils277/KerbalPlanetaryBaseSystems.git"
+enabled = false
+depends = ["ModuleManager"]
+
+[mods.B9PartSwitch]
+source_type = "git"
+source = "https://github.com/ChrisAdderley/StationPartsExpansionRedux.git"
+depends = ["ModuleManager"]
+enabled = false
+
+[mods.NearFutureProps]
+source_type = "git"
+source="https://github.com/ChrisAdderley/NearFutureProps.git"
+
+[mods.StationPartsExpansionRedux]
+source_type = "git"
+source = "https://github.com/ChrisAdderley/StationPartsExpansionRedux.git"
+depends = ["ModuleManager", "B9PartSwitch", "NearFutureProps"]
+
+[mods.KerbalAlarmClock]
+source_type = "git"
+source = "https://github.com/TriggerAu/KerbalAlarmClock.git"
+enabled = false
