@@ -39,12 +39,24 @@ class ModConfig:
         self._mod_config = mod_config
 
     @property
+    def enabled(self):
+        if "enabled" in self._mod_config:
+            return self._mod_config["enabled"]
+        return True
+
+    @property
     def source_type(self):
         return self._mod_config["source_type"]
 
     @property
     def source(self):
         return self._mod_config["source"]
+
+    @property
+    def dependencies(self):
+        if "depends" in self._mod_config:
+            return self._mod_config["depends"]
+        return []
 
     @property
     def checkout(self):

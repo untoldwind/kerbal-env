@@ -14,3 +14,6 @@ def install(game_dir, project_dir):
     rm(path.join(game_dir, "GameData"), "ModuleManager*.dll")
     run_command(cwd=project_dir, command=[
                 "cp", "./ModuleManager/bin/Release/ModuleManager.dll", "%s/GameData" % game_dir])
+
+def check_installed(game_dir):
+    return False

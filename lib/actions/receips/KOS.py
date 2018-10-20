@@ -25,3 +25,6 @@ def build(game_dir, project_dir):
 def install(game_dir, project_dir):
     rm_rf(path.join(game_dir, "GameData", "kOS"))
     run_command(cwd=project_dir, command=["cp", "-r", "./Resources/GameData/kOS", "%s/GameData" % game_dir])
+
+def check_installed(game_dir):
+    return False

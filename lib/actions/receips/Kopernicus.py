@@ -8,3 +8,6 @@ def build(game_dir, project_dir):
                 "msbuild", "/target:Build", "/property:Configuration=Release"])
 
     pass
+
+def check_installed(game_dir):
+    return False
