@@ -24,6 +24,19 @@ source_type = "git"
 source = "https://github.com/Kopernicus/Kopernicus.git"
 tag = "release-1.5.0-1"
 enabled = false
+patch = '''
+--- a/src/Kopernicus/Constants/CompatibilityChecker.cs
++++ b/src/Kopernicus/Constants/CompatibilityChecker.cs
+@@ -49,7 +49,7 @@ namespace Kopernicus
+         // Compatible version
+         internal const Int32 version_major = 1;
+         internal const Int32 version_minor = 5;
+-        internal const Int32 Revision = 0;
++        internal const Int32 Revision = 1;
+         internal const Int32 Kopernicus = 1;
+ 
+         public static Boolean IsCompatible()
+'''
 
 [mods.OPM]
 source_type = "git"
