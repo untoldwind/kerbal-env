@@ -14,7 +14,7 @@ class Context:
 
 
 @click.group()
-@click.option('--debug/--no-debug', default=False)
+@click.option('--debug', is_flag=True, default=False)
 @click.option('--config', 'config_file', default='config.toml')
 @click.pass_context
 def main(ctx, debug, config_file):
@@ -30,7 +30,7 @@ def main(ctx, debug, config_file):
 @click.command()
 @click.pass_context
 def install_game(ctx):
-    actions.install_game.run(config=ctx.obj.config)
+    actions.install_game(config=ctx.obj.config)
 
 
 @click.command()
@@ -41,18 +41,34 @@ def list_mods(ctx):
 
 
 @click.command()
-@click.argument("name")
+@click.option('--all', is_flag=True, default=False)
+@click.argument("name", required=False)
 @click.pass_context
-def build_mod(ctx, name):
-    mod_config = ctx.obj.config.mods[name]
-    actions.build_mod.run(name=name, config=mod_config)
+def build_mod(ctx, all, name):
+    if all:
+        ordered = actions.sort_dependencies(ctx.obj.config.mods)
+        for name, config in ordered:
+            actions.build_mod(name=name, config=config)
+    elif name != None:
+        mod_config = ctx.obj.config.mods[name]
+        actions.build_mod(name=name, config=mod_config)
+    else:
+        click.echo("Neither --all nor a name given. There is nothing to do")
 
 @click.command()
-@click.argument("name")
+@click.option('--all', is_flag=True, default=False)
+@click.argument("name", required=False)
 @click.pass_context
 def install_mod(ctx, name):
-    mod_config = ctx.obj.config.mods[name]
-    actions.install_mod.run(name=name, config=mod_config)
+    if all:
+        ordered = actions.sort_dependencies(ctx.obj.config.mods)
+        for name, config in ordered:
+            actions.install_mod(name=name, config=config)
+    elif name != None:
+        mod_config = ctx.obj.config.mods[name]
+        actions.install_mod(name=name, config=mod_config)
+    else:
+        click.echo("Neither --all nor a name given. There is nothing to do")
 
 
 main.add_command(install_game)

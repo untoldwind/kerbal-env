@@ -3,7 +3,7 @@ from lib.exec import run_command
 from lib.utils import mkdir_p, rm
 
 
-def run(config):
+def install_game(config):
     logging.info("Installing base game to: %s" % config.target_dir)
 
     mkdir_p(config.target_dir)

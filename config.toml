@@ -45,6 +45,8 @@ enabled = false
 [mods.NearFutureProps]
 source_type = "git"
 source="https://github.com/ChrisAdderley/NearFutureProps.git"
+depends = ["ModuleManager"]
+enabled = false
 
 [mods.StationPartsExpansionRedux]
 source_type = "git"

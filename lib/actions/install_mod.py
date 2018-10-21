@@ -6,7 +6,7 @@ from .receips import find_receipt
 
 
 
-def run(name, config):
+def install_mod(name, config):
     build_dir = path.join(path.curdir, "build")
     project_dir = path.join(build_dir, name)
     receipt = find_receipt(name)

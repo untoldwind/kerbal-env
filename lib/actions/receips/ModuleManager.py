@@ -1,10 +1,13 @@
+import logging
 from lib.exec import run_command
 from lib.utils import rm
 from os import path
 
 
 def build(game_dir, project_dir):
+    logging.info("  nuget restore")
     run_command(cwd=project_dir,  command=["nuget", "restore"])
+    logging.info("  Build Release")
     run_command(cwd=project_dir,  command=[
                 "msbuild", "/target:Build", "/property:Configuration=Release",
                 "/property:ReferencePath=%s/KSP_Data/Managed" % game_dir])
