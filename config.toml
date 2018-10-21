@@ -23,7 +23,7 @@ depends = ["ModuleManager"]
 source_type = "git"
 source = "https://github.com/Kopernicus/Kopernicus.git"
 tag = "release-1.5.0-1"
-enabled = false
+enabled = true
 patch = '''
 --- a/src/Kopernicus/Constants/CompatibilityChecker.cs
 +++ b/src/Kopernicus/Constants/CompatibilityChecker.cs
@@ -37,6 +37,10 @@ patch = '''
  
          public static Boolean IsCompatible()
 '''
+
+[mods.CustomBarnKit]
+source_type = "git"
+source = "https://github.com/sarbian/CustomBarnKit.git"
 
 [mods.OPM]
 source_type = "git"

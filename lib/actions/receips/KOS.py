@@ -4,7 +4,7 @@ from os import path
 from lib.utils import ln_s, exists, rm_rf
 
 
-def build(game_dir, project_dir, config):
+def build(game_dir, project_dir):
     src_dir = path.join(project_dir, "src")
     logging.info("  nuget restore")
     run_command(cwd=src_dir,  command=["nuget", "restore"])

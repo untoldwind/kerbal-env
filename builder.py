@@ -59,7 +59,7 @@ def build_mod(ctx, all, name):
 @click.option('--all', is_flag=True, default=False)
 @click.argument("name", required=False)
 @click.pass_context
-def install_mod(ctx, name):
+def install_mod(ctx, all, name):
     if all:
         ordered = actions.sort_dependencies(ctx.obj.config.mods)
         for name, config in ordered:

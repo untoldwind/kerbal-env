@@ -14,19 +14,18 @@ def build_mod(name, config):
         if config.source_type == "git":
             logging.info("Checking out %s to: %s" % (config.source, build_dir))
             run_command(cwd=build_dir, command=[
-                        "git", "clone", config.source])
+                        "git", "clone", config.source, name])
             run_command(cwd=project_dir, command=[
                         "git", "checkout", config.checkout])
     else:
         if config.source_type == "git":
             logging.info("Updating %s" % config.source)
-#            run_command(cwd = project_dir, command = ["git", "checkout", "master"])
-#            run_command(cwd = project_dir, command = ["git", "pull"])            
-#            run_command(cwd = project_dir, command = ["git", "checkout", config.checkout])
+            run_command(cwd = project_dir, command = ["git", "checkout", "master"])
+            run_command(cwd = project_dir, command = ["git", "pull"])            
+            run_command(cwd = project_dir, command = ["git", "checkout", config.checkout])
     if config.patch != None:
         pset = patch.fromstring(config.patch.encode('utf-8'))
         logging.info("Applying patch")
-        print(pset)
         pset.apply(strip=1, root=project_dir)
     receipt = find_receipt(name)
     logging.info("Running build receipt: %s" % name)
