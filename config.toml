@@ -56,7 +56,7 @@ depends = ["ModuleManager"]
 
 [mods.B9PartSwitch]
 source_type = "git"
-source = "https://github.com/ChrisAdderley/StationPartsExpansionRedux.git"
+source = "https://github.com/blowfishpro/B9PartSwitch.git"
 depends = ["ModuleManager"]
 enabled = false
 
