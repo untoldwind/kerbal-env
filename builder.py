@@ -51,6 +51,8 @@ def build_mod(ctx, all, update, name):
         for name, config in ordered:
             actions.build_mod(name=name, config=config, update=update)
     elif name != None:
+        if not name in ctx.obj.config.mods:
+            raise NameError("No such module: %s" % name)
         mod_config = ctx.obj.config.mods[name]
         actions.build_mod(name=name, config=mod_config, update=update)
     else:
@@ -66,6 +68,8 @@ def install_mod(ctx, all, name):
         for name, config in ordered:
             actions.install_mod(name=name, config=config)
     elif name != None:
+        if not name in ctx.obj.config.mods:
+            raise NameError("No such module: %s" % name)
         mod_config = ctx.obj.config.mods[name]
         actions.install_mod(name=name, config=mod_config)
     else:
