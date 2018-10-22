@@ -1,11 +1,11 @@
 import logging
+import shutil
 from lib.exec import run_command
-from os import path
-from lib.utils import ln_s, exists, rm_rf
+from lib.utils import ln_s, rm_rf
 
 
 def build(game_dir, project_dir):
-    src_dir = path.join(project_dir, "src")
+    src_dir = project_dir.joinpath("src")
     logging.info("  nuget restore")
     run_command(cwd=src_dir,  command=["nuget", "restore"])
     run_command(cwd=src_dir,  command=[
@@ -23,8 +23,10 @@ def build(game_dir, project_dir):
                 "/property:ReferencePath=%s/KSP_Data/Managed" % game_dir])
 
 def install(game_dir, project_dir):
-    rm_rf(path.join(game_dir, "GameData", "kOS"))
-    run_command(cwd=project_dir, command=["cp", "-r", "./Resources/GameData/kOS", "%s/GameData" % game_dir])
+    target_dir = game_dir.joinpath("GameData", "kOS")
+    rm_rf(target_dir)
+    shutil.copytree(project_dir.joinpath("Resources", "GameData", "kOS"), target_dir)
 
 def check_installed(game_dir):
-    return False
+    target_dir = game_dir.joinpath("GameData", "kOS")
+    return target_dir.exists()

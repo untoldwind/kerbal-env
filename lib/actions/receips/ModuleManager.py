@@ -1,7 +1,7 @@
 import logging
+import shutil
 from lib.exec import run_command
 from lib.utils import rm
-from os import path
 
 
 def build(game_dir, project_dir):
@@ -14,9 +14,9 @@ def build(game_dir, project_dir):
 
 
 def install(game_dir, project_dir):
-    rm(path.join(game_dir, "GameData"), "ModuleManager*.dll")
-    run_command(cwd=project_dir, command=[
-                "cp", "./ModuleManager/bin/Release/ModuleManager.dll", "%s/GameData" % game_dir])
+    gamedata_dir = game_dir.joinpath("GameData")
+    rm(gamedata_dir, "ModuleManager*.dll")
+    shutil.copy(project_dir.joinpath("ModuleManager", "bin", "Release", "ModuleManager.dll"), gamedata_dir)
 
 def check_installed(game_dir):
     return False

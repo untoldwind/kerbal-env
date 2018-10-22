@@ -1,10 +1,7 @@
 import toml
 
-from os import path
-
-
-def expanded(p):
-    return path.expandvars(path.expanduser(p))
+from string import Template
+import pathlib
 
 
 class Config:
@@ -14,19 +11,19 @@ class Config:
 
     @property
     def target_dir(self):
-        return expanded(self._config["target_dir"])
+        return pathlib.Path(self._config["target_dir"]).expanduser()
 
     @property
     def game_dir(self):
-        return path.join(self.target_dir, "KSP_linux")
+        return self.target_dir.joinpath("KSP_linux")
 
     @property
     def install_base(self):
-        return expanded(self._config["install"]["base"])
+        return pathlib.Path(self._config["install"]["base"]).expanduser()
 
     @property
     def install_dlc1(self):
-        return expanded(self._config["install"]["dlc1"])
+        return pathlib.Path(self._config["install"]["dlc1"]).expanduser()
 
     @property
     def mods(self):
@@ -51,8 +48,16 @@ class ModConfig:
     @property
     def source(self):
         if "source" in self._mod_config:
-            return self._mod_config["source"]
+            source_raw = self._mod_config["source"]
+            template = Template(source_raw)
+            return template.substitute(version=self.version)
         return None
+
+    @property
+    def version(self):
+        if "version" in self._mod_config:
+            return self._mod_config["version"]
+        return "unknown"
 
     @property
     def dependencies(self):

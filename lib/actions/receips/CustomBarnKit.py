@@ -1,6 +1,6 @@
 import logging
+import shutil
 from lib.exec import run_command
-from os import path
 from lib.utils import mkdir_p, rm_rf
 
 def build(game_dir, project_dir):
@@ -10,11 +10,14 @@ def build(game_dir, project_dir):
         "CustomBarnKit.cs", "CustomGameVariables.cs", "Detourer.cs", "Properties/AssemblyInfo.cs"])
 
 def install(game_dir, project_dir):
-    rm_rf(path.join(game_dir, "GameData", "CustomBarnKit"))
-    mkdir_p(path.join(game_dir, "GameData", "CustomBarnKit"))
-    run_command(cwd=project_dir, command=["cp", "./CustomBarnKit.dll", "%s/GameData/CustomBarnKit" % game_dir])
-    run_command(cwd=project_dir, command=["cp", "./CustomBarnKit/default.cfg", "%s/GameData/CustomBarnKit" % game_dir])
+    target_dir = game_dir.joinpath("GameData", "CustomBarnKit")
+    rm_rf(target_dir)
+    mkdir_p(target_dir)
+    shutil.copy(project_dir.joinpath("CustomBarnKit.dll"), target_dir)
+    shutil.copy(project_dir.joinpath("CustomBarnKit", "default.cfg"), target_dir)
 
 def check_installed(game_dir):
-    return False
+    target_dir = game_dir.joinpath("GameData", "CustomBarnKit")
+    return target_dir.exists()
+
     

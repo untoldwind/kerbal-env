@@ -42,16 +42,17 @@ def list_mods(ctx):
 
 @click.command()
 @click.option('--all', is_flag=True, default=False)
+@click.option('--update', is_flag=True, default=False)
 @click.argument("name", required=False)
 @click.pass_context
-def build_mod(ctx, all, name):
+def build_mod(ctx, all, update, name):
     if all:
         ordered = actions.sort_dependencies(ctx.obj.config.mods)
         for name, config in ordered:
-            actions.build_mod(name=name, config=config)
+            actions.build_mod(name=name, config=config, update=update)
     elif name != None:
         mod_config = ctx.obj.config.mods[name]
-        actions.build_mod(name=name, config=mod_config)
+        actions.build_mod(name=name, config=mod_config, update=update)
     else:
         click.echo("Neither --all nor a name given. There is nothing to do")
 

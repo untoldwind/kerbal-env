@@ -43,8 +43,9 @@ source_type = "git"
 source = "https://github.com/sarbian/CustomBarnKit.git"
 
 [mods.OPM]
-source_type = "git"
-source = "https://github.com/Galileo88/Outer-Planets-Mod.git"
+source_type = "http"
+source = "https://github.com/Galileo88/Outer-Planets-Mod/releases/download/${version}/Outer_Planets_Mod-${version}.zip"
+version = "2.2.1"
 depends = ["Kopernicus"]
 
 [mods.PlanetaryBaseSystems]
