@@ -10,11 +10,14 @@ from .receips import find_receipt
 def build_mod(name, config, update):
     build_dir = pathlib.Path().joinpath("build").resolve()
     project_dir = build_dir.joinpath(name)
+    apply_patch = False
     if not project_dir.exists():
         initialize_project(build_dir, project_dir, name, config)
+        apply_patch = True
     elif update:
         update_project(build_dir, project_dir, name, config)
-    if config.patch != None:
+        apply_patch = True
+    if apply_patch and config.patch != None:
         pset = patch.fromstring(config.patch.encode('utf-8'))
         logging.info("Applying patch")
         pset.apply(strip=1, root=project_dir)

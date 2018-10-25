@@ -94,3 +94,70 @@ enabled = false
 source_type = "git"
 source = "https://github.com/BobPalmer/Konstruction.git"
 enabled = false
+
+[mods.KerbalEngineer]
+source_type = "git"
+source = "https://github.com/jrbudda/KerbalEngineer.git"
+patch = '''
+--- a/KerbalEngineer/KerbalEngineer.csproj
++++ b/KerbalEngineer/KerbalEngineer.csproj
+@@ -91,7 +91,7 @@
+     <Compile Include="Flight\Readouts\Orbital\MeanAnomaly.cs" />
+     <Compile Include="Flight\Readouts\Orbital\EccentricAnomaly.cs" />
+     <Compile Include="Flight\Readouts\Orbital\ArgumentOfPeriapsis.cs" />
+-    <Compile Include="Flight\Readouts\Orbital\CurrentSoi.cs" />
++    <Compile Include="Flight\Readouts\Body\CurrentSoi.cs" />
+     <Compile Include="Flight\Readouts\Orbital\SemiMajorAxis.cs">
+       <SubType>Code</SubType>
+     </Compile>
+@@ -162,7 +162,6 @@
+     <Compile Include="Flight\Readouts\Vessel\SimulationProcessor.cs" />
+     <Compile Include="Flight\Readouts\Vessel\Acceleration.cs" />
+     <Compile Include="Flight\Presets\PresetLibrary.cs" />
+-    <Compile Include="Flight\Readouts\Vessel\SuicideBurnProcessor.cs" />
+     <Compile Include="Flight\Readouts\Vessel\SurfaceThrustToWeight.cs" />
+     <Compile Include="Flight\Readouts\Surface\Situation.cs" />
+     <Compile Include="Flight\Readouts\Vessel\ThrustOffsetAngle.cs" />
+@@ -185,7 +184,8 @@
+     <Compile Include="TrackingStation\SectionEditorTS.cs" />
+     <Compile Include="TrackingStation\SectionModuleTS.cs" />
+     <Compile Include="TrackingStation\TrackingStationAppLauncher.cs" />
+-    <Compile Include="UIControls\DropDown.cs" />
++    <Compile Include="UIControls\PopOutColorPicker.cs" />
++    <Compile Include="UIControls\PopOutElement.cs" />
+     <Compile Include="MyLogger.cs" />
+     <Compile Include="EngineerGlobals.cs" />
+     <Compile Include="Extensions\DoubleExtensions.cs" />
+@@ -257,7 +257,6 @@
+     <Compile Include="Settings\SettingItem.cs" />
+     <Compile Include="TapeDriveAnimator.cs" />
+     <Compile Include="KeyBinding\KeyBindPopup.cs" />
+-    <Compile Include="UIControls\WindowObject.cs" />
+     <Compile Include="VesselSimulator\AttachNodeSim.cs" />
+     <Compile Include="VesselSimulator\EngineSim.cs" />
+     <Compile Include="Helpers\Pool.cs" />
+@@ -267,6 +266,23 @@
+     <Compile Include="VesselSimulator\SimManager.cs" />
+     <Compile Include="VesselSimulator\Simulation.cs" />
+     <Compile Include="VesselSimulator\Stage.cs" />
++    <Compile Include="Flight/Readouts/Orbital/ManoeuvreNode/PostBurnRelativeInclination.cs"/>
++    <Compile Include="Drawing/DebugDrawing.cs"/>
++    <Compile Include="Flight/Readouts/ReadoutModuleConfigNode.cs"/>
++    <Compile Include="Flight/Readouts/Miscellaneous/ClearSeparator.cs"/>
++    <Compile Include="Flight/Readouts/Body/Gravity.cs"/>
++    <Compile Include="Flight/Readouts/Body/BodyRadius.cs"/>
++    <Compile Include="Flight/Readouts/Body/Mass.cs"/>
++    <Compile Include="Flight/Readouts/Body/EscapeVelocity.cs"/>
++    <Compile Include="Flight/Readouts/Body/RotationPeriod.cs"/>
++    <Compile Include="Flight/Readouts/Body/OrbitalPeriod.cs"/>
++    <Compile Include="Flight/Readouts/Body/GeostationaryHeight.cs"/>
++    <Compile Include="Flight/Readouts/Body/MinOrbitHeight.cs"/>
++    <Compile Include="Flight/Readouts/Vessel/SuicideBurnLength.cs"/>
++    <Compile Include="Flight/Readouts/Vessel/SuicideBurnCountdown.cs"/>
++    <Compile Include="Flight/Readouts/Vessel/Gravity.cs"/>
++    <Compile Include="Flight/Readouts/Surface/ImpactMarker.cs"/>
++    <Compile Include="Flight/Readouts/Orbital/ManoeuvreNode/PostBurnEccentricity.cs"/>
+   </ItemGroup>
+   <ItemGroup>
+     <Reference Include="Assembly-CSharp">
+'''
