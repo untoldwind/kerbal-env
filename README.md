@@ -61,3 +61,9 @@ This will copy the files to the GameData folder.
 # Reasons why to prefer this over CKAN
 
 As a games/Mod-User ... probably none at all.
+
+As a (potential) mod-developer or someone generally interested in software this tool might safe the day.
+
+When developing a mod I always found the most annoying task to setup the development environment. Moreover, when tweaking mods written by someone else one always has to figure out how this specific developer is doing things. Yes, "msbuild" is more or less standard, but there are so many ways using (or misusing) it and of course there a compatibility issues between linux and windows. Finding a mod where "msbuild" works out of the box ony any operating system are actually pretty rare (kudos to all develops actually investing time in doing so).
+
+"kerbal-env" does not try to solve this problem. I.e. is is not meant to be a replacement for "msbuild" or any other build tool for that matter. Instead it is a meant to be a form of documentation how this or that mod has to be build. When writing a receipt one still has to figure out how things are working together or where meant to be. The whole point is: You only have to do it once.
