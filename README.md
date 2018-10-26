@@ -50,8 +50,14 @@ Either use the "--all" switch to build all modules or give the name of the modul
 
 This will retrieve the sources from the repository (usually github) and invoke "nuget" and "msbuild the way they should be invoked (or at least in a way that produce a result).
 
+After some messup I decided to ignore msbuild and invoke csc directly. This might be more cumbersome, but allows much better control over what is linked with what.
+
 ## install-mod
 
 Either use the "--all" switch or give the name of the mod to install.
 
 This will copy the files to the GameData folder.
+
+# Reasons why to prefer this over CKAN
+
+As a games/Mod-User ... probably none at all.
