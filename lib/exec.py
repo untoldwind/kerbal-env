@@ -67,14 +67,14 @@ class SourceDir:
                     ["/reference:%s" % reference for reference in references])
         self._resources.append(dest)
 
-    def compile_all(self, output, recurse = "*.cs", resources=[], references=[], lib_paths=[]):
+    def compile_all(self, output, recurse = "*.cs", resources=[], references=[], lib_paths=[], extra_args=[]):
         logging.info("   Compile C#")
         command = ["csc", "/target:library", "/utf8output",
                    "/noconfig", "/nowarn:1701,1702", "/nostdlib+", "/errorreport:prompt",
                    "/warn:4", "/define:TRACE",
                    "/debug:pdbonly", "/filealign:512", "/optimize+",
                    "/highentropyva-",
-                   "/out:%s" % output, "/recurse:%s" % recurse] + ["/resource:%s" % resource for resource in resources]
+                   "/out:%s" % output, "/recurse:%s" % recurse] + extra_args + ["/resource:%s" % resource for resource in resources]
         if len(lib_paths) > 0:
             command.append("/lib:%s" %
                            ",".join([str(lib) for lib in lib_paths]))
@@ -83,10 +83,10 @@ class SourceDir:
                            ",".join([str(reference) for reference in references]))
         run_command(cwd=self.path, command=command)
 
-    def std_compile(self, references=[]):
+    def std_compile(self, references=[], extra_args=[]):
         std_libs = ["System.dll", "System.Core.dll", "System.Xml.dll", "mscorlib.dll"]
         self.compile_all(output=self._output, recurse="*.cs", lib_paths=["%s/KSP_Data/Managed" % self._game_dir], resources=self._resources,
-                         references=["%s/KSP_Data/Managed/%s" % (self._game_dir, lib) for lib in std_libs] + references)
+                         references=["%s/KSP_Data/Managed/%s" % (self._game_dir, lib) for lib in std_libs] + references, extra_args=extra_args)
 
     def run(self, *args):
         run_command(cwd=self.path, command=args)
