@@ -21,9 +21,9 @@ def build_mod(name, config, update):
         pset = patch.fromstring(config.patch.encode('utf-8'))
         logging.info("Applying patch")
         pset.apply(strip=1, root=project_dir)
-    receipt = find_receipt(name)
+    receipt = find_receipt(name, config.game_dir, project_dir)
     logging.info("Running build receipt: %s" % name)
-    receipt.build(config.game_dir, project_dir)
+    receipt.build()
 
 
 def initialize_project(build_dir, project_dir, name, config):

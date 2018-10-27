@@ -4,24 +4,29 @@ from lib.exec import SourceDir
 from lib.utils import rm
 
 
-def build(game_dir, project_dir):
-    src_dir = SourceDir(game_dir, project_dir)
-    src_dir.nuget_restore()
+class Receipt:
+    def __init__(self, game_dir, project_dir):
+        self.game_dir = game_dir
+        self.project_dir = project_dir
 
-    main_src_dir = src_dir.sub_dir("ModuleManager")
-    target_dir = main_src_dir.ensure_dir("bin")
-    main_src_dir.output = target_dir.joinpath("ModuleManager.dll")
-    logging.info("  Build Release")
-    main_src_dir.std_compile(
-        references=["Assembly-CSharp.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
+    def build(self):
+        src_dir = SourceDir(self.game_dir, self.project_dir)
+        src_dir.nuget_restore()
 
-
-def install(game_dir, project_dir):
-    gamedata_dir = game_dir.joinpath("GameData")
-    rm(gamedata_dir, "ModuleManager*.dll")
-    shutil.copy(project_dir.joinpath("ModuleManager",
-                                     "bin", "ModuleManager.dll"), gamedata_dir)
+        main_src_dir = src_dir.sub_dir("ModuleManager")
+        target_dir = main_src_dir.ensure_dir("bin")
+        main_src_dir.output = target_dir.joinpath("ModuleManager.dll")
+        logging.info("  Build Release")
+        main_src_dir.std_compile(
+                references=["Assembly-CSharp.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
 
 
-def check_installed(game_dir):
-    game_dir.joinpath("GameData", "ModuleManager.dll").exists()
+    def install(self):
+        gamedata_dir = self.game_dir.joinpath("GameData")
+        rm(gamedata_dir, "ModuleManager*.dll")
+        shutil.copy(self.project_dir.joinpath("ModuleManager",
+                                        "bin", "ModuleManager.dll"), gamedata_dir)
+
+
+    def check_installed(self):
+        self.game_dir.joinpath("GameData", "ModuleManager.dll").exists()

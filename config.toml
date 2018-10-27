@@ -75,6 +75,10 @@ depends = ["ModuleManager", "B9PartSwitch", "NearFutureProps"]
 source_type = "git"
 source = "https://github.com/TriggerAu/KerbalAlarmClock.git"
 
+[mods.CommunityCategoryKit]
+source_type = "git"
+source = "https://github.com/BobPalmer/CommunityCategoryKit.git"
+
 [mods.KIS]
 source_type = "git"
 source = "https://github.com/ihsoft/KIS.git"
