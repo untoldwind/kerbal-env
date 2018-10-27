@@ -170,3 +170,22 @@ patch = '''
    <ItemGroup>
      <Reference Include="Assembly-CSharp">
 '''
+
+[mods.CommunityTechTree]
+source_type = "git"
+source = "https://github.com/ChrisAdderley/CommunityTechTree.git"
+
+[mods.CommunityResourcePack]
+source_type = "git"
+source = "https://github.com/BobPalmer/CommunityResourcePack.git"
+
+[mods.USITools]
+source_type = "git"
+source = "https://github.com/UmbraSpaceIndustries/UmbraSpaceIndustries.git"
+enabled = false
+
+[mods.USI_LS]
+source_type = "git"
+source = "https://github.com/UmbraSpaceIndustries/USI-LS.git"
+enabled = false
+depends = ["CommunityCategoryKit", "CommunityResourcePack", "USITools"]
