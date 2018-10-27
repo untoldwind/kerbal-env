@@ -4,7 +4,7 @@ import pathlib
 import wget
 from lib.exec import run_command
 from lib.utils import mkdir_p, rm_rf
-from .receips import find_receipt
+from lib.receips import find_receipt
 
 
 def build_mod(name, config, update):
