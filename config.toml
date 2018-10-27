@@ -83,11 +83,13 @@ source = "https://github.com/BobPalmer/CommunityCategoryKit.git"
 source_type = "git"
 source = "https://github.com/ihsoft/KIS.git"
 enabled = false
+depends = ["CommunityCategoryKit"]
 
 [mods.KAS]
 source_type = "git"
 source = "https://github.com/ihsoft/KAS.git"
 enabled = false
+depends = ["CommunityCategoryKit"]
 
 [mods.DockRotate]
 source_type = "git"
