@@ -69,11 +69,9 @@ class SourceDir:
 
     def compile_all(self, output, recurse = "*.cs", resources=[], references=[], lib_paths=[], extra_args=[]):
         logging.info("   Compile C#")
-        command = ["csc", "/target:library", "/utf8output",
+        command = ["csc", "/target:library", "/utf8output", "/platform:AnyCPU",
                    "/noconfig", "/nowarn:1701,1702", "/nostdlib+", "/errorreport:prompt",
-                   "/warn:4", "/define:TRACE",
-                   "/debug:pdbonly", "/filealign:512", "/optimize+",
-                   "/highentropyva-",
+                   "/warn:4", "/debug-", "/filealign:512", "/optimize+", "/highentropyva-",
                    "/out:%s" % output, "/recurse:%s" % recurse] + extra_args + ["/resource:%s" % resource for resource in resources]
         if len(lib_paths) > 0:
             command.append("/lib:%s" %

@@ -37,7 +37,7 @@ def install_game(ctx):
 @click.pass_context
 def list_mods(ctx):
     for name, mod_config in ctx.obj.config.mods.items():
-        click.echo("%-20s: %s" % (name, mod_config.source))
+        click.echo("%-30s | %-5s | %s" % (name, mod_config.source_type, mod_config.source))
 
 
 @click.command()
