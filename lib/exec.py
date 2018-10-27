@@ -27,6 +27,7 @@ class SourceDir:
         self._path = path
         self._resources = []
         self._output = None
+        self._doc_output = None
 
     @property
     def output(self):
@@ -35,6 +36,14 @@ class SourceDir:
     @output.setter
     def output(self, value):
         self._output = value
+
+    @property
+    def doc_output(self):
+        return self._doc_output
+
+    @doc_output.setter
+    def doc_output(self, value):
+        self._doc_output = value
 
     @property
     def path(self):
@@ -67,23 +76,32 @@ class SourceDir:
                     ["/reference:%s" % reference for reference in references])
         self._resources.append(dest)
 
-    def compile_all(self, output, recurse = "*.cs", resources=[], references=[], lib_paths=[], extra_args=[]):
+    def compile_all(self, output, doc=None, include="**/*.cs", exclude=None, resources=[], references=[], lib_paths=[], extra_args=[]):
         logging.info("   Compile C#")
         command = ["csc", "/target:library", "/utf8output", "/platform:AnyCPU",
                    "/noconfig", "/nowarn:1701,1702", "/nostdlib+", "/errorreport:prompt",
                    "/warn:4", "/debug-", "/filealign:512", "/optimize+", "/highentropyva-",
-                   "/out:%s" % output, "/recurse:%s" % recurse] + extra_args + ["/resource:%s" % resource for resource in resources]
+                   "/out:%s" % output]
+        if doc:
+            command.append("/doc:%s" % doc)
+        command += extra_args + ["/resource:%s" %
+                                 resource for resource in resources]
         if len(lib_paths) > 0:
             command.append("/lib:%s" %
                            ",".join([str(lib) for lib in lib_paths]))
         if len(references) > 0:
             command.append("/reference:%s" %
                            ",".join([str(reference) for reference in references]))
+        files = set(self.path.glob(include))
+        if exclude:
+            files -= set(self.path.glob(exclude))
+        command += [str(file.relative_to(self.path)) for file in files]
         run_command(cwd=self.path, command=command)
 
-    def std_compile(self, references=[], extra_args=[]):
-        std_libs = ["System.dll", "System.Core.dll", "System.Xml.dll", "mscorlib.dll"]
-        self.compile_all(output=self._output, recurse="*.cs", lib_paths=["%s/KSP_Data/Managed" % self._game_dir], resources=self._resources,
+    def std_compile(self, include="**/*.cs", exclude=None, references=[], extra_args=[]):
+        std_libs = ["System.dll", "System.Core.dll",
+                    "System.Xml.dll", "mscorlib.dll"]
+        self.compile_all(output=self._output, include=include, exclude=exclude, doc=self.doc_output, lib_paths=["%s/KSP_Data/Managed" % self._game_dir], resources=self._resources,
                          references=["%s/KSP_Data/Managed/%s" % (self._game_dir, lib) for lib in std_libs] + references, extra_args=extra_args)
 
     def run(self, *args):

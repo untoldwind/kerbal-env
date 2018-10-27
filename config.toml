@@ -79,17 +79,20 @@ source = "https://github.com/TriggerAu/KerbalAlarmClock.git"
 source_type = "git"
 source = "https://github.com/BobPalmer/CommunityCategoryKit.git"
 
+[mods.KSPDev]
+source_type = "git"
+source = "https://github.com/ihsoft/KSPDev.git"
+
 [mods.KIS]
 source_type = "git"
 source = "https://github.com/ihsoft/KIS.git"
-enabled = false
-depends = ["CommunityCategoryKit"]
+depends = ["CommunityCategoryKit", "KSPDev"]
 
 [mods.KAS]
 source_type = "git"
 source = "https://github.com/ihsoft/KAS.git"
 enabled = false
-depends = ["CommunityCategoryKit"]
+depends = ["CommunityCategoryKit", "KSPDev"]
 
 [mods.DockRotate]
 source_type = "git"
