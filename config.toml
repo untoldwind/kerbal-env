@@ -199,3 +199,8 @@ patch = '''
  using System.Linq;
  using System.Reflection;
 '''
+
+[mods.SCANsat]
+source_type = "git"
+source = "https://github.com/S-C-A-N/SCANsat.git"
+branch = "release"
