@@ -9,6 +9,7 @@ from lib.receips import find_receipt
 
 def build_mod(name, config, update):
     build_dir = pathlib.Path().joinpath("build").resolve()
+    mkdir_p(build_dir)
     project_dir = build_dir.joinpath(name)
     apply_patch = False
     if not project_dir.exists():
@@ -40,7 +41,7 @@ def initialize_project(build_dir, project_dir, name, config):
         package_file = download_dir.joinpath("%s-%s.zip" % (name, config.version))
         if not package_file.exists():
             logging.info("Downloading %s to %s" % (config.source, package_file))
-            wget.download(config.source, package_file)
+            wget.download(config.source, str(package_file))
         run_command(cwd=project_dir, command = ["unzip", package_file])
 
 
