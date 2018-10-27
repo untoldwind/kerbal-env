@@ -12,7 +12,8 @@ class Receipt:
     def build(self):
         logging.info("  git submodules")
         run_command(cwd=self.project_dir, command=["git", "submodule", "init"])
-        run_command(cwd=self.project_dir, command=["git", "submodule", "update"])
+        run_command(cwd=self.project_dir, command=[
+                    "git", "submodule", "update"])
         logging.info("  nuget restore")
         run_command(cwd=self.project_dir,  command=["nuget", "restore"])
         logging.info("  Build Release")
@@ -21,11 +22,14 @@ class Receipt:
 
     def install(self):
         target_dir1 = self.game_dir.joinpath("GameData", "Kopernicus")
-        target_dir2 = self.game_dir.joinpath("GameData", "ModularFlightIntegrator")
+        target_dir2 = self.game_dir.joinpath(
+            "GameData", "ModularFlightIntegrator")
         rm_rf(target_dir1)
         rm_rf(target_dir2)
-        shutil.copytree(self.project_dir.joinpath("build", "GameData", "Kopernicus"), target_dir1)
-        shutil.copytree(self.project_dir.joinpath("build", "GameData", "ModularFlightIntegrator"), target_dir2)
+        shutil.copytree(self.project_dir.joinpath(
+            "build", "GameData", "Kopernicus"), target_dir1)
+        shutil.copytree(self.project_dir.joinpath(
+            "build", "GameData", "ModularFlightIntegrator"), target_dir2)
 
     def check_installed(self):
         target_dir1 = self.game_dir.joinpath("GameData", "Kopernicus")

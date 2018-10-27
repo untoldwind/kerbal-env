@@ -8,10 +8,8 @@ class Receipt:
     def build(self):
         pass
 
-
     def install(self):
         pass
 
     def check_installed(self):
         return False
-    

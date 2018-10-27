@@ -18,15 +18,13 @@ class Receipt:
         main_src_dir.output = target_dir.joinpath("ModuleManager.dll")
         logging.info("  Build Release")
         main_src_dir.std_compile(
-                references=["Assembly-CSharp.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
-
+            references=["Assembly-CSharp.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
 
     def install(self):
         gamedata_dir = self.game_dir.joinpath("GameData")
         rm(gamedata_dir, "ModuleManager*.dll")
         shutil.copy(self.project_dir.joinpath("ModuleManager",
-                                        "bin", "ModuleManager.dll"), gamedata_dir)
-
+                                              "bin", "ModuleManager.dll"), gamedata_dir)
 
     def check_installed(self):
         self.game_dir.joinpath("GameData", "ModuleManager.dll").exists()
