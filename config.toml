@@ -127,3 +127,20 @@ patch = '''
 source_type = "git"
 source = "https://github.com/S-C-A-N/SCANsat.git"
 branch = "release"
+
+[mods.EnvironmentalVisualEnhancements]
+source_type = "http"
+source = "https://github.com/WazWaz/EnvironmentalVisualEnhancements/releases/download/EVE-1.4.2-2/EnvironmentalVisualEnhancements-1.4.2.2.zip"
+enabled = false
+
+[mods.StockVisualEnhancements]
+source_type = "http"
+source = "https://github.com/Galileo88/StockVisualEnhancements/releases/download/1.3.0.4/SVE.v1.3.0.4.zip"
+enabled = false
+depends = ["EnvironmentalVisualEnhancements"]
+
+[mods.StockVisualEnhancements_HighRes]
+source_type = "http"
+source = "https://github.com/Galileo88/StockVisualEnhancements/releases/download/1.0.7/SVE_HighResTextures.zip"
+enabled = false
+depends = ["StockVisualEnhancements"]
