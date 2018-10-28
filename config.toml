@@ -144,3 +144,8 @@ source_type = "http"
 source = "https://github.com/Galileo88/StockVisualEnhancements/releases/download/1.0.7/SVE_HighResTextures.zip"
 enabled = false
 depends = ["StockVisualEnhancements"]
+
+[mods.scatterer]
+source_type = "http"
+source = "https://github.com/LGhassen/Scatterer/releases/download/0.0331b/scatterer-v0.0331b.zip"
+enabled = false

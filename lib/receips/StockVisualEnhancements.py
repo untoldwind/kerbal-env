@@ -7,8 +7,6 @@ class Receipt:
     def __init__(self, game_dir, project_dir):
         self.game_dir = game_dir
         self.project_dir = project_dir
-        self.source_dir = SourceDir(game_dir, project_dir.joinpath("Source" ))
-        self.source_dir.output = project_dir.joinpath("Binaries", "KIS.dll")
         self.target_dir = game_dir.joinpath("GameData", "StockVisualEnhancements")
 
     def build(self):
