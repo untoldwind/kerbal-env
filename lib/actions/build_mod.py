@@ -48,6 +48,7 @@ def initialize_project(build_dir, project_dir, name, config):
 def update_project(build_dir, project_dir, name, config):
     if config.source_type == "git":
         logging.info("Updating %s" % config.source)
+        run_command(cwd=project_dir, command=["git", "reset", "--hard"])
         run_command(cwd=project_dir, command=["git", "checkout", "master"])
         run_command(cwd=project_dir, command=["git", "pull"])
         run_command(cwd=project_dir, command=[
