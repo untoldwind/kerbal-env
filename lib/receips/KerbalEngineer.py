@@ -1,6 +1,6 @@
 import logging
 import shutil
-from lib.exec import run_command
+from lib.exec import run_command, SourceDir
 from lib.utils import rm_rf, rm
 
 
@@ -8,28 +8,28 @@ class Receipt:
     def __init__(self, game_dir, project_dir):
         self.game_dir = game_dir
         self.project_dir = project_dir
+        self.source_dir = SourceDir(
+            game_dir, project_dir.joinpath("KerbalEngineer"))
+        self.source_dir.output = project_dir.joinpath(
+            "Output", "KerbalEngineer", "KerbalEngineer.dll")
+        self.source_unity_dir = SourceDir(
+            game_dir, project_dir.joinpath("KerbalEngineer.Unity"))
+        self.source_unity_dir.output = project_dir.joinpath(
+            "Output", "KerbalEngineer", "KerbalEngineer.Unity.dll")
 
     def build(self):
-        src1_dir = self.project_dir.joinpath("KerbalEngineer")
-        src2_dir = self.project_dir.joinpath("KerbalEngineer.Unity")
         logging.info("  Build Release")
-        run_command(cwd=src1_dir,  command=[
-                    "msbuild", "/target:Build", "/property:Configuration=Release",
-                    "/property:PostBuildEvent=",
-                    "/property:ReferencePath=%s/KSP_Data/Managed" % self.game_dir])
-        run_command(cwd=src2_dir,  command=[
-                    "msbuild", "/target:Build", "/property:Configuration=Release",
-                    "/property:PostBuildEvent=",
-                    "/property:ReferencePath=%s/KSP_Data/Managed" % self.game_dir])
+        rm(self.project_dir.joinpath("Output", "KerbalEngineer"), "*.dll")
+        self.source_unity_dir.std_compile(
+            references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
+        self.source_dir.std_compile(
+            references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll", self.source_unity_dir.output])
 
     def install(self):
         target_dir = self.game_dir.joinpath("GameData", "KerbalEngineer")
         rm_rf(target_dir)
         shutil.copytree(self.project_dir.joinpath(
             "Output", "KerbalEngineer"), target_dir)
-        rm(target_dir, "MiniAVC.dll")
-        rm(target_dir, "Mono.Security.dll")
-        rm(target_dir, "System.Core.dll")
 
     def check_installed(self):
         target_dir = self.game_dir.joinpath("GameData", "KerbalEngineer")
