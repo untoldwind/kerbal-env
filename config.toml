@@ -149,3 +149,39 @@ depends = ["StockVisualEnhancements"]
 source_type = "http"
 source = "https://github.com/LGhassen/Scatterer/releases/download/0.0331b/scatterer-v0.0331b.zip"
 enabled = false
+
+[mods.X_Science]
+source_type = "git"
+source = "https://github.com/thewebbooth/KSP-X-Science.git"
+patch = '''
+--- a/X-Science/ScienceChecklistAddon.cs
++++ b/X-Science/ScienceChecklistAddon.cs
+@@ -802,8 +802,8 @@ private bool UiActive( )
+ 
+                private void HammerMusicMute( )
+                {
+-                       if( muted )
+-                                MusicLogic.SetVolume( 0f );
++//                     if( muted )
++//                              MusicLogic.SetVolume( 0f );
+                }
+ 
+ 
+@@ -835,14 +835,14 @@ public bool Muted
+                     oldVolume = GameSettings.MUSIC_VOLUME;
+ 
+                     // Mute the music
+-                    MusicLogic.SetVolume(0f);
++//                    MusicLogic.SetVolume(0f);
+  //                   _logger.Info("[MusicMute]: Muted music");
+                 }
+                 // Unmute
+                 else
+                 {
+                     // Set the music volume to what it was before
+-                    MusicLogic.SetVolume(oldVolume);
++//                    MusicLogic.SetVolume(oldVolume);
+  //                   _logger.Info("[MusicMute]: Set music volume to: " + oldVolume);
+                 }
+
+'''
