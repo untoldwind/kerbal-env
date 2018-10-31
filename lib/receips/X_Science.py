@@ -14,6 +14,7 @@ class Receipt:
     def build(self):
         logging.info("  Build Release")
         rm(self.project_dir.joinpath("X-Science", "GameData", "[x] Science!"), "*.dll")
+        self.source_dir.resources = ["icons/%s,ScienceChecklist.icons.%s" % (icon.name, icon.name) for icon in self.source_dir.joinpath("icons").glob("*.png")]
         self.source_dir.std_compile(
             exclude="docs_project/**/*.cs",
             references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])

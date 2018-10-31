@@ -49,6 +49,14 @@ class SourceDir:
     def path(self):
         return self._path
 
+    @property
+    def resources(self):
+        return self._resources
+
+    @resources.setter
+    def resources(self, value):
+        self._resources = value
+
     def sub_dir(self, *args):
         return SourceDir(self._game_dir, self.path.joinpath(*args))
 
