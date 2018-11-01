@@ -189,3 +189,31 @@ patch = '''
 [mods.ClickThroughBlocker]
 source_type = "git"
 source = "https://github.com/linuxgurugamer/ClickThroughBlocker.git"
+
+[mods.ToolbarControl]
+source_type = "git"
+source = "https://github.com/linuxgurugamer/ToolbarControl.git"
+depends = ["ClickThroughBlocker"]
+
+[mods.KronalVesselViewer]
+source_type = "git"
+source = "https://github.com/linuxgurugamer/KronalVesselViewer.git"
+depends = ["ClickThroughBlocker", "ToolbarControl", "KAS"]
+patch = '''
+--- a/KronalVesselViewer/VesselViewConfig.cs
++++ b/KronalVesselViewer/VesselViewConfig.cs
+@@ -1,14 +1,10 @@
+ ﻿
+-#define KERAMZIT
+-#define KAS
+-
+ using System;
+ using System.Collections.Generic;
+ using System.Reflection;
+ using System.Linq;
+ using System.Text;
+ using UnityEngine;
+-using KAS;
+ 
+ using ProceduralFairings;
+ '''

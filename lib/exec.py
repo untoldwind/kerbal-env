@@ -102,7 +102,8 @@ class SourceDir:
                            ",".join([str(reference) for reference in references]))
         files = set(self.path.glob(include))
         if exclude:
-            files -= set(self.path.glob(exclude))
+            for glob in exclude.split('|'):
+                files -= set(self.path.glob(glob))
         command += [str(file.relative_to(self.path)) for file in files]
         run_command(cwd=self.path, command=command)
 
