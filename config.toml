@@ -185,3 +185,7 @@ patch = '''
                  }
 
 '''
+
+[mods.ClickThroughBlocker]
+source_type = "git"
+source = "https://github.com/linuxgurugamer/ClickThroughBlocker.git"
