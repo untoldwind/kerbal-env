@@ -67,3 +67,10 @@ As a (potential) mod-developer or someone generally interested in software this 
 When developing a mod I always found the most annoying task to setup the development environment. Moreover, when tweaking mods written by someone else one always has to figure out how this specific developer is doing things. Yes, "msbuild" is more or less standard, but there are so many ways using (or misusing) it and of course there a compatibility issues between linux and windows. Finding a mod where "msbuild" works out of the box ony any operating system are actually pretty rare (kudos to all develops actually investing time in doing so).
 
 "kerbal-env" does not try to solve this problem. I.e. is is not meant to be a replacement for "msbuild" or any other build tool for that matter. Instead it is a meant to be a form of documentation how this or that mod has to be build. When writing a receipt one still has to figure out how things are working together or where meant to be. The whole point is: You only have to do it once.
+
+# Notes
+
+The setup was tested on Linux with the game purchased and downloaded from the kerbalspaceprogram.com website. There is no reason why it should not work with the Steam version as well (except the "install-game" command of course), you just have to change the "game_dir" in the config.toml (to .local/share/Steam/steamapps/common/Kerbal most likely)
+
+On windows things might be different though. Python exists on windows and most of the code should be platform independent, but nothing was tested in that direction so far. I have not done any kind of development on windows for decades.
+  

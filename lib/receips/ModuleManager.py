@@ -21,7 +21,7 @@ class Receipt:
             references=["Assembly-CSharp.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
 
     def can_install(self):
-        self.project_dir.joinpath("ModuleManager", "bin", "ModuleManager.dll").exsits()
+        return self.project_dir.joinpath("ModuleManager", "bin", "ModuleManager.dll").exists()
         
     def install(self):
         gamedata_dir = self.game_dir.joinpath("GameData")

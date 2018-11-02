@@ -66,11 +66,17 @@ def install_mod(ctx, all, name):
     if all:
         ordered = actions.sort_dependencies(ctx.obj.config.mods)
         for name, config in ordered:
+            if not actions.can_install_mod(name=name, config=config):
+                logging.info("%s might be dirty, rebuilding ..." % name)
+                actions.build_mod(name=name, config=config, update=False)
             actions.install_mod(name=name, config=config)
     elif name != None:
         if not name in ctx.obj.config.mods:
             raise NameError("No such module: %s" % name)
         mod_config = ctx.obj.config.mods[name]
+        if not actions.can_install_mod(name=name, config=config):
+            logging.info("%s might be dirty, rebuilding ..." % name)
+            actions.build_mod(name=name, config=mod_config, update=False)
         actions.install_mod(name=name, config=mod_config)
     else:
         click.echo("Neither --all nor a name given. There is nothing to do")
