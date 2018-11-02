@@ -12,6 +12,9 @@ class Receipt:
     def build(self):
         pass
 
+    def can_install(self):
+        return True
+
     def install(self):
         rm_rf(self.target_dir)
         shutil.copytree(self.project_dir.joinpath("GameData", "StockVisualEnhancements", "Textures"), self.target_dir)

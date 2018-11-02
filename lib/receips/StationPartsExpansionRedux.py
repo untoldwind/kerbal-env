@@ -7,6 +7,9 @@ class Receipt:
     def build(self):
         pass
 
+    def can_install(self):
+        return True
+
     def install(self):
         pass
 

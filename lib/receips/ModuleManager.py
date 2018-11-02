@@ -8,18 +8,21 @@ class Receipt:
     def __init__(self, game_dir, project_dir):
         self.game_dir = game_dir
         self.project_dir = project_dir
+        self.src_dir = SourceDir(self.game_dir, self.project_dir)
 
     def build(self):
-        src_dir = SourceDir(self.game_dir, self.project_dir)
-        src_dir.nuget_restore()
+        self.src_dir.nuget_restore()
 
-        main_src_dir = src_dir.sub_dir("ModuleManager")
+        main_src_dir = self.src_dir.sub_dir("ModuleManager")
         target_dir = main_src_dir.ensure_dir("bin")
         main_src_dir.output = target_dir.joinpath("ModuleManager.dll")
         logging.info("  Build Release")
         main_src_dir.std_compile(
             references=["Assembly-CSharp.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
 
+    def can_install(self):
+        self.project_dir.joinpath("ModuleManager", "bin", "ModuleManager.dll").exsits()
+        
     def install(self):
         gamedata_dir = self.game_dir.joinpath("GameData")
         rm(gamedata_dir, "ModuleManager*.dll")

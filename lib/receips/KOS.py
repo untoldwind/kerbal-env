@@ -60,6 +60,10 @@ class Receipt:
         src_dir.run("mono", "--runtime=3.5",
                     "./packages/NUnit.Runners.2.6.4/tools/nunit-console.exe", test_src.output)
 
+    def can_install(self):
+         bin_target = self.project_dir.joinpath("Resources", "GameData", "kOS", "Plugins")
+         return bin_target.joinpath("kOS.Safe.dll").exists() and  bin_target.joinpath("kOS.dll").exists()
+         
     def install(self):
         target_dir = self.game_dir.joinpath("GameData", "kOS")
         rm_rf(target_dir)

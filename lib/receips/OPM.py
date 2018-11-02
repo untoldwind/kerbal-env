@@ -11,6 +11,9 @@ class Receipt:
     def build(self):
         pass
 
+    def can_install(self):
+        return True
+
     def install(self):
         target_dir1 = self.game_dir.joinpath("GameData", "OPM")
         target_dir2 = self.game_dir.joinpath("GameData", "CTTP")

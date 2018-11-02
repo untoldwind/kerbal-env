@@ -18,6 +18,9 @@ class Receipt:
         src_dir.std_compile(
             references=["Assembly-CSharp.dll", "UnityEngine.dll", "UnityEngine.UI.dll"], extra_args=["/unsafe"])
 
+    def can_install(self):
+        return self.project_dir.joinpath("bin", "CustomBarnKit.dll").exists()
+
     def install(self):
         target_dir = self.game_dir.joinpath("GameData", "CustomBarnKit")
         rm_rf(target_dir)

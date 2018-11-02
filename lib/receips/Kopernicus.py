@@ -20,6 +20,10 @@ class Receipt:
         run_command(cwd=self.project_dir,  command=[
                     "msbuild", "/target:Build", "/property:Configuration=Release"])
 
+    def can_install(self):
+        self.project_dir.joinpath(
+                    "build", "GameData", "ModularFlightIntegrator", "ModularFlightIntegrator.dll").exists()
+
     def install(self):
         target_dir1 = self.game_dir.joinpath("GameData", "Kopernicus")
         target_dir2 = self.game_dir.joinpath(

@@ -21,6 +21,10 @@ class Receipt:
         self.source_dir.std_compile(
             references=["Assembly-CSharp.dll", "UnityEngine.dll", "UnityEngine.UI.dll", self.source_unity_dir.output])
 
+    def can_install(self):
+        plugins_dir = self.project_dir.joinpath("SCANassets", "Plugins")
+        return plugins_dir.joinpath("SCANsat.dll").exists() and plugins_dir.joinpath("SCANsat.Unity.dll").exists()
+
     def install(self):
         rm_rf(self.target_dir)
         shutil.copytree(self.project_dir.joinpath("SCANassets"), self.target_dir)

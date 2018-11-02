@@ -11,6 +11,9 @@ class Receipt:
     def build(self):
         pass
 
+    def can_install(self):
+        return True
+
     def install(self):
         adopted_path = pathlib.Path().joinpath("adopted").resolve()
         target_dir = self.game_dir.joinpath("GameData", "XyphosAerospace")

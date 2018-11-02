@@ -24,6 +24,9 @@ class Receipt:
         self.source_dir.std_compile(
             references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll", self.ksp_dev_lib, self.source_api_dir.output])
 
+    def can_install(self):
+        return self.source_dir.output.exists() and self.source_api_dir.output.exists()
+
     def install(self):
         rm_rf(self.target_dir)
         mkdir_p(self.target_dir)

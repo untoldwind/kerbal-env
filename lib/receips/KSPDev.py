@@ -15,6 +15,9 @@ class Receipt:
             exclude="docs_project/**/*.cs",
             references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
 
+    def can_install(self):
+        return self.source_dir.output.exists()
+
     def install(self):
         # Note: Will not be installed by itself
         pass

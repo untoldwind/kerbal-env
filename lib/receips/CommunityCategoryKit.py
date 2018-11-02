@@ -17,6 +17,9 @@ class Receipt:
         self.source_dir.std_compile(
             references=["Assembly-CSharp.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
 
+    def can_install(self):
+        return self.source_dir.output.exists()
+
     def install(self):
         rm_rf(self.target_dir)
         shutil.copytree(self.project_dir.joinpath(
