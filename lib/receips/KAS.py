@@ -27,7 +27,7 @@ class Receipt:
     def install(self):
         rm_rf(self.target_dir)
         mkdir_p(self.target_dir)
-        for sub_dir in ["Lang", "LEGACY", "Models", "Parts", "Patches", "Sounds", "Textures"]:
+        for sub_dir in ["Lang", "Models", "Parts", "Patches", "Sounds", "Textures"]:
             shutil.copytree(self.project_dir.joinpath(sub_dir), self.target_dir.joinpath(sub_dir))
         shutil.copy(self.project_dir.joinpath("settings.cfg"), self.target_dir)
         mkdir_p(self.target_dir.joinpath("Plugins"))

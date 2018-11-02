@@ -158,13 +158,13 @@ patch = '''
 +++ b/X-Science/ScienceChecklistAddon.cs
 @@ -802,8 +802,8 @@ private bool UiActive( )
  
-                private void HammerMusicMute( )
-                {
--                       if( muted )
--                                MusicLogic.SetVolume( 0f );
-+//                     if( muted )
-+//                              MusicLogic.SetVolume( 0f );
-                }
+ 		private void HammerMusicMute( )
+ 		{
+-			if( muted )
+-				 MusicLogic.SetVolume( 0f );
++//			if( muted )
++//				 MusicLogic.SetVolume( 0f );
+ 		}
  
  
 @@ -835,14 +835,14 @@ public bool Muted
@@ -183,7 +183,7 @@ patch = '''
 +//                    MusicLogic.SetVolume(oldVolume);
   //                   _logger.Info("[MusicMute]: Set music volume to: " + oldVolume);
                  }
-
+ 
 '''
 
 [mods.ClickThroughBlocker]
