@@ -217,3 +217,9 @@ patch = '''
  
  using ProceduralFairings;
  '''
+
+[mods.IndicatorLights]
+source_type = "git"
+source = "https://github.com/KSPSnark/IndicatorLights.git"
+depends = ["ModuleManager"]
+

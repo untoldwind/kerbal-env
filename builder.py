@@ -74,7 +74,7 @@ def install_mod(ctx, all, name):
         if not name in ctx.obj.config.mods:
             raise NameError("No such module: %s" % name)
         mod_config = ctx.obj.config.mods[name]
-        if not actions.can_install_mod(name=name, config=config):
+        if not actions.can_install_mod(name=name, config=mod_config):
             logging.info("%s might be dirty, rebuilding ..." % name)
             actions.build_mod(name=name, config=mod_config, update=False)
         actions.install_mod(name=name, config=mod_config)
