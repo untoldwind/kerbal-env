@@ -45,7 +45,7 @@ depends = ["ModuleManager"]
 source_type = "git"
 source = "https://github.com/blowfishpro/B9PartSwitch.git"
 depends = ["ModuleManager"]
-enabled = false
+enabled = true
 
 [mods.NearFutureProps]
 source_type = "git"
@@ -223,3 +223,16 @@ source_type = "git"
 source = "https://github.com/KSPSnark/IndicatorLights.git"
 depends = ["ModuleManager"]
 
+[mods.AT_Utils]
+source_type = "git"
+source = "https://github.com/allista/AT_Utils.git"
+
+[mods.AnisotropicPartResizer]
+source_type = "git"
+source = "https://github.com/allista/AnisotropicPartResizer.git"
+depends = ["ModuleManager", "AT_Utils"]
+
+[mods.ConfigurableContainers]
+source_type = "git"
+source = "https://github.com/allista/ConfigurableContainers.git"
+depends = ["ModuleManager", "AT_Utils", "AnisotropicPartResizer"]

@@ -7,13 +7,14 @@ class Receipt:
     def __init__(self, game_dir, project_dir):
         self.game_dir = game_dir
         self.project_dir = project_dir
-        self.source_dir = SourceDir(game_dir, project_dir.joinpath("B9PartSwitch" ))
-        self.source_dir.output = project_dir.joinpath("GameData", "B9PartSwitch", "B9PartSwitch.dll")
-        self.target_dir = game_dir.joinpath("GameData", "B9PartSwitch")
+        self.source_dir = SourceDir(game_dir, project_dir)
+        self.source_dir.output = project_dir.joinpath("GameData", "000_AT_Utils", "Plugins", "000_AT_Utils.dll")
+        self.target_dir = game_dir.joinpath("GameData", "000_AT_Utils")
 
     def build(self):
         logging.info("  Build Release")
         self.source_dir.std_compile(
+            exclude="AnimatedConverters/**/*.cs|SubmodelResizer/**/*.cs|ConfigurableContainers/**/*.cs|AnisotropicPartResizer/**/*.cs|MultiAnimators/**/*.cs",
             references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
 
     def can_install(self):
@@ -22,7 +23,7 @@ class Receipt:
     def install(self):
         rm_rf(self.target_dir)
         shutil.copytree(self.project_dir.joinpath(
-            "GameData", "B9PartSwitch"), self.target_dir)
+            "GameData", "000_AT_Utils"), self.target_dir)
 
     def check_installed(self):
         return self.target_dir.exists()
