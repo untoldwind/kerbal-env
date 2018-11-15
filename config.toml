@@ -85,11 +85,6 @@ source_type = "git"
 source = "https://github.com/peteletroll/DockRotate.git"
 enabled = false
 
-[mods.Konstruction]
-source_type = "git"
-source = "https://github.com/BobPalmer/Konstruction.git"
-enabled = false
-
 [mods.KerbalEngineer]
 source_type = "git"
 source = "https://github.com/jrbudda/KerbalEngineer.git"
@@ -122,6 +117,11 @@ patch = '''
  using System.Linq;
  using System.Reflection;
 '''
+
+[mods.Konstruction]
+source_type = "git"
+source = "https://github.com/BobPalmer/Konstruction.git"
+depends = ["CommunityResourcePack", "USITools"]
 
 [mods.SCANsat]
 source_type = "git"
