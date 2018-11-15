@@ -83,7 +83,6 @@ depends = ["CommunityCategoryKit", "KSPDev"]
 [mods.DockRotate]
 source_type = "git"
 source = "https://github.com/peteletroll/DockRotate.git"
-enabled = false
 
 [mods.KerbalEngineer]
 source_type = "git"
