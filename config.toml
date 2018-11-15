@@ -35,11 +35,15 @@ source = "https://github.com/Galileo88/Outer-Planets-Mod/releases/download/${ver
 version = "2.2.1"
 depends = ["Kopernicus"]
 
+[mods.KSPModFileLocalizer]
+source_type = "git"
+source = "https://github.com/Nils277/KSPModFileLocalizer.git"
+
 [mods.PlanetaryBaseSystems]
 source_type = "git"
 source = "https://github.com/Nils277/KerbalPlanetaryBaseSystems.git"
-enabled = false
-depends = ["ModuleManager"]
+enabled = true
+depends = ["ModuleManager", "KSPModFileLocalizer"]
 
 [mods.B9PartSwitch]
 source_type = "git"
