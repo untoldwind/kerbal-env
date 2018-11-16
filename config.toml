@@ -239,3 +239,12 @@ depends = ["ModuleManager", "AT_Utils"]
 source_type = "git"
 source = "https://github.com/allista/ConfigurableContainers.git"
 depends = ["ModuleManager", "AT_Utils", "AnisotropicPartResizer"]
+
+[mods.FireSpitterCore]
+source_type = "git"
+source = "https://github.com/snjo/Firespitter.git"
+
+[mods.USI_Core]
+source_type = "git"
+source = "https://github.com/UmbraSpaceIndustries/USI_Core.git"
+depends = ["USITools", "CommunityResourcePack", "CommunityCategoryKit", "FireSpitterCore"]
