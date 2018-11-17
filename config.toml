@@ -259,3 +259,8 @@ depends = ["AT_Utils", "AnisotropicPartResizer"]
 source_type = "git"
 source = "https://github.com/allista/GroundConstruction.git"
 depends = ["AT_Utils", "ConfigurableContainers", "MultiAnimators", "ModuleManager"]
+
+[mods.MKS]
+source_type = "git"
+source = "https://github.com/UmbraSpaceIndustries/MKS.git"
+depends = ["ModuleManager", "GroundConstruction", "USITools", "USI_Core", "FireSpitterCore"]
