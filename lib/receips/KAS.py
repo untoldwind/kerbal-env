@@ -12,6 +12,8 @@ class Receipt:
         self.source_dir.output = project_dir.joinpath("Binaries", "KAS.dll")
         self.source_api_dir = SourceDir(game_dir, project_dir.joinpath("Source-API" ))
         self.source_api_dir.output = project_dir.joinpath("Binaries", "KAS-API-v1.dll")
+        self.source_legacy_dir = SourceDir(game_dir, project_dir.joinpath("LEGACY", "Source" ))
+        self.source_legacy_dir.output = project_dir.joinpath("Binaries", "KAS-LEGACY.dll" )
         self.ksp_dev_lib = project_dir.parent.joinpath("KSPDev", "Binaries", "KSPDev_Utils.0.37.dll")
         self.target_dir = game_dir.joinpath("GameData", "KAS")
 
@@ -23,9 +25,12 @@ class Receipt:
         logging.info("  Build Release")
         self.source_dir.std_compile(
             references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll", self.ksp_dev_lib, self.source_api_dir.output])
+        logging.info("  Build Release LEGACY")
+        self.source_legacy_dir.std_compile(
+            references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll", self.ksp_dev_lib, self.source_api_dir.output])
 
     def can_install(self):
-        return self.source_dir.output.exists() and self.source_api_dir.output.exists()
+        return self.source_dir.output.exists() and self.source_api_dir.output.exists() and self.source_legacy_dir.output.exists()
 
     def install(self):
         rm_rf(self.target_dir)
@@ -37,6 +42,7 @@ class Receipt:
         shutil.copy(self.source_dir.output, self.target_dir.joinpath("Plugins"))
         shutil.copy(self.source_api_dir.output, self.target_dir.joinpath("Plugins"))
         shutil.copy(self.ksp_dev_lib, self.target_dir.joinpath("Plugins"))
+        shutil.copy(self.source_legacy_dir.output, self.target_dir.joinpath("Plugins"))
 
     def check_installed(self):
         return self.target_dir.exists()
