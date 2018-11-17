@@ -243,8 +243,19 @@ depends = ["ModuleManager", "AT_Utils", "AnisotropicPartResizer"]
 [mods.FireSpitterCore]
 source_type = "git"
 source = "https://github.com/snjo/Firespitter.git"
+depends = ["ModuleManager"]
 
 [mods.USI_Core]
 source_type = "git"
 source = "https://github.com/UmbraSpaceIndustries/USI_Core.git"
-depends = ["USITools", "CommunityResourcePack", "CommunityCategoryKit", "FireSpitterCore"]
+depends = ["USITools", "CommunityResourcePack", "CommunityCategoryKit", "FireSpitterCore", "ModuleManager"]
+
+[mods.MultiAnimators]
+source_type = "git"
+source = "https://github.com/allista/MultiAnimators.git"
+depends = ["AT_Utils", "AnisotropicPartResizer"]
+
+[mods.GroundConstruction]
+source_type = "git"
+source = "https://github.com/allista/GroundConstruction.git"
+depends = ["AT_Utils", "ConfigurableContainers", "MultiAnimators", "ModuleManager"]
