@@ -43,6 +43,9 @@ class Receipt:
         shutil.copy(self.source_api_dir.output, self.target_dir.joinpath("Plugins"))
         shutil.copy(self.ksp_dev_lib, self.target_dir.joinpath("Plugins"))
         shutil.copy(self.source_legacy_dir.output, self.target_dir.joinpath("Plugins"))
+        mkdir_p(self.target_dir.joinpath("LEGACY"))
+        shutil.copytree(self.project_dir.joinpath("LEGACY", "Sounds"), self.target_dir.joinpath("LEGACY", "Sounds"))
+        shutil.copytree(self.project_dir.joinpath("LEGACY", "Textures"), self.target_dir.joinpath("LEGACY", "Textures"))
 
     def check_installed(self):
         return self.target_dir.exists()
