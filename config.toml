@@ -278,3 +278,8 @@ depends = ["ModuleManager", "B9PartSwitch", "CommunityResourcePack", "DynamicBat
 source_type = "git"
 source = "https://github.com/ChrisAdderley/NearFuturePropulsion.git"
 depends = ["ModuleManager", "B9PartSwitch", "CommunityResourcePack"]
+
+[mods.FilterExtension]
+source_type = "git"
+source = "https://github.com/linuxgurugamer/FilterExtension.git"
+
