@@ -73,4 +73,9 @@ When developing a mod I always found the most annoying task to setup the develop
 The setup was tested on Linux with the game purchased and downloaded from the kerbalspaceprogram.com website. There is no reason why it should not work with the Steam version as well (except the "install-game" command of course), you just have to change the "game_dir" in the config.toml (to .local/share/Steam/steamapps/common/Kerbal most likely)
 
 On windows things might be different though. Python exists on windows and most of the code should be platform independent, but nothing was tested in that direction so far. I have not done any kind of development on windows for decades.
-  
+
+## KAS
+
+KAS is deployed with the LEGACY code, but without the corresponding parts. This is just for compatibility with other mods (namely MKS).
+If you have a save game containing legacy KAS part you either have to patch the `KAS.py` receipt or your save game file.
+
