@@ -273,3 +273,8 @@ source = "https://github.com/ChrisAdderley/DynamicBatteryStorage.git"
 source_type = "git"
 source = "https://github.com/ChrisAdderley/NearFutureElectrical.git"
 depends = ["ModuleManager", "B9PartSwitch", "CommunityResourcePack", "DynamicBatteryStorage"]
+
+[mods.NearFuturePropulsion]
+source_type = "git"
+source = "https://github.com/ChrisAdderley/NearFuturePropulsion.git"
+depends = ["ModuleManager", "B9PartSwitch", "CommunityResourcePack"]
