@@ -9,7 +9,7 @@ class Receipt:
         self.project_dir = project_dir
         self.source_dir = SourceDir(game_dir, project_dir.joinpath("Source", "NearFutureElectrical"))
         self.plugins_dir = project_dir.joinpath("GameData", "NearFutureElectrical", "Plugins")
-        self.source_dir.output = self.plugins_dir.joinpath("DynamicBatteryStorage.dll")
+        self.source_dir.output = self.plugins_dir.joinpath("NearFutureElectrical.dll")
         self.target_dir = game_dir.joinpath("GameData", "NearFutureElectrical")
 
     def build(self):

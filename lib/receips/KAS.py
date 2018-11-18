@@ -46,6 +46,7 @@ class Receipt:
         mkdir_p(self.target_dir.joinpath("LEGACY"))
         shutil.copytree(self.project_dir.joinpath("LEGACY", "Sounds"), self.target_dir.joinpath("LEGACY", "Sounds"))
         shutil.copytree(self.project_dir.joinpath("LEGACY", "Textures"), self.target_dir.joinpath("LEGACY", "Textures"))
+        shutil.copy(self.project_dir.joinpath("LEGACY", "settings.cfg"), self.target_dir.joinpath("LEGACY"))
 
     def check_installed(self):
         return self.target_dir.exists()

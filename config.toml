@@ -82,7 +82,6 @@ depends = ["CommunityCategoryKit", "KSPDev"]
 [mods.KAS]
 source_type = "git"
 source = "https://github.com/ihsoft/KAS.git"
-tag = "1.1"
 depends = ["CommunityCategoryKit", "KSPDev"]
 
 [mods.DockRotate]
