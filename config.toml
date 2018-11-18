@@ -82,6 +82,7 @@ depends = ["CommunityCategoryKit", "KSPDev"]
 [mods.KAS]
 source_type = "git"
 source = "https://github.com/ihsoft/KAS.git"
+tag = "1.1"
 depends = ["CommunityCategoryKit", "KSPDev"]
 
 [mods.DockRotate]
@@ -264,3 +265,12 @@ depends = ["AT_Utils", "ConfigurableContainers", "MultiAnimators", "ModuleManage
 source_type = "git"
 source = "https://github.com/UmbraSpaceIndustries/MKS.git"
 depends = ["ModuleManager", "GroundConstruction", "USITools", "USI_Core", "FireSpitterCore"]
+
+[mods.DynamicBatteryStorage]
+source_type = "git"
+source = "https://github.com/ChrisAdderley/DynamicBatteryStorage.git"
+
+[mods.NearFutureElectrical]
+source_type = "git"
+source = "https://github.com/ChrisAdderley/NearFutureElectrical.git"
+depends = ["ModuleManager", "B9PartSwitch", "CommunityResourcePack", "DynamicBatteryStorage"]
