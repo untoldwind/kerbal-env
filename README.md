@@ -74,6 +74,14 @@ The setup was tested on Linux with the game purchased and downloaded from the ke
 
 On windows things might be different though. Python exists on windows and most of the code should be platform independent, but nothing was tested in that direction so far. I have not done any kind of development on windows for decades.
 
+## EVE
+
+At the moment EVE is deployed as is, since it is actually pretty complicated to bundle shaders correctly.
+
+## Scatterer
+
+Like EVE it is deployed as is for the same reasons, but disabled for now since it seems to create wierd effects (at least on my machine).
+
 ## KAS
 
 KAS is deployed with the LEGACY code, but without the corresponding parts. This is just for compatibility with other mods (namely MKS).
