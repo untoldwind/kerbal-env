@@ -19,3 +19,7 @@ branch = "master"
 [mods.KramaxPluginReload]
 source_type = "git"
 source = "https://github.com/linuxgurugamer/KramaxPluginReload.git"
+
+[mods.HyperEdit]
+source_type = "git"
+source = "https://github.com/Ezriilc/HyperEdit.git"

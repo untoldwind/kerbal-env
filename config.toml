@@ -263,3 +263,8 @@ source = "https://github.com/linuxgurugamer/FilterExtension.git"
 source_type = "git"
 source = "https://github.com/linuxgurugamer/KramaxPluginReload.git"
 enabled = false
+
+[mods.HyperEdit]
+source_type = "git"
+source = "https://github.com/Ezriilc/HyperEdit.git"
+enabled = false
