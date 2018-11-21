@@ -5,6 +5,8 @@ from lib.utils import ln_s, rm_rf, rm, mkdir_p
 from lib.receips import Receipt
 
 class FireSpitterCore(Receipt):
+    depends = ["ModuleManager"]
+
     def __init__(self, game_dir, project_dir):
         super().__init__(game_dir, project_dir)
         self.source_dir = SourceDir(game_dir, project_dir.joinpath("Firespitter"))

@@ -5,14 +5,21 @@ from lib.exec import SourceDir
 from lib.utils import mkdir_p, rm_rf
 from lib.receips import Receipt
 
+
 class ConfigurableContainers(Receipt):
+    depends = ["ModuleManager", "AT_Utils", "AnisotropicPartResizer"]
+
     def __init__(self, game_dir, project_dir):
         super().__init__(game_dir, project_dir)
         self.source_dir = SourceDir(game_dir, project_dir)
-        self.source_dir.output = project_dir.joinpath("GameData", "ConfigurableContainers", "ConfigurableContainers.dll")
-        self.target_dir = game_dir.joinpath("GameData", "ConfigurableContainers")
-        self.at_utils_lib = project_dir.parent.joinpath("AT_Utils", "GameData", "000_AT_Utils", "Plugins", "000_AT_Utils.dll")
-        self.aniso_lib = project_dir.parent.joinpath("AnisotropicPartResizer", "obj", "001_AnisotropicPartResizer.dll")
+        self.source_dir.output = project_dir.joinpath(
+            "GameData", "ConfigurableContainers", "ConfigurableContainers.dll")
+        self.target_dir = game_dir.joinpath(
+            "GameData", "ConfigurableContainers")
+        self.at_utils_lib = project_dir.parent.joinpath(
+            "AT_Utils", "GameData", "000_AT_Utils", "Plugins", "000_AT_Utils.dll")
+        self.aniso_lib = project_dir.parent.joinpath(
+            "AnisotropicPartResizer", "obj", "001_AnisotropicPartResizer.dll")
 
     def build(self):
         logging.info("  Build Release")

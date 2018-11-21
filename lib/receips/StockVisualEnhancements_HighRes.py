@@ -5,6 +5,8 @@ from lib.utils import mkdir_p, rm_rf
 from lib.receips import Receipt
 
 class StockVisualEnhancements_HighRes(Receipt):
+    depends = ["StockVisualEnhancements"]
+
     def __init__(self, game_dir, project_dir):
         super().__init__(game_dir, project_dir)
         self.target_dir = game_dir.joinpath("GameData", "StockVisualEnhancements", "Textures")

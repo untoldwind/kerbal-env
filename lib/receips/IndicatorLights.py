@@ -5,6 +5,8 @@ from lib.utils import mkdir_p, rm_rf, rm
 from lib.receips import Receipt
 
 class IndicatorLights(Receipt):
+    depends = ["ModuleManager"]
+
     def __init__(self, game_dir, project_dir):
         super().__init__(game_dir, project_dir)
         self.source_dir = SourceDir(game_dir, project_dir.joinpath("src" ))

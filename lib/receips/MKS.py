@@ -4,15 +4,25 @@ from lib.exec import run_command, SourceDir
 from lib.utils import mkdir_p, rm_rf, rm
 from lib.receips import Receipt
 
+
 class MKS(Receipt):
+    depends = ["ModuleManager", "GroundConstruction",
+               "USITools", "USI_Core", "FireSpitterCore"]
+
     def __init__(self, game_dir, project_dir):
         super().__init__(game_dir, project_dir)
-        self.source_dir = SourceDir(game_dir, project_dir.joinpath("Source", "KolonyTools", "KolonyTools"))
-        self.for_release_dir = project_dir.joinpath("FOR_RELEASE", "GameData", "UmbraSpaceIndustries", "MKS")
-        self.source_dir.output = self.for_release_dir.joinpath("KolonyTools.dll")
-        self.target_dir1 = game_dir.joinpath("GameData", "UmbraSpaceIndustries", "MKS")
-        self.target_dir2 = game_dir.joinpath("GameData", "UmbraSpaceIndustries", "Karibou")
-        self.usitool_lib = project_dir.parent.joinpath("USITools", "FOR_RELEASE", "GameData", "000_USITools", "USITools.dll")       
+        self.source_dir = SourceDir(game_dir, project_dir.joinpath(
+            "Source", "KolonyTools", "KolonyTools"))
+        self.for_release_dir = project_dir.joinpath(
+            "FOR_RELEASE", "GameData", "UmbraSpaceIndustries", "MKS")
+        self.source_dir.output = self.for_release_dir.joinpath(
+            "KolonyTools.dll")
+        self.target_dir1 = game_dir.joinpath(
+            "GameData", "UmbraSpaceIndustries", "MKS")
+        self.target_dir2 = game_dir.joinpath(
+            "GameData", "UmbraSpaceIndustries", "Karibou")
+        self.usitool_lib = project_dir.parent.joinpath(
+            "USITools", "FOR_RELEASE", "GameData", "000_USITools", "USITools.dll")
 
     def build(self):
         logging.info("  Build Release")

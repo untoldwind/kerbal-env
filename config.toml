@@ -6,7 +6,6 @@ dlc1 = "~/Downloads/KSP-Making_History_Expansion-en-us-lin-1.5.1.zip"
 
 [mods.adopted]
 source_type = "adopted"
-depends = ["KOS"]
 
 [mods.ModuleManager]
 source_type = "git"
@@ -17,7 +16,6 @@ branch = "master"
 source_type = "git"
 source = "https://github.com/KSP-KOS/KOS.git"
 branch = "master"
-depends = ["ModuleManager"]
 
 [mods.Kopernicus]
 source_type = "git"
@@ -33,7 +31,6 @@ source = "https://github.com/sarbian/CustomBarnKit.git"
 source_type = "http"
 source = "https://github.com/Galileo88/Outer-Planets-Mod/releases/download/${version}/Outer_Planets_Mod-${version}.zip"
 version = "2.2.1"
-depends = ["Kopernicus"]
 
 [mods.KSPModFileLocalizer]
 source_type = "git"
@@ -43,24 +40,20 @@ source = "https://github.com/Nils277/KSPModFileLocalizer.git"
 source_type = "git"
 source = "https://github.com/Nils277/KerbalPlanetaryBaseSystems.git"
 enabled = true
-depends = ["ModuleManager", "KSPModFileLocalizer"]
 
 [mods.B9PartSwitch]
 source_type = "git"
 source = "https://github.com/blowfishpro/B9PartSwitch.git"
-depends = ["ModuleManager"]
 enabled = true
 
 [mods.NearFutureProps]
 source_type = "git"
 source="https://github.com/ChrisAdderley/NearFutureProps.git"
-depends = ["ModuleManager"]
 enabled = true
 
 [mods.StationPartsExpansionRedux]
 source_type = "git"
 source = "https://github.com/ChrisAdderley/StationPartsExpansionRedux.git"
-depends = ["ModuleManager", "B9PartSwitch", "NearFutureProps"]
 
 [mods.KerbalAlarmClock]
 source_type = "git"
@@ -77,12 +70,10 @@ source = "https://github.com/ihsoft/KSPDev.git"
 [mods.KIS]
 source_type = "git"
 source = "https://github.com/ihsoft/KIS.git"
-depends = ["CommunityCategoryKit", "KSPDev"]
 
 [mods.KAS]
 source_type = "git"
 source = "https://github.com/ihsoft/KAS.git"
-depends = ["CommunityCategoryKit", "KSPDev"]
 
 [mods.DockRotate]
 source_type = "git"
@@ -107,7 +98,6 @@ source = "https://github.com/UmbraSpaceIndustries/UmbraSpaceIndustries.git"
 [mods.USI_LS]
 source_type = "git"
 source = "https://github.com/UmbraSpaceIndustries/USI-LS.git"
-depends = ["CommunityCategoryKit", "CommunityResourcePack", "USITools"]
 patch = '''
 --- a/Source/USILifeSupport/LifeSupportMonitor.cs
 +++ b/Source/USILifeSupport/LifeSupportMonitor.cs
@@ -124,7 +114,6 @@ patch = '''
 [mods.Konstruction]
 source_type = "git"
 source = "https://github.com/BobPalmer/Konstruction.git"
-depends = ["CommunityResourcePack", "USITools"]
 
 [mods.SCANsat]
 source_type = "git"
@@ -140,13 +129,11 @@ enabled = false
 source_type = "http"
 source = "https://github.com/Galileo88/StockVisualEnhancements/releases/download/1.3.0.4/SVE.v1.3.0.4.zip"
 enabled = false
-depends = ["EnvironmentalVisualEnhancements"]
 
 [mods.StockVisualEnhancements_HighRes]
 source_type = "http"
 source = "https://github.com/Galileo88/StockVisualEnhancements/releases/download/1.0.7/SVE_HighResTextures.zip"
 enabled = false
-depends = ["StockVisualEnhancements"]
 
 [mods.scatterer]
 source_type = "http"
@@ -196,12 +183,10 @@ source = "https://github.com/linuxgurugamer/ClickThroughBlocker.git"
 [mods.ToolbarControl]
 source_type = "git"
 source = "https://github.com/linuxgurugamer/ToolbarControl.git"
-depends = ["ClickThroughBlocker"]
 
 [mods.KronalVesselViewer]
 source_type = "git"
 source = "https://github.com/linuxgurugamer/KronalVesselViewer.git"
-depends = ["ClickThroughBlocker", "ToolbarControl", "KAS"]
 patch = '''
 --- a/KronalVesselViewer/VesselViewConfig.cs
 +++ b/KronalVesselViewer/VesselViewConfig.cs
@@ -224,7 +209,6 @@ patch = '''
 [mods.IndicatorLights]
 source_type = "git"
 source = "https://github.com/KSPSnark/IndicatorLights.git"
-depends = ["ModuleManager"]
 
 [mods.AT_Utils]
 source_type = "git"
@@ -233,37 +217,30 @@ source = "https://github.com/allista/AT_Utils.git"
 [mods.AnisotropicPartResizer]
 source_type = "git"
 source = "https://github.com/allista/AnisotropicPartResizer.git"
-depends = ["ModuleManager", "AT_Utils"]
 
 [mods.ConfigurableContainers]
 source_type = "git"
 source = "https://github.com/allista/ConfigurableContainers.git"
-depends = ["ModuleManager", "AT_Utils", "AnisotropicPartResizer"]
 
 [mods.FireSpitterCore]
 source_type = "git"
 source = "https://github.com/snjo/Firespitter.git"
-depends = ["ModuleManager"]
 
 [mods.USI_Core]
 source_type = "git"
 source = "https://github.com/UmbraSpaceIndustries/USI_Core.git"
-depends = ["USITools", "CommunityResourcePack", "CommunityCategoryKit", "FireSpitterCore", "ModuleManager"]
 
 [mods.MultiAnimators]
 source_type = "git"
 source = "https://github.com/allista/MultiAnimators.git"
-depends = ["AT_Utils", "AnisotropicPartResizer"]
 
 [mods.GroundConstruction]
 source_type = "git"
 source = "https://github.com/allista/GroundConstruction.git"
-depends = ["AT_Utils", "ConfigurableContainers", "MultiAnimators", "ModuleManager"]
 
 [mods.MKS]
 source_type = "git"
 source = "https://github.com/UmbraSpaceIndustries/MKS.git"
-depends = ["ModuleManager", "GroundConstruction", "USITools", "USI_Core", "FireSpitterCore"]
 
 [mods.DynamicBatteryStorage]
 source_type = "git"
@@ -272,12 +249,11 @@ source = "https://github.com/ChrisAdderley/DynamicBatteryStorage.git"
 [mods.NearFutureElectrical]
 source_type = "git"
 source = "https://github.com/ChrisAdderley/NearFutureElectrical.git"
-depends = ["ModuleManager", "B9PartSwitch", "CommunityResourcePack", "DynamicBatteryStorage"]
 
 [mods.NearFuturePropulsion]
 source_type = "git"
 source = "https://github.com/ChrisAdderley/NearFuturePropulsion.git"
-depends = ["ModuleManager", "B9PartSwitch", "CommunityResourcePack"]
+
 
 [mods.FilterExtension]
 source_type = "git"

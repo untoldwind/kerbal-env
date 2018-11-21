@@ -5,6 +5,8 @@ from lib.utils import mkdir_p, rm_rf
 from lib.receips import Receipt
 
 class KronalVesselViewer(Receipt):
+    depends = ["ClickThroughBlocker", "ToolbarControl", "KAS"]
+
     def __init__(self, game_dir, project_dir):
         super().__init__(game_dir, project_dir)
         self.source_dir = SourceDir(game_dir, project_dir.joinpath("KronalVesselViewer" ))

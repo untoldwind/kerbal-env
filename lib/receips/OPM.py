@@ -5,6 +5,8 @@ from lib.receips import Receipt
 
 
 class OPM(Receipt):
+    depends = ["Kopernicus"]
+
     def __init__(self, game_dir, project_dir):
         super().__init__(game_dir, project_dir)
 

@@ -60,12 +60,6 @@ class ModConfig:
         return "unknown"
 
     @property
-    def dependencies(self):
-        if "depends" in self._mod_config:
-            return self._mod_config["depends"]
-        return []
-
-    @property
     def patch(self):
         if "patch" in self._mod_config:
             return self._mod_config["patch"]

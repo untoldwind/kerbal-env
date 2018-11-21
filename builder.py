@@ -81,11 +81,16 @@ def install_mod(ctx, all, name):
     else:
         click.echo("Neither --all nor a name given. There is nothing to do")
 
+@click.command()
+@click.pass_context
+def dependency_tree(ctx):
+    actions.dependency_tree(ctx.obj.config.mods)
 
 main.add_command(install_game)
 main.add_command(list_mods)
 main.add_command(build_mod)
 main.add_command(install_mod)
+main.add_command(dependency_tree)
 
 if __name__ == '__main__':
     main(obj=Context())

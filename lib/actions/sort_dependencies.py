@@ -1,3 +1,4 @@
+from lib.receips import find_dependencies
 
 def sort_dependencies(mod_configs):
     order = []
@@ -23,7 +24,7 @@ def collect_dependends(mod_configs, stack, name):
         raise NameError("Dependency not found: %s" % name)
     stack.add(name)
     dependends = []
-    for dependency in mod_configs[name].dependencies:
+    for dependency in find_dependencies(name):
         if not dependency in stack:
             dependends.extend(collect_dependends(mod_configs, stack, dependency))
             dependends.append(dependency)
