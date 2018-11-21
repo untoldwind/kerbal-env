@@ -22,6 +22,10 @@ class Config:
         return pathlib.Path(self._config["install"]["base"]).expanduser()
 
     @property
+    def has_dlc1(self):
+        return "dlc1" in self._config["install"]
+        
+    @property
     def install_dlc1(self):
         return pathlib.Path(self._config["install"]["dlc1"]).expanduser()
 

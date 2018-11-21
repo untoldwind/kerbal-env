@@ -1,0 +1,21 @@
+target_dir = "~/KSPDev"
+
+[install]
+base = "~/Downloads/ksp-linux-1.5.1.zip"
+
+[mods.adopted]
+source_type = "adopted"
+
+[mods.ModuleManager]
+source_type = "git"
+source = "https://github.com/sarbian/ModuleManager.git"
+branch = "master"
+
+[mods.KOS]
+source_type = "git"
+source = "https://github.com/KSP-KOS/KOS.git"
+branch = "master"
+
+[mods.KramaxPluginReload]
+source = "https://github.com/linuxgurugamer/KramaxPluginReload.git"
+enabled = false

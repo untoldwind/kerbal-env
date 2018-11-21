@@ -10,10 +10,11 @@ def install_game(config):
     run_command(cwd=config.target_dir, command=[
                 "unzip", config.install_base])
 
-    logging.info("Adding DLC1 (Making history)")
-    run_command(cwd=config.game_dir, command=[
-                "unzip", config.install_dlc1])
-    run_command(cwd=config.game_dir, command=[
-                "./dlc-mhe-en-us.sh"])
-    rm(config.game_dir, "*.sh")
-    rm(config.game_dir, "*.zip")
+    if config.has_dlc1:
+        logging.info("Adding DLC1 (Making history)")
+        run_command(cwd=config.game_dir, command=[
+                    "unzip", config.install_dlc1])
+        run_command(cwd=config.game_dir, command=[
+                    "./dlc-mhe-en-us.sh"])
+        rm(config.game_dir, "*.sh")
+        rm(config.game_dir, "*.zip")
