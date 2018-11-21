@@ -2,11 +2,11 @@ import logging
 import shutil
 from lib.exec import SourceDir
 from lib.utils import mkdir_p, rm_rf
+from lib.receips import Receipt
 
-class Receipt:
+class B9PartSwitch(Receipt):
     def __init__(self, game_dir, project_dir):
-        self.game_dir = game_dir
-        self.project_dir = project_dir
+        super().__init__(game_dir, project_dir)
         self.source_dir = SourceDir(game_dir, project_dir.joinpath("B9PartSwitch" ))
         self.source_dir.output = project_dir.joinpath("GameData", "B9PartSwitch", "B9PartSwitch.dll")
         self.target_dir = game_dir.joinpath("GameData", "B9PartSwitch")

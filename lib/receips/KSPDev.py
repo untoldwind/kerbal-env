@@ -1,10 +1,10 @@
 import logging
 from lib.exec import SourceDir
+from lib.receips import Receipt
 
-class Receipt:
+class KSPDev(Receipt):
     def __init__(self, game_dir, project_dir):
-        self.game_dir = game_dir
-        self.project_dir = project_dir
+        super().__init__(game_dir, project_dir)
         self.source_dir = SourceDir(game_dir, project_dir.joinpath("Sources", "Utils"))
         self.source_dir.output = project_dir.joinpath("Binaries", "KSPDev_Utils.0.37.dll")
         self.source_dir.doc_output = project_dir.joinpath("Binaries", "KSPDev_Utils.0.37.xml")

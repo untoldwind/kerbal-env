@@ -1,12 +1,12 @@
 import shutil
 from lib.exec import run_command
 from lib.utils import rm_rf
+from lib.receips import Receipt
 
 
-class Receipt:
+class OPM(Receipt):
     def __init__(self, game_dir, project_dir):
-        self.game_dir = game_dir
-        self.project_dir = project_dir
+        super().__init__(game_dir, project_dir)
 
     def build(self):
         pass

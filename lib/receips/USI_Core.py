@@ -1,11 +1,11 @@
 import logging
 import shutil
 from lib.utils import mkdir_p, rm_rf
+from lib.receips import Receipt
 
-class Receipt:
+class USI_Core(Receipt):
     def __init__(self, game_dir, project_dir):
-        self.game_dir = game_dir
-        self.project_dir = project_dir
+        super().__init__(game_dir, project_dir)
         self.for_release_dir = project_dir.joinpath("FOR_RELEASE", "GameData", "UmbraSpaceIndustries")
         self.target_dir = game_dir.joinpath("GameData", "UmbraSpaceIndustries")
         self.subdirs = ["FX", "Kontainers", "ReactorPack"]

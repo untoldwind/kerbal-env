@@ -283,3 +283,6 @@ depends = ["ModuleManager", "B9PartSwitch", "CommunityResourcePack"]
 source_type = "git"
 source = "https://github.com/linuxgurugamer/FilterExtension.git"
 
+[mods.KramaxPluginReload]
+source = "https://github.com/linuxgurugamer/KramaxPluginReload.git"
+enabled = false

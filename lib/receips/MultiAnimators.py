@@ -2,11 +2,11 @@ import logging
 import shutil
 from lib.exec import SourceDir
 from lib.utils import mkdir_p, rm_rf
+from lib.receips import Receipt
 
-class Receipt:
+class MultiAnimators(Receipt):
     def __init__(self, game_dir, project_dir):
-        self.game_dir = game_dir
-        self.project_dir = project_dir
+        super().__init__(game_dir, project_dir)
         self.source_dir = SourceDir(game_dir, project_dir)
         self.source_dir.output = project_dir.joinpath("obj", "002_MultiAnimators.dll")
         self.target_dir = game_dir.joinpath("GameData", "002_MultiAnimators")

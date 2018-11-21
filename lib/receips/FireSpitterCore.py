@@ -2,11 +2,11 @@ import logging
 import shutil
 from lib.exec import SourceDir
 from lib.utils import ln_s, rm_rf, rm, mkdir_p
+from lib.receips import Receipt
 
-class Receipt:
+class FireSpitterCore(Receipt):
     def __init__(self, game_dir, project_dir):
-        self.game_dir = game_dir
-        self.project_dir = project_dir
+        super().__init__(game_dir, project_dir)
         self.source_dir = SourceDir(game_dir, project_dir.joinpath("Firespitter"))
         self.for_release_dir = self.project_dir.joinpath("For release", "Firespitter", "Plugins")
         self.source_dir.output = self.for_release_dir.joinpath("Firespitter.dll")

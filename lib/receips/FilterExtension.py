@@ -2,11 +2,11 @@ import logging
 import shutil
 from lib.exec import SourceDir
 from lib.utils import mkdir_p, rm_rf, rm
+from lib.receips import Receipt
 
-class Receipt:
+class FilterExtension(Receipt):
     def __init__(self, game_dir, project_dir):
-        self.game_dir = game_dir
-        self.project_dir = project_dir
+        super().__init__(game_dir, project_dir)
         self.source_dir = SourceDir(game_dir, project_dir.joinpath("FilterExtension"))
         self.plugins_dir = project_dir.joinpath("GameData", "000_FilterExtensions", "Plugins")
         self.source_dir.output = self.plugins_dir.joinpath("FilterExtension.dll")
@@ -24,6 +24,8 @@ class Receipt:
 
     def install(self):
         rm_rf(self.target_dir1)
+        rm_rf(self.target_dir2)
+        rm_rf(self.target_dir3)
         shutil.copytree(self.project_dir.joinpath("GameData", "000_FilterExtensions"), self.target_dir1)
         shutil.copytree(self.project_dir.joinpath("GameData", "000_FilterExtensions_Configs"), self.target_dir2)
         shutil.copytree(self.project_dir.joinpath("GameData", "zFinal_FilterExtensions"), self.target_dir3)

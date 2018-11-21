@@ -2,12 +2,12 @@ import logging
 import shutil
 from lib.exec import run_command, SourceDir
 from lib.utils import rm_rf, rm
+from lib.receips import Receipt
 
 
-class Receipt:
+class KerbalEngineer(Receipt):
     def __init__(self, game_dir, project_dir):
-        self.game_dir = game_dir
-        self.project_dir = project_dir
+        super().__init__(game_dir, project_dir)
         self.source_dir = SourceDir(
             game_dir, project_dir.joinpath("KerbalEngineer"))
         self.source_dir.output = project_dir.joinpath(
