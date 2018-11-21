@@ -31,9 +31,7 @@ def initialize_project(build_dir, project_dir, name, config):
     if config.source_type == "git":
         logging.info("Checking out %s to: %s" % (config.source, build_dir))
         run_command(cwd=build_dir, command=[
-                    "git", "clone", config.source, name])
-        run_command(cwd=project_dir, command=[
-                    "git", "checkout", config.checkout])
+                    "git", "clone", "--depth", "1", "-b", config.checkout, config.source, name])
     elif config.source_type == "http":
         mkdir_p(project_dir)
         download_dir = pathlib.Path().joinpath("downloads").resolve()
@@ -49,8 +47,7 @@ def update_project(build_dir, project_dir, name, config):
     if config.source_type == "git":
         logging.info("Updating %s" % config.source)
         run_command(cwd=project_dir, command=["git", "reset", "--hard"])
-        run_command(cwd=project_dir, command=["git", "checkout", "master"])
-        run_command(cwd=project_dir, command=["git", "pull"])
+        run_command(cwd=project_dir, command=["git", "pull", "--depth", "1", "origin", config.checkout])
         run_command(cwd=project_dir, command=[
                     "git", "checkout", config.checkout])
     elif config.source_type == "http":
