@@ -70,6 +70,10 @@ class ModConfig:
         return None
 
     @property
+    def checkout_is_tag(self):
+        return "tag" in self._mod_config
+
+    @property
     def checkout(self):
         if "branch" in self._mod_config:
             return self._mod_config["branch"]

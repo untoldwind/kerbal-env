@@ -44,12 +44,10 @@ def initialize_project(build_dir, project_dir, name, config):
 
 
 def update_project(build_dir, project_dir, name, config):
-    if config.source_type == "git":
+    if config.source_type == "git" and not config.checkout_is_tag:
         logging.info("Updating %s" % config.source)
-        run_command(cwd=project_dir, command=["git", "reset", "--hard"])
-        run_command(cwd=project_dir, command=["git", "pull", "--depth", "1", "origin", config.checkout])
-        run_command(cwd=project_dir, command=[
-                    "git", "checkout", config.checkout])
+        run_command(cwd=project_dir, command=["git", "fetch", "--depth", "1", "origin", config.checkout])
+        run_command(cwd=project_dir, command=["git", "reset", "--hard", "origin/" + config.checkout])
     elif config.source_type == "http":
         rm_rf(project_dir)
         initialize_project(build_dir, project_dir, name, config)
