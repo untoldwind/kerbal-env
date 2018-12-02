@@ -21,7 +21,7 @@ class adopted(Receipt):
         target_dir = self.game_dir.joinpath("GameData", "XyphosAerospace")
         rm_rf(target_dir)
         shutil.copytree(adopted_path.joinpath(
-            "GameData", "IndicatorLightsCommunityExtensions"), target_dir)
+            "GameData", "XyphosAerospace"), target_dir)
         target_dir = self.game_dir.joinpath("GameData", "IndicatorLightsCommunityExtensions")
         rm_rf(target_dir)
         shutil.copytree(adopted_path.joinpath(
