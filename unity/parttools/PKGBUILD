@@ -1,0 +1,7 @@
+pkgname='kerbal-part-tools'
+pkgver=1.5.0
+pkgrel=1
+arch=('x86_64')
+depends=('unity-editor')
+source=('https://kerbalspaceprogram.com/files/PartTools_AssetBundles.zip')
+sha1sums=('fdd9fd2444512ed8807f378d86f81b79c3f1c4f0')
