@@ -268,3 +268,7 @@ enabled = false
 source_type = "git"
 source = "https://github.com/Ezriilc/HyperEdit.git"
 enabled = false
+
+[mods.OSEWorkshop]
+source_type = "git"
+source = "https://github.com/Aelfhe1m/Workshop.git"
