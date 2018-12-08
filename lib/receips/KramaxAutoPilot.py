@@ -9,7 +9,7 @@ class KramaxAutoPilot(Receipt):
     def __init__(self, game_dir, project_dir):
         super().__init__(game_dir, project_dir)
         self.plugin_dir = project_dir.joinpath("GameData", "KramaxAutoPilot", "Plugins")
-        self.source_dir = SourceDir(game_dir, project_dir)
+        self.source_dir = SourceDir(game_dir, project_dir.joinpath("KramaxAutoPilot"))
         self.source_dir.output = self.plugin_dir.joinpath("KramaxAutoPilot.dll")
         self.target_dir = game_dir.joinpath("GameData", "KramaxAutoPilot")
         self.clickthrouh_lib = project_dir.parent.joinpath("ClickThroughBlocker", "GameData", "000_ClickThroughBlocker", "ClickThroughBlocker.dll")
@@ -19,7 +19,6 @@ class KramaxAutoPilot(Receipt):
         rm(self.plugin_dir, "*.dll")
         rm(self.plugin_dir, "*.pdb")
         self.source_dir.std_compile(
-            exclude="KramaxReloadExtensions/**/*|ReleaseReloadableMonoBehaviour.cs",
             references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll", self.clickthrouh_lib, self.toolbarcontrol_lib])
 
     def can_install(self):

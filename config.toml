@@ -276,3 +276,7 @@ source = "https://github.com/Aelfhe1m/Workshop.git"
 [mods.KramaxAutoPilot]
 source_type = "git"
 source = "https://github.com/linuxgurugamer/KramaxAutoPilot.git"
+
+[mods.KSPRescuePodFix]
+source_type = "git"
+source = "https://github.com/shadowmage45/KSPRescuePodFix.git"
