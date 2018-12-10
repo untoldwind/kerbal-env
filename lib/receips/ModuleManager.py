@@ -30,4 +30,4 @@ class ModuleManager(Receipt):
                                               "bin", "ModuleManager.dll"), gamedata_dir)
 
     def check_installed(self):
-        self.game_dir.joinpath("GameData", "ModuleManager.dll").exists()
+        return self.game_dir.joinpath("GameData", "ModuleManager.dll").exists()

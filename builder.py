@@ -12,7 +12,6 @@ class Context:
     def __init__(self):
         self.debug = False
 
-
 @click.group()
 @click.option('--debug', is_flag=True, default=False)
 @click.option('--config', 'config_file', default='config.toml')
@@ -83,6 +82,11 @@ def install_mod(ctx, all, name):
 
 @click.command()
 @click.pass_context
+def status(ctx):
+    actions.status(ctx.obj.config)
+
+@click.command()
+@click.pass_context
 def dependency_tree(ctx):
     actions.dependency_tree(ctx.obj.config.mods)
 
@@ -91,6 +95,7 @@ main.add_command(list_mods)
 main.add_command(build_mod)
 main.add_command(install_mod)
 main.add_command(dependency_tree)
+main.add_command(status)
 
 if __name__ == '__main__':
     main(obj=Context())

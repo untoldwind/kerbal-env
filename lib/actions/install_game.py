@@ -18,3 +18,7 @@ def install_game(config):
                     "./dlc-mhe-en-us.sh"])
         rm(config.game_dir, "*.sh")
         rm(config.game_dir, "*.zip")
+
+def check_game_installed(config):
+    return config.game_dir.exists() and (not config.has_dlc1 or config.game_dir.joinpath("GameData", "SquadExpansion").exists())
+

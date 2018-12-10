@@ -24,4 +24,4 @@ class KSPDev(Receipt):
 
     def check_installed(self):
         # Note: Will not be installed by itself
-        return False
+        return True
