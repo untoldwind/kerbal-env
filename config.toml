@@ -301,7 +301,6 @@ source = "https://github.com/shadowmage45/KSPRescuePodFix.git"
 [mods.WorldStabilizer]
 source_type = "git"
 source = "https://github.com/whale2/WorldStabilizer.git"
-enabled = false
 
 [mods.FTT]
 source_type = "git"
