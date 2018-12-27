@@ -82,6 +82,7 @@ source = "https://github.com/BobPalmer/CommunityCategoryKit.git"
 [mods.KSPDev]
 source_type = "git"
 source = "https://github.com/ihsoft/KSPDev.git"
+tag = "utils_0.37"
 
 [mods.KIS]
 source_type = "git"
