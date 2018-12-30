@@ -306,3 +306,8 @@ source = "https://github.com/whale2/WorldStabilizer.git"
 [mods.FTT]
 source_type = "git"
 source = "https://github.com/BobPalmer/FTT.git"
+
+[mods.RasterPropMonitor]
+source_type = "git"
+source = "https://github.com/Mihara/RasterPropMonitor.git"
+enabled = false
