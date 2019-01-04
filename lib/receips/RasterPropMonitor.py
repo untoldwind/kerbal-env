@@ -11,6 +11,7 @@ class RasterPropMonitor(Receipt):
         super().__init__(game_dir, project_dir)
         self.source_dir = SourceDir(game_dir, project_dir.joinpath("RasterPropMonitor" ))
         self.source_dir.output = project_dir.joinpath("GameData", "JSI", "RasterPropMonitor", "Plugins", "RasterPropMonitor.dll")
+        self.target_dir = game_dir.joinpath("GameData", "JSI")
 
     def build(self):
         logging.info("  Build Release")

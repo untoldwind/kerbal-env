@@ -311,3 +311,13 @@ source = "https://github.com/BobPalmer/FTT.git"
 source_type = "git"
 source = "https://github.com/Mihara/RasterPropMonitor.git"
 enabled = false
+
+[mods.DockingPortAlignmentIndicator]
+source_type = "git"
+source = "https://github.com/mwerle/DockingPortAlignmentIndicator.git"
+enabled = false
+
+[mods.NavInstruments]
+source_type = "git"
+source = "https://github.com/net-lisias-kspu/NavInstruments.git"
+enabled = false
