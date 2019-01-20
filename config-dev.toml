@@ -1,7 +1,7 @@
 target_dir = "~/KSPDev"
 
 [install]
-base = "~/Downloads/ksp-linux-1.6.0.zip"
+base = "~/Downloads/ksp-linux-1.6.1.zip"
 
 [mods.adopted]
 source_type = "adopted"
