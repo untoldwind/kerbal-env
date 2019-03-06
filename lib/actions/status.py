@@ -1,6 +1,6 @@
 from termcolor import colored
 from .install_game import check_game_installed
-from lib.receips import find_receipt
+from lib.recipes import find_receipt
 import pathlib
 
 def status(config):

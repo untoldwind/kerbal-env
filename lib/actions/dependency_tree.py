@@ -1,4 +1,4 @@
-from lib.receips import find_dependencies
+from lib.recipes import find_dependencies
 
 def dependency_tree(config):
     sorted_names = sorted(config.keys())

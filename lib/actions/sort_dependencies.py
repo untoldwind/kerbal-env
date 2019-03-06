@@ -1,4 +1,4 @@
-from lib.receips import find_dependencies
+from lib.recipes import find_dependencies
 
 def sort_dependencies(mod_configs):
     order = []

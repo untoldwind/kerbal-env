@@ -2,7 +2,7 @@ import logging
 import pathlib
 from lib.exec import run_command
 from lib.utils import mkdir_p
-from lib.receips import find_receipt
+from lib.recipes import find_receipt
 
 
 
