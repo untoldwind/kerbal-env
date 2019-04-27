@@ -63,11 +63,6 @@ source = "https://github.com/TriggerAu/KerbalAlarmClock.git"
 source_type = "git"
 source = "https://github.com/BobPalmer/CommunityCategoryKit.git"
 
-[mods.KSPDev]
- source_type = "git"
-source = "https://github.com/ihsoft/KSPDev.git"
-tag = "utils_0.37"
-
 [mods.KSPDev_Utils]
 source_type = "git"
 source = "https://github.com/ihsoft/KSPDev_Utils.git"

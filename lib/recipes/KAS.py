@@ -6,7 +6,7 @@ from lib.recipes import Receipt
 
 
 class KAS(Receipt):
-    depends = ["CommunityCategoryKit", "KSPDev"]
+    depends = ["CommunityCategoryKit", "KSPDev_Utils"]
 
     def __init__(self, game_dir, project_dir):
         super().__init__(game_dir, project_dir)
@@ -16,7 +16,7 @@ class KAS(Receipt):
         self.source_api_dir.output = project_dir.joinpath("Binaries", "KAS-API-v1.dll")
         self.source_legacy_dir = SourceDir(game_dir, project_dir.joinpath("LEGACY", "Source" ))
         self.source_legacy_dir.output = project_dir.joinpath("Binaries", "KAS-LEGACY.dll" )
-        self.ksp_dev_lib = project_dir.parent.joinpath("KSPDev", "Binaries", "KSPDev_Utils.0.37.dll")
+        self.ksp_dev_lib = project_dir.parent.joinpath("KSPDev_Utils", "Binaries", "KSPDev_Utils.1.2.dll")
         self.target_dir = game_dir.joinpath("GameData", "KAS")
 
     def build(self):

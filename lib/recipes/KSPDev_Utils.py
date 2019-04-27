@@ -6,8 +6,8 @@ class KSPDev_Utils(Receipt):
     def __init__(self, game_dir, project_dir):
         super().__init__(game_dir, project_dir)
         self.source_dir = SourceDir(game_dir, project_dir.joinpath("Source"))
-        self.source_dir.output = project_dir.joinpath("Binaries", "KSPDev_Utils.1.1.dll")
-        self.source_dir.doc_output = project_dir.joinpath("Binaries", "KSPDev_Utils.1.1.xml")
+        self.source_dir.output = project_dir.joinpath("Binaries", "KSPDev_Utils.1.2.dll")
+        self.source_dir.doc_output = project_dir.joinpath("Binaries", "KSPDev_Utils.1.2.xml")
 
     def build(self):
         logging.info("  Build Release")
