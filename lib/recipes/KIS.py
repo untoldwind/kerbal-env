@@ -11,7 +11,7 @@ class KIS(Receipt):
         super().__init__(game_dir, project_dir)
         self.source_dir = SourceDir(game_dir, project_dir.joinpath("Source" ))
         self.source_dir.output = project_dir.joinpath("Binaries", "KIS.dll")
-        self.ksp_dev_lib = project_dir.parent.joinpath("KSPDev_Utils", "Binaries", "KSPDev_Utils.1.1.dll")
+        self.ksp_dev_lib = project_dir.parent.joinpath("KSPDev_Utils", "Binaries", "KSPDev_Utils.1.2.dll")
         self.target_dir = game_dir.joinpath("GameData", "KIS")
 
     def build(self):

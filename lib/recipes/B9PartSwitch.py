@@ -16,6 +16,7 @@ class B9PartSwitch(Receipt):
     def build(self):
         logging.info("  Build Release")
         self.source_dir.std_compile(
+            exclude="**/SubtypePartFields.cs",
             references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
 
     def can_install(self):
