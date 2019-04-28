@@ -23,7 +23,11 @@ class GroundConstruction(Receipt):
     def build(self):
         logging.info("  Build Release API")
         self.source_dir.std_compile(
-            exclude="OneTimeResourceConverter.cs|Properties/AssemblyInfo-OTRC.cs|WorkshopModel/ProtoGroundWorkshop.cs",
+            exclude=[
+                "OneTimeResourceConverter.cs",
+                "Properties/AssemblyInfo-OTRC.cs",
+                "WorkshopModel/ProtoGroundWorkshop.cs",
+            ],
             references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll", self.at_utils_lib, self.multianimators_lib])
 
     def can_install(self):

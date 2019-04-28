@@ -14,7 +14,13 @@ class AT_Utils(Receipt):
     def build(self):
         logging.info("  Build Release")
         self.source_dir.std_compile(
-            exclude="AnimatedConverters/**/*.cs|SubmodelResizer/**/*.cs|ConfigurableContainers/**/*.cs|AnisotropicPartResizer/**/*.cs|MultiAnimators/**/*.cs",
+            exclude=[
+                "AnimatedConverters/**/*.cs",
+                "SubmodelResizer/**/*.cs",
+                "ConfigurableContainers/**/*.cs",
+                "AnisotropicPartResizer/**/*.cs",
+                "MultiAnimators/**/*.cs",
+            ],
             references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
 
     def can_install(self):

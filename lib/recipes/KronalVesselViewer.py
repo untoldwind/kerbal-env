@@ -22,7 +22,7 @@ class KronalVesselViewer(Receipt):
         self.source_dir.resgen(src="Properties/Resources.resx",
                                dest="obj/KronalVesselViewer.Properties.Resources.resources")
         self.source_dir.std_compile(
-            exclude="Assembly*.cs|KSVersion.cs",
+            exclude=["Assembly*.cs", "KSVersion.cs"],
             references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll", self.clickthrouh_lib, self.toolbarcontrol_lib])
 
     def can_install(self):

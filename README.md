@@ -4,7 +4,7 @@ Contrary to CKAN the idea is to build everything.
 
 # Requirements
 
-* Kerbal(obviously) >= 1.5.0
+* Kerbal(obviously) >= 1.7.0
 * mono: "mono" + "msbuild-stable" on archlinux
   * If you need an IDE you might also install "monodevelop", thought a good editor and command-line should suffice.
 * python >= 3.5
@@ -12,7 +12,7 @@ Contrary to CKAN the idea is to build everything.
 # Setup python venv
 
 ```
-python - m venv .venv
+python -m venv .venv
 source .venv/bin/activate
 pip install - r requirements.txt
 ```
@@ -22,6 +22,7 @@ To reactivate the environment you always have to perform
 ```
 source .venv/bin/activate
 ```
+(There are some other variants depending on the shell you are using)
 
 # The actual builder
 

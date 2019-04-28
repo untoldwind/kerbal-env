@@ -20,7 +20,10 @@ class KramaxPluginReload(Receipt):
             exclude="ReleaseReloadableMonoBehaviour.cs",
             references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
         self.source_dir.std_compile(
-            exclude="KramaxReloadExtensions/**/*|ReleaseReloadableMonoBehaviour.cs",
+            exclude=[
+                "KramaxReloadExtensions/**/*",
+                "ReleaseReloadableMonoBehaviour.cs",
+            ],
             references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll", self.source_dir_extensions.output])
 
     def can_install(self):

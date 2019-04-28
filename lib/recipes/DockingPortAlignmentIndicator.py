@@ -24,7 +24,10 @@ class DockingPortAlignmentIndicator(Receipt):
         self.source_dir1.std_compile(
             references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
         self.source_dir2.std_compile(
-            exclude="DPAI_RPM/**/*|ModuleDockingNodeNamed/**/*",
+            exclude=[
+                "DPAI_RPM/**/*",
+                "ModuleDockingNodeNamed/**/*",
+            ],
             references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll", self.source_dir1.output])
         self.source_dir3.std_compile(
             references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll", self.source_dir1.output, self.source_dir2.output])

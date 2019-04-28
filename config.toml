@@ -98,18 +98,6 @@ source = "https://github.com/UmbraSpaceIndustries/UmbraSpaceIndustries.git"
 [mods.USI_LS]
 source_type = "git"
 source = "https://github.com/UmbraSpaceIndustries/USI-LS.git"
-patch = '''
---- a/Source/USILifeSupport/LifeSupportMonitor.cs
-+++ b/Source/USILifeSupport/LifeSupportMonitor.cs
-@@ -1,7 +1,6 @@
- ﻿using System;
- using System.CodeDom;
- using System.Collections.Generic;
--using System.Data.SqlTypes;
- using System.IO;
- using System.Linq;
- using System.Reflection;
-'''
 
 [mods.Konstruction]
 source_type = "git"

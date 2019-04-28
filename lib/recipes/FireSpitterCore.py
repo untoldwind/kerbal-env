@@ -19,7 +19,14 @@ class FireSpitterCore(Receipt):
         rm(self.for_release_dir, "*.dll")
         rm(self.for_release_dir, "*.mdb")
         rm(self.for_release_dir, "*.pdb")
-        self.source_dir.std_compile(exclude="unused/*.cs|*Test.cs|FScrewTransfer.cs|FSattachPointUpdater.cs|FStoggleSurfaceAttach.cs",
+        self.source_dir.std_compile(
+            exclude=[
+                "unused/*.cs",
+                "*Test.cs",
+                "FScrewTransfer.cs",
+                "FSattachPointUpdater.cs",
+                "FStoggleSurfaceAttach.cs",
+            ],
             references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
 
     def can_install(self):

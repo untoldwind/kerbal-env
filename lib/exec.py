@@ -100,9 +100,16 @@ class SourceDir:
         if len(references) > 0:
             command.append("/reference:%s" %
                            ",".join([str(reference) for reference in references]))
-        files = set(self.path.glob(include))
-        if exclude:
-            for glob in exclude.split('|'):
+        files = set()
+        if isinstance(include, str):
+            files |= set(self.path.glob(include))
+        elif isinstance(include, list):
+            for glob in include:
+                files |= set(self.path.glob(glob))
+        if isinstance(exclude, str):
+            files -= set(self.path.glob(exclude))
+        elif isinstance(exclude, list):
+            for glob in exclude:
                 files -= set(self.path.glob(glob))
         command += [str(file.relative_to(self.path)) for file in files]
         run_command(cwd=self.path, command=command)
