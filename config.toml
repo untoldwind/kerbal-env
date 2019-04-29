@@ -300,3 +300,8 @@ enabled = false
 source_type = "git"
 source = "https://github.com/MOARdV/DistantObject.git"
 enabled = false
+
+[mods.CustomAsteroids]
+source_type = "git"
+source = "https://github.com/Starstrider42/Custom-Asteroids.git"
+enabled = false
