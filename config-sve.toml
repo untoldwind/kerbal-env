@@ -1,0 +1,10 @@
+include = ["config.toml"]
+
+[mods.EnvironmentalVisualEnhancements]
+enabled = true
+
+[mods.StockVisualEnhancements]
+enabled = true
+
+[mods.StockVisualEnhancements_HighRes]
+enabled = true

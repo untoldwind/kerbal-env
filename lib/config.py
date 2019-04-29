@@ -3,11 +3,22 @@ import toml
 from string import Template
 import pathlib
 
+def merge(source, dest):
+    for key, value in source.items():
+        if isinstance(value, dict):
+            node = dest.setdefault(key, {})
+            merge(value, node)
+        else:
+            dest[key] = value
+    return dest
 
 class Config:
     def __init__(self, file_name):
         with open(file_name) as file:
             self._config = toml.load(file)
+        if "include" in self._config:
+            for file_name in self._config["include"]:
+                self._config = merge(self._config, toml.load(file_name))
 
     @property
     def target_dir(self):
@@ -33,6 +44,8 @@ class Config:
     def mods(self):
         return {name: ModConfig(self.game_dir, mod_config) for name, mod_config in self._config["mods"].items()}
 
+    def dump(self):
+        return toml.dumps(self._config)
 
 class ModConfig:
     def __init__(self, game_dir, mod_config):

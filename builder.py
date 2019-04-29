@@ -24,6 +24,8 @@ def main(ctx, debug, config_file):
     ctx.ensure_object(Context)
     ctx.obj.debug = debug
     ctx.obj.config = Config(config_file)
+    if debug:
+        logging.debug("Effective configuration\n%s" % ctx.obj.config.dump())
 
 
 @click.command()
