@@ -8,3 +8,6 @@ enabled = true
 
 [mods.StockVisualEnhancements_HighRes]
 enabled = true
+
+[mods.DistantObject]
+enabled = true

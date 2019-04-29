@@ -295,3 +295,8 @@ enabled = false
 source_type = "git"
 source = "https://github.com/net-lisias-kspu/NavInstruments.git"
 enabled = false
+
+[mods.DistantObject]
+source_type = "git"
+source = "https://github.com/MOARdV/DistantObject.git"
+enabled = false
