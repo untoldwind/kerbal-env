@@ -1,7 +1,7 @@
 import logging
 import shutil
 from lib.exec import SourceDir
-from lib.utils import mkdir_p, rm_rf
+from lib.utils import mkdir_p, rm_rf, rm
 from lib.recipes import Receipt
 
 class AT_Utils(Receipt):
@@ -36,6 +36,7 @@ class AT_Utils(Receipt):
 
     def install(self):
         rm_rf(self.target_dir)
+        rm(self.project_dir.joinpath("GameData", "000_AT_Utils"), "*.ksp")
         shutil.copytree(self.project_dir.joinpath(
             "GameData", "000_AT_Utils"), self.target_dir)
 
