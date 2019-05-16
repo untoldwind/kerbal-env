@@ -247,7 +247,27 @@ source = "https://github.com/ChrisAdderley/NearFuturePropulsion.git"
 [mods.NearFutureSolar]
 source_type = "git"
 source = "https://github.com/ChrisAdderley/NearFutureSolar.git"
+
+[mods.NearFutureAeronautics]
+source_type = "git"
+source = "https://github.com/ChrisAdderley/NearFutureAeronautics.git"
+
+[mods.NearFutureConstruction]
+source_type = "git"
+source = "https://github.com/ChrisAdderley/NearFutureConstruction.git"
 enabled = false
+
+[mods.NearFutureLaunchVehicles]
+source_type = "git"
+source = "https://github.com/ChrisAdderley/NearFutureLaunchVehicles.git"
+
+[mods.KerbalActuators]
+source_type = "git"
+source = "https://github.com/Angel-125/KerbalActuators.git"
+
+[mods.DeployableEngines]
+source_type = "git"
+source = "https://github.com/ChrisAdderley/DeployableEngines.git"
 
 [mods.FilterExtension]
 source_type = "git"

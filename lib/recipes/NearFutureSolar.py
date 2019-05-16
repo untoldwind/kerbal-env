@@ -4,20 +4,24 @@ from lib.exec import SourceDir
 from lib.utils import mkdir_p, rm_rf, rm
 from lib.recipes import Receipt
 
-class B9PartSwitch(Receipt):
-    depends = ["ModuleManager"]
+
+class NearFutureSolar(Receipt):
+    depends = ["ModuleManager", "B9PartSwitch"]
 
     def __init__(self, game_dir, project_dir):
         super().__init__(game_dir, project_dir)
-        self.source_dir = SourceDir(game_dir, project_dir.joinpath("B9PartSwitch" ))
-        self.source_dir.output = project_dir.joinpath("GameData", "B9PartSwitch", "B9PartSwitch.dll")
-        self.target_dir = game_dir.joinpath("GameData", "B9PartSwitch")
+        self.source_dir = SourceDir(
+            game_dir, project_dir.joinpath("Source"))
+        self.plugins_dir = project_dir.joinpath(
+            "GameData", "NearFutureSolar", "Plugins")
+        self.source_dir.output = self.plugins_dir.joinpath(
+            "NearFutureSolar.dll")
+        self.target_dir = game_dir.joinpath("GameData", "NearFutureSolar")
 
     def build(self):
-        logging.info("  Build Release")
-        rm(self.project_dir.joinpath("GameData", "B9PartSwitch"), "*.ddl")
+        rm(self.plugins_dir, "*.dll")
         self.source_dir.std_compile(
-            exclude="**/SubtypePartFields.cs",
+            exclude="ModuleSolarPanelSecondaryAxis.cs",
             references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
 
     def can_install(self):
@@ -26,7 +30,7 @@ class B9PartSwitch(Receipt):
     def install(self):
         rm_rf(self.target_dir)
         shutil.copytree(self.project_dir.joinpath(
-            "GameData", "B9PartSwitch"), self.target_dir)
+            "GameData", "NearFutureSolar"), self.target_dir)
 
     def check_installed(self):
         return self.target_dir.exists()
