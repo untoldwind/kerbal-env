@@ -17,6 +17,8 @@ class GroundConstruction(Receipt):
         self.target_dir = game_dir.joinpath("GameData", "GroundConstruction")
         self.at_utils_lib = project_dir.parent.joinpath(
             "AT_Utils", "GameData", "000_AT_Utils", "Plugins", "000_AT_Utils.dll")
+        self.at_utils_ui_lib = project_dir.parent.joinpath(
+            "AT_Utils", "GameData", "000_AT_Utils", "Plugins", "0_00_AT_Utils_UI.dll")
         self.multianimators_lib = project_dir.parent.joinpath(
             "MultiAnimators", "obj", "002_MultiAnimators.dll")
 
@@ -28,7 +30,7 @@ class GroundConstruction(Receipt):
                 "Properties/AssemblyInfo-OTRC.cs",
                 "WorkshopModel/ProtoGroundWorkshop.cs",
             ],
-            references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll", self.at_utils_lib, self.multianimators_lib])
+            references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll", self.at_utils_lib, self.at_utils_ui_lib, self.multianimators_lib])
 
     def can_install(self):
         return self.source_dir.output.exists()

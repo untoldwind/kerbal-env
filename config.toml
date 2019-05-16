@@ -244,6 +244,10 @@ source = "https://github.com/ChrisAdderley/NearFutureElectrical.git"
 source_type = "git"
 source = "https://github.com/ChrisAdderley/NearFuturePropulsion.git"
 
+[mods.NearFutureSolar]
+source_type = "git"
+source = "https://github.com/ChrisAdderley/NearFutureSolar.git"
+enabled = false
 
 [mods.FilterExtension]
 source_type = "git"
