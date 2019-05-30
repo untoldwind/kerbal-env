@@ -41,6 +41,14 @@ class Config:
         return pathlib.Path(self._config["install"]["dlc1"]).expanduser()
 
     @property
+    def has_dlc2(self):
+        return "dlc2" in self._config["install"]
+
+    @property
+    def install_dlc2(self):
+        return pathlib.Path(self._config["install"]["dlc2"]).expanduser()
+
+    @property
     def mods(self):
         return {name: ModConfig(self.game_dir, mod_config) for name, mod_config in self._config["mods"].items()}
 

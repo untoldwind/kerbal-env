@@ -1,8 +1,9 @@
 target_dir = "~/KSP"
 
 [install]
-base = "~/Downloads/ksp-linux-1.7.0.zip"
-dlc1 = "~/Downloads/KSP-Making_History_Expansion-en-us-lin-1.7.0.zip"
+base = "~/Downloads/ksp-linux-1.7.1.zip"
+dlc1 = "~/Downloads/KSP-Making_History_Expansion-en-us-lin-1.7.1.zip"
+dlc2 = "~/Downloads/KSP-Breaking_Ground_Expansion-en-us-lin-1.0.0.zip"
 
 [mods.adopted]
 source_type = "adopted"
@@ -20,8 +21,21 @@ branch = "master"
 [mods.Kopernicus]
 source_type = "git"
 source = "https://github.com/Kopernicus/Kopernicus.git"
-tag = "release-1.7.0-1"
+#tag = "release-1.7.0-1"
 enabled = true
+patch = '''
+--- a/src/Kopernicus/Constants/CompatibilityChecker.cs
++++ b/src/Kopernicus/Constants/CompatibilityChecker.cs
+@@ -50,7 +50,7 @@ namespace Kopernicus.Constants
+         // Compatible version
+         internal const Int32 VERSION_MAJOR = 1;
+         internal const Int32 VERSION_MINOR = 7;
+-        internal const Int32 REVISION = 0;
++        internal const Int32 REVISION = 1;
+         internal const Int32 KOPERNICUS = 1;
+ 
+         public static Boolean IsCompatible()
+'''
 
 [mods.CustomBarnKit]
 source_type = "git"
