@@ -286,6 +286,7 @@ source = "https://github.com/ChrisAdderley/DeployableEngines.git"
 [mods.FilterExtension]
 source_type = "git"
 source = "https://github.com/linuxgurugamer/FilterExtension.git"
+enabled = false
 
 [mods.KramaxPluginReload]
 source_type = "git"
