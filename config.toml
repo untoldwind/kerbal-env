@@ -301,28 +301,6 @@ enabled = false
 [mods.OSEWorkshop]
 source_type = "git"
 source = "https://github.com/linuxgurugamer/Workshop.git"
-patch = """
---- a/Workshop/KIS/KISWrapper.cs
-+++ b/Workshop/KIS/KISWrapper.cs
-@@ -20,7 +20,7 @@ namespace Workshop.W_KIS
- 
-         public static float GetPartVolume(AvailablePart part)
- \t\t{
--            return _partUtilsImpl.GetPartVolume(part);
-+            return (float)_partUtilsImpl.GetPartVolume(part);
- \t\t}
- 
-                internal static void Initialize() //Assembly kisAssembly)
-@@ -126,7 +126,7 @@ namespace Workshop.W_KIS
- 
- \t\tpublic float GetContentVolume()
- \t\t{
--            return _moduleKISInventory.totalContentsVolume;
-+            return (float)_moduleKISInventory.totalContentsVolume;
- \t\t}
- 
-                public bool isFull()
-"""
 
 [mods.KramaxAutoPilot]
 source_type = "git"
