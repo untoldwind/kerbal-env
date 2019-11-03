@@ -18,7 +18,11 @@ class B9PartSwitch(Receipt):
         rm(self.project_dir.joinpath("GameData", "B9PartSwitch"), "*.ddl")
         self.source_dir.std_compile(
             exclude="**/SubtypePartFields.cs",
-            references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
+            references=["Assembly-CSharp.dll", 
+                        "Assembly-CSharp-firstpass.dll", 
+                        "UnityEngine.dll", 
+                        "UnityEngine.CoreModule.dll", 
+                        "UnityEngine.UI.dll"])
 
     def can_install(self):
         return self.source_dir.output.exists()

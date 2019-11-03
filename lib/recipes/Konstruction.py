@@ -23,7 +23,15 @@ class Konstruction(Receipt):
         rm(self.for_release_dir1, "*.mdb")
         rm(self.for_release_dir1, "*.pdb")
         self.source_dir.std_compile(
-            references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll", self.usitools_lib])
+            references=["Assembly-CSharp.dll", 
+                        "Assembly-CSharp-firstpass.dll", 
+                        "UnityEngine.dll", 
+                        "UnityEngine.CoreModule.dll", 
+                        "UnityEngine.AnimationModule.dll", 
+                        "UnityEngine.ImageConversionModule.dll",
+                        "UnityEngine.IMGUIModule.dll", 
+                        "UnityEngine.PhysicsModule.dll",
+                        "UnityEngine.UI.dll", self.usitools_lib])
 
     def can_install(self):
         return self.source_dir.output.exists()

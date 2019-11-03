@@ -17,7 +17,14 @@ class AT_Utils(Receipt):
         logging.info("  Build Release")
         self.ui_source_dir.std_compile(
             exclude="Assets/**/*.cs",
-            references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "KSPAssets.dll", "UnityEngine.dll", "UnityEngine.UI.dll"]
+            references=["Assembly-CSharp.dll", 
+                        "Assembly-CSharp-firstpass.dll", 
+                        "KSPAssets.dll", 
+                        "UnityEngine.dll", 
+                        "UnityEngine.CoreModule.dll", 
+                        "UnityEngine.InputLegacyModule.dll",
+                        "UnityEngine.UI.dll",
+                        "UnityEngine.UIModule.dll"]
         )
         self.source_dir.std_compile(
             exclude=[
@@ -28,7 +35,19 @@ class AT_Utils(Receipt):
                 "MultiAnimators/**/*.cs",
                 "Unity/**/*.cs",
             ],
-            references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "KSPAssets.dll", "UnityEngine.dll", "UnityEngine.UI.dll", self.ui_source_dir.output]
+            references=["Assembly-CSharp.dll",
+                        "Assembly-CSharp-firstpass.dll",
+                        "KSPAssets.dll", 
+                        "UnityEngine.dll",
+                        "UnityEngine.CoreModule.dll", 
+                        "UnityEngine.AudioModule.dll", 
+                        "UnityEngine.AnimationModule.dll", 
+                        "UnityEngine.InputLegacyModule.dll",
+                        "UnityEngine.ImageConversionModule.dll",
+                        "UnityEngine.IMGUIModule.dll", 
+                        "UnityEngine.PhysicsModule.dll",
+                        "UnityEngine.TextRenderingModule.dll",
+                        "UnityEngine.UI.dll", self.ui_source_dir.output]
         )
 
     def can_install(self):
