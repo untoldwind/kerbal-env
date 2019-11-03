@@ -17,7 +17,18 @@ class KerbalAlarmClock(Receipt):
     def build(self):
         logging.info("  Build Release")
         self.source_dir.std_compile(
-            references=["Assembly-CSharp.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
+            references=["Assembly-CSharp.dll", 
+                        "UnityEngine.dll", 
+                        "UnityEngine.CoreModule.dll",
+                        "UnityEngine.AnimationModule.dll",
+                        "UnityEngine.AudioModule.dll",
+                        "UnityEngine.IMGUIModule.dll",
+                        "UnityEngine.ImageConversionModule.dll",
+                        "UnityEngine.TextRenderingModule.dll",
+                        "UnityEngine.InputLegacyModule.dll",
+                        "UnityEngine.UnityWebRequestModule.dll",
+                        "UnityEngine.UnityWebRequestWWWModule.dll",
+                        "UnityEngine.UI.dll"])
 
     def can_install(self):
         return self.source_dir.output.exists()

@@ -9,7 +9,7 @@ class OSEWorkshop(Receipt):
 
     def __init__(self, game_dir, project_dir):
         super().__init__(game_dir, project_dir)
-        self.source_dir = SourceDir(game_dir, project_dir.joinpath("Workshop"))
+        self.source_dir = SourceDir(game_dir, project_dir.joinpath("Source", "Workshop", "Workshop"))
         self.source_dir.output = project_dir.joinpath("GameData", "Workshop", "Plugins", "Workshop.dll")
         self.target_dir = game_dir.joinpath("GameData", "Workshop")
         self.clickthrouh_lib = project_dir.parent.joinpath("ClickThroughBlocker", "GameData", "000_ClickThroughBlocker", "ClickThroughBlocker.dll")
@@ -21,7 +21,15 @@ class OSEWorkshop(Receipt):
         mkdir_p(self.project_dir.joinpath("GameData", "Workshop", "Plugins"));
         self.source_dir.std_compile(
             exclude="docs_project/**/*.cs",
-            references=[self.kis_lib, self.clickthrouh_lib, "Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
+            references=[self.kis_lib, self.clickthrouh_lib, 
+                        "Assembly-CSharp.dll", 
+                        "Assembly-CSharp-firstpass.dll", 
+                        "UnityEngine.dll",
+                        "UnityEngine.CoreModule.dll",
+                        "UnityEngine.AnimationModule.dll",
+                        "UnityEngine.IMGUIModule.dll",
+                        "UnityEngine.TextRenderingModule.dll",
+                        "UnityEngine.UI.dll"])
 
     def can_install(self):
         return self.source_dir.output.exists()

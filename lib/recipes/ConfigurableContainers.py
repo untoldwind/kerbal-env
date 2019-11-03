@@ -24,7 +24,12 @@ class ConfigurableContainers(Receipt):
     def build(self):
         logging.info("  Build Release")
         self.source_dir.std_compile(
-            references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll", self.at_utils_lib, self.aniso_lib])
+            references=["Assembly-CSharp.dll", 
+                        "Assembly-CSharp-firstpass.dll", 
+                        "UnityEngine.dll", 
+                        "UnityEngine.CoreModule.dll", 
+                        "UnityEngine.IMGUIModule.dll",
+                        "UnityEngine.UI.dll", self.at_utils_lib, self.aniso_lib])
 
     def can_install(self):
         return self.source_dir.output.exists()
