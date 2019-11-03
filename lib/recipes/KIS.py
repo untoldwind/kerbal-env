@@ -11,13 +11,23 @@ class KIS(Receipt):
         super().__init__(game_dir, project_dir)
         self.source_dir = SourceDir(game_dir, project_dir.joinpath("Source" ))
         self.source_dir.output = project_dir.joinpath("Binaries", "KIS.dll")
-        self.ksp_dev_lib = project_dir.parent.joinpath("KSPDev_Utils", "Binaries", "KSPDev_Utils.1.2.dll")
+        self.ksp_dev_lib = project_dir.parent.joinpath("KSPDev_Utils", "Binaries", "KSPDev_Utils.2.0.dll")
         self.target_dir = game_dir.joinpath("GameData", "KIS")
 
     def build(self):
         logging.info("  Build Release")
         self.source_dir.std_compile(
-            references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll", self.ksp_dev_lib])
+            references=["Assembly-CSharp.dll", 
+                        "Assembly-CSharp-firstpass.dll", 
+                        "UnityEngine.dll", 
+                        "UnityEngine.CoreModule.dll", 
+                        "UnityEngine.AnimationModule.dll", 
+                        "UnityEngine.AudioModule.dll", 
+                        "UnityEngine.IMGUIModule.dll", 
+                        "UnityEngine.InputLegacyModule.dll", 
+                        "UnityEngine.PhysicsModule.dll", 
+                        "UnityEngine.TextRenderingModule.dll", 
+                        "UnityEngine.UI.dll", self.ksp_dev_lib])
 
     def can_install(self):
         return self.source_dir.output.exists()

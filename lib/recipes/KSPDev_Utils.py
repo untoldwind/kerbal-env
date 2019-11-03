@@ -6,14 +6,26 @@ class KSPDev_Utils(Receipt):
     def __init__(self, game_dir, project_dir):
         super().__init__(game_dir, project_dir)
         self.source_dir = SourceDir(game_dir, project_dir.joinpath("Source"))
-        self.source_dir.output = project_dir.joinpath("Binaries", "KSPDev_Utils.1.2.dll")
-        self.source_dir.doc_output = project_dir.joinpath("Binaries", "KSPDev_Utils.1.2.xml")
+        self.source_dir.output = project_dir.joinpath("Binaries", "KSPDev_Utils.2.0.dll")
+        self.source_dir.doc_output = project_dir.joinpath("Binaries", "KSPDev_Utils.2.0.xml")
 
     def build(self):
         logging.info("  Build Release")
         self.source_dir.std_compile(
             exclude="docs_project/**/*.cs",
-            references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
+            references=["Assembly-CSharp.dll", 
+                        "Assembly-CSharp-firstpass.dll", 
+                        "UnityEngine.dll", 
+                        "UnityEngine.CoreModule.dll", 
+                        "UnityEngine.AssetBundleModule.dll",
+                        "UnityEngine.AudioModule.dll",
+                        "UnityEngine.InputLegacyModule.dll",
+                        "UnityEngine.PhysicsModule.dll",
+                        "UnityEngine.IMGUIModule.dll",
+                        "UnityEngine.TextRenderingModule.dll",
+                        "UnityEngine.VehiclesModule.dll",
+                        "UnityEngine.UI.dll"
+                        ])
 
     def can_install(self):
         return self.source_dir.output.exists()
