@@ -15,7 +15,7 @@ class HyperEdit(Receipt):
         mkdir_p(output_dir)
         self.source_dir.output = output_dir.joinpath("HyperEdit.dll")
         self.source_dir.std_compile(
-            references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
+            references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.CoreModule.dll", "UnityEngine.AnimationModule.dll", "UnityEngine.InputLegacyModule.dll", "UnityEngine.IMGUIModule.dll", "UnityEngine.PhysicsModule.dll", "UnityEngine.UI.dll", "UnityEngine.JSONSerializeModule.dll"])
 
     def can_install(self):
         return self.project_dir.joinpath("obj", "HyperEdit.dll").exists()
