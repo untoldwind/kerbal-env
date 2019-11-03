@@ -124,7 +124,8 @@ branch = "release"
 
 [mods.EnvironmentalVisualEnhancements]
 source_type = "http"
-source = "https://github.com/WazWaz/EnvironmentalVisualEnhancements/releases/download/EVE-1.4.2-2/EnvironmentalVisualEnhancements-1.4.2.2.zip"
+source = "https://github.com/WazWaz/EnvironmentalVisualEnhancements/releases/download/EVE-1.8.0-2/EnvironmentalVisualEnhancements-${version}.zip"
+version = "1.8.0.2"
 enabled = false
 
 [mods.StockVisualEnhancements]
