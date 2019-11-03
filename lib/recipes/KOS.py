@@ -41,7 +41,20 @@ class KOS(Receipt):
         kos_src.resgen(src="Properties/Resources.resx",
                        dest="obj/kOS.Properties.Resources.resources")
         kos_src.std_compile(references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll",
-                                        "UnityEngine.dll", "UnityEngine.UI.dll", kos_safe_src.output])
+                                        "UnityEngine.dll", 
+                                        "UnityEngine.CoreModule.dll", 
+                                        "UnityEngine.AnimationModule.dll",
+                                        "UnityEngine.AudioModule.dll",
+                                        "UnityEngine.InputLegacyModule.dll",
+                                        "UnityEngine.ImageConversionModule.dll",
+                                        "UnityEngine.PhysicsModule.dll",
+                                        "UnityEngine.UI.dll",
+                                        "UnityEngine.IMGUIModule.dll",
+                                        "UnityEngine.TextRenderingModule.dll",
+                                        "UnityEngine.UnityWebRequestAudioModule.dll",
+                                        "UnityEngine.UnityWebRequestModule.dll",
+                                        "UnityEngine.UnityWebRequestWWWModule.dll",
+                                         kos_safe_src.output])
 
         logging.info("  Build kOS.Safe.Test")
         test_dependencies = [

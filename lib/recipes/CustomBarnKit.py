@@ -16,7 +16,7 @@ class CustomBarnKit(Receipt):
         src_dir.output = target_dir.joinpath("CustomBarnKit.dll")
         logging.info("  Build Release")
         src_dir.std_compile(
-            references=["Assembly-CSharp.dll", "UnityEngine.dll", "UnityEngine.UI.dll"], extra_args=["/unsafe"])
+            references=["Assembly-CSharp.dll", "UnityEngine.dll", "UnityEngine.CoreModule.dll", "UnityEngine.InputLegacyModule.dll", "UnityEngine.UI.dll"], extra_args=["/unsafe"])
 
     def can_install(self):
         return self.project_dir.joinpath("bin", "CustomBarnKit.dll").exists()
