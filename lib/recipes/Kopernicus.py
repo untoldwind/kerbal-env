@@ -6,6 +6,8 @@ from lib.recipes import Receipt
 
 
 class Kopernicus(Receipt):
+    depends = ["ModuleManager"]
+
     def __init__(self, game_dir, project_dir):
         super().__init__(game_dir, project_dir)
 
@@ -16,6 +18,7 @@ class Kopernicus(Receipt):
                     "git", "submodule", "update"])
         logging.info("  nuget restore")
         run_command(cwd=self.project_dir,  command=["nuget", "restore"])
+        run_command(cwd=self.project_dir.joinpath("src", "external", "config-parser"),  command=["nuget", "restore"])
         logging.info("  Build Release")
         run_command(cwd=self.project_dir,  command=[
                     "msbuild", "/target:Build", "/property:Configuration=Release"])

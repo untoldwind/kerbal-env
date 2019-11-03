@@ -18,7 +18,7 @@ class ModuleManager(Receipt):
         main_src_dir.output = target_dir.joinpath("ModuleManager.dll")
         logging.info("  Build Release")
         main_src_dir.std_compile(
-            references=["Assembly-CSharp.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
+            references=["Assembly-CSharp.dll", "UnityEngine.dll", "UnityEngine.CoreModule.dll", "UnityEngine.Physics2DModule.dll", "UnityEngine.UI.dll", "UnityEngine.InputLegacyModule.dll", "UnityEngine.ImageConversionModule.dll", "UnityEngine.UIModule.dll", "UnityEngine.TextRenderingModule.dll"])
 
     def can_install(self):
         return self.project_dir.joinpath("ModuleManager", "bin", "ModuleManager.dll").exists()
