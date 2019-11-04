@@ -30,7 +30,13 @@ class GroundConstruction(Receipt):
                 "Properties/AssemblyInfo-OTRC.cs",
                 "WorkshopModel/ProtoGroundWorkshop.cs",
             ],
-            references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll", self.at_utils_lib, self.at_utils_ui_lib, self.multianimators_lib])
+            references=["Assembly-CSharp.dll", 
+                        "Assembly-CSharp-firstpass.dll", 
+                        "UnityEngine.dll", 
+                        "UnityEngine.CoreModule.dll",                         
+                        "UnityEngine.IMGUIModule.dll", 
+                        "UnityEngine.PhysicsModule.dll",
+                        "UnityEngine.UI.dll", self.at_utils_lib, self.at_utils_ui_lib, self.multianimators_lib])
 
     def can_install(self):
         return self.source_dir.output.exists()

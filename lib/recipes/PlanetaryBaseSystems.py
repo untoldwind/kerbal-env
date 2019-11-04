@@ -18,6 +18,7 @@ class PlanetaryBaseSystems(Receipt):
         logging.info("  Build Release")
         rm(self.for_release_dir, "*.dll")
         self.source_dir.std_compile(
+            exclude=["StorageUpgrader.cs"],
             references=["Assembly-CSharp.dll", 
                         "Assembly-CSharp-firstpass.dll", 
                         "UnityEngine.dll", 
