@@ -18,10 +18,15 @@ def build_mod(name, config, update):
     elif update:
         update_project(build_dir, project_dir, name, config)
         apply_patch = True
-    if apply_patch and config.patch != None:
-        pset = patch.fromstring(config.patch.encode('utf-8'))
-        logging.info("Applying patch")
-        pset.apply(strip=1, root=project_dir)
+    if apply_patch:
+        if config.patch != None:
+            pset = patch.fromstring(config.patch.encode('utf-8'))
+            logging.info("Applying patch")
+            pset.apply(strip=1, root=project_dir)
+        elif config.patch_file != None:
+            pset = patch.fromfile(config.patch_file)
+            logging.info("Applying patch")
+            pset.apply(strip=0, root=project_dir)
     receipt = find_receipt(name, config.game_dir, project_dir)
     logging.info("Running build receipt: %s" % name)
     receipt.build()

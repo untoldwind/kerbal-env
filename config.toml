@@ -72,7 +72,7 @@ source = "https://github.com/ChrisAdderley/StationPartsExpansionRedux.git"
 [mods.KerbalAlarmClock]
 source_type = "git"
 source = "https://github.com/TriggerAu/KerbalAlarmClock.git"
-branch = "develop"
+patchFile = "patches/KerbalAlarmClock.patch"
 
 [mods.CommunityCategoryKit]
 source_type = "git"

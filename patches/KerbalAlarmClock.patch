@@ -1,0 +1,70 @@
+diff --git a/KerbalAlarmClock/KerbalAlarmClock.cs b/KerbalAlarmClock/KerbalAlarmClock.cs
+index cf1a6f5..c7a4607 100644
+--- a/KerbalAlarmClock/KerbalAlarmClock.cs
++++ b/KerbalAlarmClock/KerbalAlarmClock.cs
+@@ -619,7 +619,7 @@ namespace KerbalAlarmClock
+ 			ControlInputLocks();
+ 
+ 			//Now do the stuff to close the quick alarms window if you click off it
+-			if (_ShowQuickAdd && Event.current.type == EventType.mouseDown && !_WindowQuickAddRect.Contains(Event.current.mousePosition) && !WindowPosByActiveScene.Contains(Event.current.mousePosition))
++			if (_ShowQuickAdd && Event.current.type == EventType.MouseDown && !_WindowQuickAddRect.Contains(Event.current.mousePosition) && !WindowPosByActiveScene.Contains(Event.current.mousePosition))
+ 				_ShowQuickAdd = false;
+ 
+ 			//If Game is paused then update Earth Alarms for list drawing
+diff --git a/KerbalAlarmClock/KerbalAlarmClock_Window.cs b/KerbalAlarmClock/KerbalAlarmClock_Window.cs
+index a37c466..907b7d8 100644
+--- a/KerbalAlarmClock/KerbalAlarmClock_Window.cs
++++ b/KerbalAlarmClock/KerbalAlarmClock_Window.cs
+@@ -961,7 +961,7 @@ namespace KerbalAlarmClock
+                     }
+ 
+                     //watch for mousedown
+-                    if (Event.current.type == EventType.mouseDown && Event.current.button == 0)
++                    if (Event.current.type == EventType.MouseDown && Event.current.button == 0)
+                     {
+                         LogFormatted_DebugOnly("Resize Width Start");
+                         resizingWidth = true;
+@@ -1020,7 +1020,7 @@ namespace KerbalAlarmClock
+         private void OnGUIMouseEvents()
+         {
+             //kill the resize bools if mouse up
+-            if ((resizingWidth || resizingHeight || resizingBoth) && Event.current.type == EventType.mouseUp && Event.current.button == 0)
++            if ((resizingWidth || resizingHeight || resizingBoth) && Event.current.type == EventType.MouseUp && Event.current.button == 0)
+             {
+                 LogFormatted_DebugOnly("Resize Stop");
+                 resizingWidth = resizingHeight = resizingBoth = false;
+diff --git a/KerbalAlarmClock/KerbalAlarmClock_WindowDropDowns.cs b/KerbalAlarmClock/KerbalAlarmClock_WindowDropDowns.cs
+index e6010a4..2a96c71 100644
+--- a/KerbalAlarmClock/KerbalAlarmClock_WindowDropDowns.cs
++++ b/KerbalAlarmClock/KerbalAlarmClock_WindowDropDowns.cs
+@@ -550,7 +550,7 @@ namespace KerbalAlarmClock
+                 if (blnReturn) ListVisible = !ListVisible;
+ 
+                 //get the drawn button rectangle
+-                if (Event.current.type == EventType.repaint)
++                if (Event.current.type == EventType.Repaint)
+                 {
+                     rectButton = GUILayoutUtility.GetLastRect();
+                 }
+@@ -679,7 +679,7 @@ namespace KerbalAlarmClock
+ 
+             internal Boolean CloseOnOutsideClick()
+             {
+-                if (ListVisible && Event.current.type == EventType.mouseDown && !rectListBox.Contains(Event.current.mousePosition))
++                if (ListVisible && Event.current.type == EventType.MouseDown && !rectListBox.Contains(Event.current.mousePosition))
+                 {
+                     ListVisible = false;
+                     return true;
+diff --git a/KerbalAlarmClock/KerbalAlarmClock_WindowQuick.cs b/KerbalAlarmClock/KerbalAlarmClock_WindowQuick.cs
+index 87998f2..cb09ea6 100644
+--- a/KerbalAlarmClock/KerbalAlarmClock_WindowQuick.cs
++++ b/KerbalAlarmClock/KerbalAlarmClock_WindowQuick.cs
+@@ -81,7 +81,7 @@ namespace KerbalAlarmClock
+                 }
+                 _ShowQuickAdd = false;
+             }
+-            if (Event.current.type == EventType.repaint)
++            if (Event.current.type == EventType.Repaint)
+                 item.ButtonRect = GUILayoutUtility.GetLastRect();
+             GUI.Box(new Rect(item.ButtonRect.x + 8, item.ButtonRect.y + 3, 18, 14), item.Icon, new GUIStyle());
+ 

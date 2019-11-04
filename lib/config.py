@@ -91,6 +91,12 @@ class ModConfig:
         return None
 
     @property
+    def patch_file(self):
+        if "patchFile" in self._mod_config:
+            return self._mod_config["patchFile"]
+        return None
+
+    @property
     def checkout_is_tag(self):
         return "tag" in self._mod_config
 
