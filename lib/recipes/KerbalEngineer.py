@@ -22,9 +22,28 @@ class KerbalEngineer(Receipt):
         logging.info("  Build Release")
         rm(self.project_dir.joinpath("Output", "KerbalEngineer"), "*.dll")
         self.source_unity_dir.std_compile(
-            references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
+            references=["Assembly-CSharp.dll", 
+                        "Assembly-CSharp-firstpass.dll", 
+                        "UnityEngine.dll", 
+                        "UnityEngine.CoreModule.dll",                         
+                        "UnityEngine.TextRenderingModule.dll", 
+                        "UnityEngine.UI.dll",
+                        "UnityEngine.UIModule.dll",
+                       ])
         self.source_dir.std_compile(
-            references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll", self.source_unity_dir.output])
+            references=["Assembly-CSharp.dll",
+                        "Assembly-CSharp-firstpass.dll", 
+                        "UnityEngine.dll", 
+                        "UnityEngine.CoreModule.dll",                         
+                        "UnityEngine.AnimationModule.dll", 
+                        "UnityEngine.AssetBundleModule.dll",                         
+                        "UnityEngine.InputLegacyModule.dll", 
+                        "UnityEngine.IMGUIModule.dll", 
+                        "UnityEngine.PhysicsModule.dll", 
+                        "UnityEngine.TextRenderingModule.dll", 
+                        "UnityEngine.UI.dll",
+                        "UnityEngine.UIModule.dll",
+                        self.source_unity_dir.output])
 
     def can_install(self):
         return self.source_dir.output.exists() and self.source_unity_dir.output.exists()

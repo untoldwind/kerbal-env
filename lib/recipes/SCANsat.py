@@ -17,9 +17,23 @@ class SCANsat(Receipt):
         self.source_dir.output = plugins_dir.joinpath("SCANsat.dll")
         self.source_unity_dir.output = plugins_dir.joinpath("SCANsat.Unity.dll")
         self.source_unity_dir.std_compile(
-            references=["UnityEngine.dll", "UnityEngine.UI.dll"])
+            references=["UnityEngine.dll", 
+                        "UnityEngine.CoreModule.dll",
+                        "UnityEngine.InputLegacyModule.dll", 
+                        "UnityEngine.UI.dll",
+                        "UnityEngine.UIModule.dll"])
         self.source_dir.std_compile(
-            references=["Assembly-CSharp.dll", "UnityEngine.dll", "UnityEngine.UI.dll", self.source_unity_dir.output])
+            references=["Assembly-CSharp.dll", 
+                        "UnityEngine.dll", 
+                        "UnityEngine.CoreModule.dll",
+                        "UnityEngine.AnimationModule.dll", 
+                        "UnityEngine.AssetBundleModule.dll",                         
+                        "UnityEngine.InputLegacyModule.dll", 
+                        "UnityEngine.ImageConversionModule.dll",
+                        "UnityEngine.IMGUIModule.dll", 
+                        "UnityEngine.TextRenderingModule.dll", 
+                        "UnityEngine.UI.dll", 
+                        "UnityEngine.UIModule.dll", self.source_unity_dir.output])
 
     def can_install(self):
         plugins_dir = self.project_dir.joinpath("SCANassets", "Plugins")
