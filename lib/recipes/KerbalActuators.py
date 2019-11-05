@@ -25,7 +25,17 @@ class KerbalActuators(Receipt):
                 "WBIAirParkPartModule.cs",
                 "Controllers/WBIRCSPropSpinner.cs",
             ],
-            references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
+            references=["Assembly-CSharp.dll", 
+                        "Assembly-CSharp-firstpass.dll", 
+                        "UnityEngine.dll", 
+                        "UnityEngine.CoreModule.dll",
+                        "UnityEngine.AnimationModule.dll",
+                        "UnityEngine.IMGUIModule.dll",
+                        "UnityEngine.ImageConversionModule.dll",
+                        "UnityEngine.InputLegacyModule.dll",
+                        "UnityEngine.PhysicsModule.dll",
+                        "UnityEngine.TextRenderingModule.dll",
+                        "UnityEngine.UI.dll"])
 
     def can_install(self):
         return self.source_dir.output.exists()
