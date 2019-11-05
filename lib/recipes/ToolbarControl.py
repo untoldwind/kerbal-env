@@ -17,7 +17,15 @@ class ToolbarControl(Receipt):
     def build(self):
         logging.info("  Build Release API")
         self.source_dir.std_compile(
-            references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll", self.clickthrouh_lib])
+            references=["Assembly-CSharp.dll", 
+                        "Assembly-CSharp-firstpass.dll", 
+                        "UnityEngine.dll", 
+                        "UnityEngine.CoreModule.dll", 
+                        "UnityEngine.AnimationModule.dll",
+                        "UnityEngine.ImageConversionModule.dll",
+                        "UnityEngine.IMGUIModule.dll",
+                        "UnityEngine.InputLegacyModule.dll", 
+                        "UnityEngine.UI.dll", self.clickthrouh_lib])
 
     def can_install(self):
         return self.source_dir.output.exists()

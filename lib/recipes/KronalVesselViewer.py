@@ -23,7 +23,18 @@ class KronalVesselViewer(Receipt):
                                dest="obj/KronalVesselViewer.Properties.Resources.resources")
         self.source_dir.std_compile(
             exclude=["Assembly*.cs", "KSVersion.cs"],
-            references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll", self.clickthrouh_lib, self.toolbarcontrol_lib])
+            references=["Assembly-CSharp.dll", 
+                        "Assembly-CSharp-firstpass.dll", 
+                        "UnityEngine.dll", 
+                        "UnityEngine.CoreModule.dll", 
+                        "UnityEngine.AssetBundleModule.dll",
+                        "UnityEngine.IMGUIModule.dll",
+                        "UnityEngine.ImageConversionModule.dll",
+                        "UnityEngine.InputLegacyModule.dll", 
+                        "UnityEngine.PhysicsModule.dll",
+                        "UnityEngine.TextRenderingModule.dll",
+                        "UnityEngine.UnityWebRequestWWWModule.dll",                        
+                        "UnityEngine.UI.dll", self.clickthrouh_lib, self.toolbarcontrol_lib])
 
     def can_install(self):
         return self.source_dir.output.exists()

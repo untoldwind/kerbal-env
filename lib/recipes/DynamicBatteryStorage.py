@@ -15,7 +15,17 @@ class DynamicBatteryStorage(Receipt):
     def build(self):
         rm(self.plugins_dir, "*.dll")
         self.source_dir.std_compile(
-            references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
+            exclude=["DynamicBatteryStorage/Handlers/Power/SSTUPowerHandlers.cs"],
+            references=["Assembly-CSharp.dll", 
+                        "Assembly-CSharp-firstpass.dll", 
+                        "UnityEngine.dll", 
+                        "UnityEngine.CoreModule.dll", 
+                        "UnityEngine.AnimationModule.dll",
+                        "UnityEngine.IMGUIModule.dll",
+                        "UnityEngine.InputLegacyModule.dll", 
+                        "UnityEngine.InputModule.dll", 
+                        "UnityEngine.TextRenderingModule.dll",
+                        "UnityEngine.UI.dll"])
 
     def can_install(self):
         return self.source_dir.output.exists()

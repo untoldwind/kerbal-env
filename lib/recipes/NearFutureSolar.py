@@ -22,7 +22,13 @@ class NearFutureSolar(Receipt):
         rm(self.plugins_dir, "*.dll")
         self.source_dir.std_compile(
             exclude="ModuleSolarPanelSecondaryAxis.cs",
-            references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
+            references=["Assembly-CSharp.dll", 
+                        "Assembly-CSharp-firstpass.dll", 
+                        "UnityEngine.dll", 
+                        "UnityEngine.CoreModule.dll",
+                        "UnityEngine.AnimationModule.dll",
+                        "UnityEngine.PhysicsModule.dll",
+                        "UnityEngine.UI.dll"])
 
     def can_install(self):
         return self.source_dir.output.exists()

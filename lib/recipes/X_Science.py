@@ -17,7 +17,18 @@ class X_Science(Receipt):
         self.source_dir.resources = ["icons/%s,ScienceChecklist.icons.%s" % (icon.name, icon.name) for icon in self.source_dir.joinpath("icons").glob("*.png")]
         self.source_dir.std_compile(
             exclude="docs_project/**/*.cs",
-            references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
+            references=["Assembly-CSharp.dll", 
+                        "Assembly-CSharp-firstpass.dll", 
+                        "UnityEngine.dll", 
+                        "UnityEngine.CoreModule.dll", 
+                        "UnityEngine.AnimationModule.dll",
+                        "UnityEngine.AudioModule.dll",
+                        "UnityEngine.ImageConversionModule.dll",
+                        "UnityEngine.IMGUIModule.dll",
+                        "UnityEngine.InputLegacyModule.dll", 
+                        "UnityEngine.PhysicsModule.dll",
+                        "UnityEngine.TextRenderingModule.dll",
+                        "UnityEngine.UI.dll"])
 
     def can_install(self):
         return self.source_dir.output.exists()

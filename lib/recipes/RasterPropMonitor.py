@@ -17,7 +17,14 @@ class RasterPropMonitor(Receipt):
         logging.info("  Build Release")
         self.source_dir.std_compile(
             exclude="Core/RPMVCVariableToObject.cs",
-            references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll"])
+            references=["Assembly-CSharp.dll", 
+                        "Assembly-CSharp-firstpass.dll", 
+                        "UnityEngine.dll", 
+                        "UnityEngine.CoreModule.dll",
+                        "UnityEngine.AnimationModule.dll",
+                        "UnityEngine.AudioModule.dll",
+                        "UnityEngine.TextRenderingModule.dll",
+                        "UnityEngine.UI.dll"])
 
     def can_install(self):
         return self.source_dir.output.exists()

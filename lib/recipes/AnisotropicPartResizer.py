@@ -22,7 +22,11 @@ class AnisotropicPartResizer(Receipt):
         mkdir_p(self.project_dir.joinpath("obj"))
         logging.info("  Build Release")
         self.source_dir.std_compile(
-            references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.UI.dll", self.at_utils_lib])
+            references=["Assembly-CSharp.dll", 
+                        "Assembly-CSharp-firstpass.dll", 
+                        "UnityEngine.dll", 
+                        "UnityEngine.CoreModule.dll", 
+                        "UnityEngine.UI.dll", self.at_utils_lib])
 
     def can_install(self):
         return self.source_dir.output.exists()
