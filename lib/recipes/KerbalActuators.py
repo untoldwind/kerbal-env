@@ -44,6 +44,7 @@ class KerbalActuators(Receipt):
         rm_rf(self.target_dir)
         shutil.copytree(self.project_dir.joinpath(
             "GameData", "WildBlueIndustries", "001KerbalActuators"), self.target_dir)
+        rm(self.target_dir, "MiniAVC.dll")
 
     def check_installed(self):
         return self.target_dir.exists()
