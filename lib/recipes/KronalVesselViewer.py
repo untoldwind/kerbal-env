@@ -10,7 +10,7 @@ class KronalVesselViewer(Receipt):
     def __init__(self, game_dir, project_dir):
         super().__init__(game_dir, project_dir)
         self.source_dir = SourceDir(game_dir, project_dir.joinpath("KronalVesselViewer" ))
-        self.source_dir.output = project_dir.joinpath("GameData","KronalVesselViewer", "KronalVesselViewer.dll")
+        self.source_dir.output = project_dir.joinpath("GameData","KronalVesselViewer", "Plugins", "KronalVesselViewer.dll")
         self.target_dir = game_dir.joinpath("GameData", "KronalVesselViewer")
         self.kas_lib = project_dir.parent.joinpath("KAS", "LEGACY", "Plugins", "KAS.dll")
         self.clickthrouh_lib = project_dir.parent.joinpath("ClickThroughBlocker", "GameData", "000_ClickThroughBlocker", "ClickThroughBlocker.dll")

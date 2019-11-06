@@ -1,0 +1,25 @@
+diff --git a/GameData/DynamicBatteryStorage/Plugins/DynamicBatteryStorage.dll b/GameData/DynamicBatteryStorage/Plugins/DynamicBatteryStorage.dll
+index 17bf5f6..0e1bd5e 100644
+Binary files a/GameData/DynamicBatteryStorage/Plugins/DynamicBatteryStorage.dll and b/GameData/DynamicBatteryStorage/Plugins/DynamicBatteryStorage.dll differ
+diff --git a/Source/DynamicBatteryStorage/Handlers/Power/KopernicusPowerHandlers.cs b/Source/DynamicBatteryStorage/Handlers/Power/KopernicusPowerHandlers.cs
+index 93ac8db..56c6be3 100644
+--- a/Source/DynamicBatteryStorage/Handlers/Power/KopernicusPowerHandlers.cs
++++ b/Source/DynamicBatteryStorage/Handlers/Power/KopernicusPowerHandlers.cs
+@@ -3,6 +3,7 @@ using System.Collections.Generic;
+ using System.Linq;
+ using System.Text;
+ using UnityEngine;
++using System.Reflection;
+ 
+ 
+ namespace DynamicBatteryStorage
+@@ -19,7 +20,8 @@ namespace DynamicBatteryStorage
+     public override bool Initialize(PartModule pm)
+     {
+       base.Initialize(pm);
+-      panel = (ModuleDeployableSolarPanel)pm;
++      var panelField = pm.GetType().GetField("SP", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
++      panel = (ModuleDeployableSolarPanel)panelField.GetValue(pm);
+       return true;
+     }
+ 

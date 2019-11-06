@@ -242,6 +242,7 @@ source = "https://github.com/UmbraSpaceIndustries/MKS.git"
 source_type = "git"
 source = "https://github.com/ChrisAdderley/DynamicBatteryStorage.git"
 branch = "dev"
+patchFile = "patches/DynamicBatteryStorage.patch"
 
 [mods.NearFutureElectrical]
 source_type = "git"
