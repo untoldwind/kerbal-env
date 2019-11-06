@@ -9,11 +9,12 @@ class ClickThroughBlocker(Receipt):
     def __init__(self, game_dir, project_dir):
         super().__init__(game_dir, project_dir)
         self.source_dir = SourceDir(game_dir, project_dir.joinpath("ClickThroughBlocker" ))
-        self.source_dir.output = project_dir.joinpath("GameData", "000_ClickThroughBlocker", "ClickThroughBlocker.dll")
+        self.source_dir.output = project_dir.joinpath("GameData", "000_ClickThroughBlocker", "Plugins", "ClickThroughBlocker.dll")
         self.target_dir = game_dir.joinpath("GameData", "000_ClickThroughBlocker")
 
     def build(self):
         logging.info("  Build Release")
+        mkdir_p(self.project_dir.joinpath("GameData", "000_ClickThroughBlocker", "Plugins"));
         self.source_dir.std_compile(
             references=["Assembly-CSharp.dll",
                         "Assembly-CSharp-firstpass.dll",

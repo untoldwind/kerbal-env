@@ -16,8 +16,8 @@ class SpaceTuxLibrary(Receipt):
         self.source_dir_parthighlighter = SourceDir(game_dir, project_dir.joinpath("KSP_PartHighlighter"))
         self.source_dir_parthighlighter.output = project_dir.joinpath("GameData", "SpaceTuxLibrary", "Plugins", "KSP_PartHighlighter.dll")
         self.target_dir = game_dir.joinpath("GameData", "SpaceTuxLibrary")
-        self.clickthrouh_lib = project_dir.parent.joinpath("ClickThroughBlocker", "GameData", "000_ClickThroughBlocker", "ClickThroughBlocker.dll")
-        self.toolbarcontrol_lib = project_dir.parent.joinpath("ToolbarControl", "GameData", "001_ToolbarControl", "ToolbarControl.dll")
+        self.clickthrouh_lib = project_dir.parent.joinpath("ClickThroughBlocker", "GameData", "000_ClickThroughBlocker", "Plugins", "ClickThroughBlocker.dll")
+        self.toolbarcontrol_lib = project_dir.parent.joinpath("ToolbarControl", "GameData", "001_ToolbarControl", "Plugins", "ToolbarControl.dll")
 
     def build(self):
         logging.info("  Build Release KSP_Log")

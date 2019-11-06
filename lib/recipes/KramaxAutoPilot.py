@@ -12,8 +12,8 @@ class KramaxAutoPilot(Receipt):
         self.source_dir = SourceDir(game_dir, project_dir.joinpath("KramaxAutoPilot"))
         self.source_dir.output = self.plugin_dir.joinpath("KramaxAutoPilot.dll")
         self.target_dir = game_dir.joinpath("GameData", "KramaxAutoPilot")
-        self.clickthrouh_lib = project_dir.parent.joinpath("ClickThroughBlocker", "GameData", "000_ClickThroughBlocker", "ClickThroughBlocker.dll")
-        self.toolbarcontrol_lib = project_dir.parent.joinpath("ToolbarControl", "GameData", "001_ToolbarControl", "ToolbarControl.dll")
+        self.clickthrouh_lib = project_dir.parent.joinpath("ClickThroughBlocker", "GameData", "000_ClickThroughBlocker", "Plugins", "ClickThroughBlocker.dll")
+        self.toolbarcontrol_lib = project_dir.parent.joinpath("ToolbarControl", "GameData", "001_ToolbarControl", "Plugins", "ToolbarControl.dll")
 
     def build(self):
         rm(self.plugin_dir, "*.dll")

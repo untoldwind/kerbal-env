@@ -12,13 +12,13 @@ class OSEWorkshop(Receipt):
         self.source_dir = SourceDir(game_dir, project_dir.joinpath("Workshop"))
         self.source_dir.output = project_dir.joinpath("GameData", "Workshop", "Plugins", "Workshop.dll")
         self.target_dir = game_dir.joinpath("GameData", "Workshop")
-        self.clickthrouh_lib = project_dir.parent.joinpath("ClickThroughBlocker", "GameData", "000_ClickThroughBlocker", "ClickThroughBlocker.dll")
+        self.clickthrouh_lib = project_dir.parent.joinpath("ClickThroughBlocker", "GameData", "000_ClickThroughBlocker", "Plugins", "ClickThroughBlocker.dll")
         self.ksp_dev_lib = project_dir.parent.joinpath("KSPDev_Utils", "Binaries", "KSPDev_Utils.2.0.dll")
         self.kis_lib = project_dir.parent.joinpath("KIS", "Binaries", "KIS.dll")
         self.ksp_log_lib = project_dir.parent.joinpath("SpaceTuxLibrary", "GameData", "SpaceTuxLibrary", "Plugins", "KSP_Log.dll")
         self.ksp_color_picker_lib = project_dir.parent.joinpath("SpaceTuxLibrary", "GameData", "SpaceTuxLibrary", "Plugins", "KSP_ColorPicker.dll")
         self.ksp_part_highlighter_lib = project_dir.parent.joinpath("SpaceTuxLibrary", "GameData", "SpaceTuxLibrary", "Plugins", "KSP_PartHighlighter.dll")
-        self.toolbarcontrol_lib = project_dir.parent.joinpath("ToolbarControl", "GameData", "001_ToolbarControl", "ToolbarControl.dll")
+        self.toolbarcontrol_lib = project_dir.parent.joinpath("ToolbarControl", "GameData", "001_ToolbarControl", "Plugins", "ToolbarControl.dll")
 
     def build(self):
         logging.info("  Build Release")
