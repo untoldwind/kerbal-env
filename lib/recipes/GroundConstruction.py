@@ -29,6 +29,7 @@ class GroundConstruction(Receipt):
                 "OneTimeResourceConverter.cs",
                 "Properties/AssemblyInfo-OTRC.cs",
                 "WorkshopModel/ProtoGroundWorkshop.cs",
+                "GC.UI/AssemblyInfo.cs",
             ],
             references=["Assembly-CSharp.dll", 
                         "Assembly-CSharp-firstpass.dll", 
