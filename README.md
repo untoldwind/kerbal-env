@@ -9,9 +9,8 @@ Contrary to CKAN the idea is to build everything.
   * mono: "mono" + "msbuild-stable" on archlinux
     * If you need an IDE you might also install "monodevelop", thought a good editor and command-line should suffice.
 * On Windows:
-  * Command-line version of the C# compiler (csc.exe), either by installing the Microsoft build tools (VisualStudio) or
-     `nuget install Microsoft.Net.Compilers`
-
+  * Command-line version of the C# compiler (csc.exe), easiest would be to install the necessary packages from the Visual Studio 2019 installer.
+  * It might be necessary to install nuget manually.
 * python >= 3.5
 
 # Setup python venv
