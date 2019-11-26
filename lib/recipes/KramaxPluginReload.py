@@ -16,6 +16,7 @@ class KramaxPluginReload(Receipt):
     def build(self):
         rm(self.plugin_dir, "*.dll")
         rm(self.plugin_dir, "*.pdb")
+        mkdir_p(self.plugin_dir)
         self.source_dir_extensions.std_compile(
             exclude="ReleaseReloadableMonoBehaviour.cs",
             references=["Assembly-CSharp.dll", "Assembly-CSharp-firstpass.dll", "UnityEngine.dll", "UnityEngine.CoreModule.dll", "UnityEngine.InputLegacyModule.dll", "UnityEngine.IMGUIModule.dll", "UnityEngine.UI.dll"])

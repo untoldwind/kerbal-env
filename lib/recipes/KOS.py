@@ -1,5 +1,6 @@
 import logging
 import shutil
+import os
 from lib.exec import SourceDir
 from lib.utils import ln_s, rm_rf, rm
 from lib.recipes import Receipt
@@ -72,8 +73,9 @@ class KOS(Receipt):
             shutil.copy(test_dependency, test_target)
 
         logging.info("  Run tests")
-        src_dir.run("mono", "--runtime=3.5",
-                    "./packages/NUnit.Runners.2.6.4/tools/nunit-console.exe", test_src.output)
+        if os.name != "nt":
+            src_dir.run("mono", "--runtime=3.5",
+                        "./packages/NUnit.Runners.2.6.4/tools/nunit-console.exe", test_src.output)
 
     def can_install(self):
          bin_target = self.project_dir.joinpath("Resources", "GameData", "kOS", "Plugins")

@@ -1,0 +1,25 @@
+target_dir = "C:/Kerbal Space Program"
+
+[install]
+base = "~/Downloads/ksp-linux-1.8.1.zip"
+
+[mods.adopted]
+source_type = "adopted"
+
+[mods.ModuleManager]
+source_type = "git"
+source = "https://github.com/sarbian/ModuleManager.git"
+branch = "master"
+
+[mods.KOS]
+source_type = "git"
+source = "https://github.com/KSP-KOS/KOS.git"
+branch = "master"
+
+[mods.KramaxPluginReload]
+source_type = "git"
+source = "https://github.com/untoldwind/KramaxPluginReload.git"
+
+[mods.HyperEdit]
+source_type = "git"
+source = "https://github.com/Ezriilc/HyperEdit.git"

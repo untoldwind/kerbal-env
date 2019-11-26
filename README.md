@@ -4,17 +4,32 @@ Contrary to CKAN the idea is to build everything.
 
 # Requirements
 
-* Kerbal(obviously) >= 1.7.0
-* mono: "mono" + "msbuild-stable" on archlinux
-  * If you need an IDE you might also install "monodevelop", thought a good editor and command-line should suffice.
+* Kerbal(obviously) >= 1.8.0
+* On Linux:
+  * mono: "mono" + "msbuild-stable" on archlinux
+    * If you need an IDE you might also install "monodevelop", thought a good editor and command-line should suffice.
+* On Windows:
+  * Command-line version of the C# compiler (csc.exe), either by installing the Microsoft build tools (VisualStudio) or
+     `nuget install Microsoft.Net.Compilers`
+
 * python >= 3.5
 
 # Setup python venv
 
+On Windows (in regular Commanline cmd.exe)
+
+```
+python -m venv .venv
+.venv\Scripts\activate.bat
+pip install -r requirements.txt
+```
+
+On Linux:
+
 ```
 python -m venv .venv
 source .venv/bin/activate
-pip install - r requirements.txt
+pip install -r requirements.txt
 ```
 
 To reactivate the environment you always have to perform
@@ -28,8 +43,15 @@ source .venv/bin/activate
 
 Look at the help first
 ```
+python builder.py --help
+```
+
+On Linux you may also just use
+
+```
 ./builder.py --help
 ```
+
 
 Also take a look at the "config.toml" file. You might want to modify that according to your needs.
 
@@ -40,6 +62,8 @@ The following commands are currently supported:
 Installs the game at the location definied in the "config.toml". Of course you need to purchase it first and download the zip files from the Kerbal homepage.
 
 Please do not use pritated software. The Squad team developed a fantastic game and deserve your contribution.
+
+Note: This only works with the portable .zip version of the game. When using the windows-installer this step is entirely unnecessary.
 
 ## list-mods
 

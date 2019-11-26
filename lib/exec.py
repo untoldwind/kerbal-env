@@ -1,5 +1,6 @@
 import subprocess
 import logging
+import os
 from lib.utils import mkdir_p
 
 
@@ -117,8 +118,11 @@ class SourceDir:
     def std_compile(self, include="**/*.cs", exclude=None, references=[], extra_args=[]):
         std_libs = ["System.dll", "System.Core.dll",
                     "System.Xml.dll", "mscorlib.dll"]
-        self.compile_all(output=self._output, include=include, exclude=exclude, doc=self.doc_output, lib_paths=["%s/KSP_Data/Managed" % self._game_dir], resources=self._resources,
-                         references=["%s/KSP_Data/Managed/%s" % (self._game_dir, lib) for lib in std_libs] + references, extra_args=extra_args)
+        data_dir = "KSP_Data"
+        if os.name == "nt":
+            data_dir = "KSP_x64_Data"
+        self.compile_all(output=self._output, include=include, exclude=exclude, doc=self.doc_output, lib_paths=["%s/%s/Managed" % (self._game_dir, data_dir)], resources=self._resources,
+                         references=["%s/%s/Managed/%s" % (self._game_dir, data_dir, lib) for lib in std_libs] + references, extra_args=extra_args)
 
     def run(self, *args):
         run_command(cwd=self.path, command=args)

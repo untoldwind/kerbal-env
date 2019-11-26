@@ -1,4 +1,5 @@
 import toml
+import os
 
 from string import Template
 import pathlib
@@ -26,6 +27,8 @@ class Config:
 
     @property
     def game_dir(self):
+        if os.name == "nt":
+            return self.target_dir
         return self.target_dir.joinpath("KSP_linux")
 
     @property
