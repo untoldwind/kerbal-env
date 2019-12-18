@@ -11,15 +11,19 @@ def run_command(cwd, command, env=None):
     if result.returncode != 0:
         logging.error("Command %s failed" % (command))
         logging.error("Out:")
-        logging.error(result.stdout.decode('utf-8'))
+        for line in result.stdout.replace(b"\r", b"").split(b"\n"):
+            logging.error(line)
         logging.error("Err:")
-        logging.error(result.stderr.decode('utf-8'))
+        for line in result.stderr.replace(b"\r", b"").split(b"\n"):
+            logging.error(line)
         raise NameError("Command %s failed" % (command))
     else:
         logging.debug("Out:")
-        logging.debug(result.stdout.decode('utf-8'))
+        for line in result.stdout.replace(b"\r", b"").split(b"\n"):
+            logging.debug(line)
         logging.debug("Err:")
-        logging.debug(result.stderr.decode('utf-8'))
+        for line in result.stderr.replace(b"\r", b"").split(b"\n"):
+            logging.debug(line)
 
 
 class SourceDir:
