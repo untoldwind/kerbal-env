@@ -21,6 +21,7 @@ class AT_Utils(Receipt):
                         "Assembly-CSharp-firstpass.dll", 
                         "KSPAssets.dll", 
                         "UnityEngine.dll", 
+                        "UnityEngine.AudioModule.dll", 
                         "UnityEngine.CoreModule.dll", 
                         "UnityEngine.InputLegacyModule.dll",
                         "UnityEngine.UI.dll",

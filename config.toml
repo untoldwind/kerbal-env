@@ -72,7 +72,6 @@ source = "https://github.com/ChrisAdderley/StationPartsExpansionRedux.git"
 [mods.KerbalAlarmClock]
 source_type = "git"
 source = "https://github.com/TriggerAu/KerbalAlarmClock.git"
-patchFile = "patches/KerbalAlarmClock.patch"
 
 [mods.CommunityCategoryKit]
 source_type = "git"
@@ -187,28 +186,6 @@ source = "https://github.com/KSPSnark/IndicatorLights.git"
 [mods.AT_Utils]
 source_type = "git"
 source = "https://github.com/allista/AT_Utils.git"
-patch = '''
---- a/GUI/Elements/DropDownList.cs
-+++ b/GUI/Elements/DropDownList.cs
-@@ -108,7 +108,7 @@ namespace AT_Utils
-                 blnReturn = true;
-             }
-             //get the drawn button rectangle
--            if (Event.current.type == EventType.repaint)
-+            if (Event.current.type == EventType.Repaint)
-                 rectButton = GUILayoutUtility.GetLastRect();
- 
-             //draw a dropdown symbol on the right edge
-@@ -161,7 +161,7 @@ namespace AT_Utils
- 
-         public bool CloseOnOutsideClick()
-         {
--            if(ListVisible && Event.current.type == EventType.mouseDown && !rectScrollView.Contains(Event.current.mousePosition))
-+            if(ListVisible && Event.current.type == EventType.MouseDown && !rectScrollView.Contains(Event.current.mousePosition))
-             {
-                 ListVisible = false;
-                 return true;
-'''
 
 [mods.AnisotropicPartResizer]
 source_type = "git"

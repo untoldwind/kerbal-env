@@ -1,7 +1,7 @@
 import logging
 import shutil
 from lib.exec import SourceDir
-from lib.utils import mkdir_p, rm_rf
+from lib.utils import mkdir_p, rm_rf, rm
 from lib.recipes import Receipt
 
 
@@ -44,6 +44,7 @@ class GroundConstruction(Receipt):
 
     def install(self):
         rm_rf(self.target_dir)
+        rm(self.project_dir.joinpath("GameData", "GroundConstruction"), "*.ksp")
         shutil.copytree(self.project_dir.joinpath(
             "GameData", "GroundConstruction"), self.target_dir)
 
