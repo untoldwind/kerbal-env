@@ -26,6 +26,10 @@ class adopted(Receipt):
         rm_rf(target_dir)
         shutil.copytree(adopted_path.joinpath(
             "GameData", "IndicatorLightsCommunityExtensions"), target_dir)
+        target_dir = self.game_dir.joinpath("GameData", "NFEOutdated")
+        rm_rf(target_dir)
+        shutil.copytree(adopted_path.joinpath(
+            "GameData", "NFEOutdated"), target_dir)
 
     def check_installed(self):
         target_dir = self.game_dir.joinpath("GameData", "XyphosAerospace")

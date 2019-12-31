@@ -64,7 +64,6 @@ enabled = true
 source_type = "git"
 source="https://github.com/ChrisAdderley/NearFutureProps.git"
 enabled = true
-tag = "1.1.0"
 
 [mods.StationPartsExpansionRedux]
 source_type = "git"
