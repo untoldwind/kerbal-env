@@ -1,13 +1,15 @@
 import logging
 from lib.exec import SourceDir
 from lib.recipes import Receipt
+from lib.utils import mkdir_p
 
 class KSPDev_Utils(Receipt):
     def __init__(self, game_dir, project_dir):
         super().__init__(game_dir, project_dir)
         self.source_dir = SourceDir(game_dir, project_dir.joinpath("Source"))
-        self.source_dir.output = project_dir.joinpath("Binaries", "KSPDev_Utils.2.0.dll")
-        self.source_dir.doc_output = project_dir.joinpath("Binaries", "KSPDev_Utils.2.0.xml")
+        self.source_dir.output = project_dir.joinpath("Binaries", "KSPDev_Utils.2.3.dll")
+        self.source_dir.doc_output = project_dir.joinpath("Binaries", "KSPDev_Utils.2.3.xml")
+        mkdir_p(project_dir.joinpath("Binaries"))
 
     def build(self):
         logging.info("  Build Release")

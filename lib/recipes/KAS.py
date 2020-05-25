@@ -14,7 +14,7 @@ class KAS(Receipt):
         self.source_dir.output = project_dir.joinpath("Binaries", "KAS.dll")
         self.source_api_dir = SourceDir(game_dir, project_dir.joinpath("Source-API" ))
         self.source_api_dir.output = project_dir.joinpath("Binaries", "KAS-API-v1.dll")
-        self.ksp_dev_lib = project_dir.parent.joinpath("KSPDev_Utils", "Binaries", "KSPDev_Utils.2.0.dll")
+        self.ksp_dev_lib = project_dir.parent.joinpath("KSPDev_Utils", "Binaries", "KSPDev_Utils.2.3.dll")
         self.target_dir = game_dir.joinpath("GameData", "KAS")
 
     def build(self):

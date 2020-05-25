@@ -40,6 +40,7 @@ class AT_Utils(Receipt):
                         "Assembly-CSharp-firstpass.dll",
                         "KSPAssets.dll", 
                         "UnityEngine.dll",
+                        "UnityEngine.AssetBundleModule.dll",
                         "UnityEngine.CoreModule.dll", 
                         "UnityEngine.AudioModule.dll", 
                         "UnityEngine.AnimationModule.dll", 
