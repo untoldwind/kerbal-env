@@ -1,9 +1,9 @@
 target_dir = "~/KSP"
 
 [install]
-base = "~/Downloads/ksp-linux-1.9.1.zip"
-dlc1 = "~/Downloads/KSP-Making_History_Expansion-en-us-lin-1.9.1.zip"
-dlc2 = "~/Downloads/KSP-Breaking_Ground_Expansion-en-us-lin-1.4.1.zip"
+base = "~/Downloads/ksp-linux-1.10.1.zip"
+dlc1 = "~/Downloads/KSP-Making_History_Expansion-en-us-lin-1.10.1.zip"
+dlc2 = "~/Downloads/KSP-Breaking_Ground_Expansion-en-us-lin-1.5.1.zip"
 
 [mods.adopted]
 source_type = "adopted"
@@ -18,10 +18,14 @@ source_type = "git"
 source = "https://github.com/KSP-KOS/KOS.git"
 branch = "master"
 
+[mods.ModularFlightIntegrator]
+source_type = "git"
+source = "https://github.com/sarbian/ModularFlightIntegrator.git"
+
 [mods.Kopernicus]
 source_type = "git"
 source = "https://github.com/Kopernicus/Kopernicus.git"
-branch = "master"
+branch = "1.10"
 enabled = true
 patch = '''
 --- a/src/Kopernicus/Constants/CompatibilityChecker.cs
@@ -30,16 +34,16 @@ patch = '''
      {
          // Compatible version
          internal const Int32 VERSION_MAJOR = 1;
--        internal const Int32 VERSION_MINOR = 8;
-+        internal const Int32 VERSION_MINOR = 9;
+-        internal const Int32 VERSION_MINOR = 9;
++        internal const Int32 VERSION_MINOR = 10;
          internal const Int32 REVISION = 1;
-         internal const Int32 KOPERNICUS = 1;
+         internal const Int32 KOPERNICUS = 2;
 
 --- a/version
 +++ b/version
 @@ -1,2 +1,2 @@
 -VERSION="1.8.1-1"
-+VERSION="1.9.1-1"
++VERSION="1.10.1-1"
  MFI="1.2.7"
 '''
 
@@ -50,7 +54,7 @@ source = "https://github.com/sarbian/CustomBarnKit.git"
 [mods.OPM]
 source_type = "http"
 source = "https://github.com/Poodmund/Outer-Planets-Mod/releases/download/${version}/Outer_Planets_Mod-${version}.zip"
-version = "2.2.6"
+version = "2.2.8"
 
 [mods.KSPModFileLocalizer]
 source_type = "git"
@@ -158,6 +162,7 @@ source = "https://github.com/Flupster/KSP-X-Science"
 [mods.ClickThroughBlocker]
 source_type = "git"
 source = "https://github.com/linuxgurugamer/ClickThroughBlocker.git"
+tag = "0.1.10.1"
 
 [mods.ToolbarControl]
 source_type = "git"
