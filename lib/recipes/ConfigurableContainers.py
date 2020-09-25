@@ -11,6 +11,9 @@ class ConfigurableContainers(Receipt):
 
     def __init__(self, game_dir, project_dir):
         super().__init__(game_dir, project_dir)
+        self.cc_ui_dir = SourceDir(game_dir, project_dir.joinpath("CC.UI"))
+        self.cc_ui_dir.output = project_dir.joinpath(
+            "GameData", "ConfigurableContainers", "CC.UI.dll")
         self.source_dir = SourceDir(game_dir, project_dir)
         self.source_dir.output = project_dir.joinpath(
             "GameData", "ConfigurableContainers", "ConfigurableContainers.dll")
@@ -18,18 +21,31 @@ class ConfigurableContainers(Receipt):
             "GameData", "ConfigurableContainers")
         self.at_utils_lib = project_dir.parent.joinpath(
             "AT_Utils", "GameData", "000_AT_Utils", "Plugins", "000_AT_Utils.dll")
+        self.at_utils_ui_lib = project_dir.parent.joinpath(
+            "AT_Utils", "GameData", "000_AT_Utils", "Plugins", "0_00_AT_Utils_UI.dll")
         self.aniso_lib = project_dir.parent.joinpath(
             "AnisotropicPartResizer", "obj", "001_AnisotropicPartResizer.dll")
 
     def build(self):
         logging.info("  Build Release")
+        self.cc_ui_dir.std_compile(
+            references=[
+                "Assembly-CSharp.dll", 
+                        "Assembly-CSharp-firstpass.dll", 
+                        "UnityEngine.dll", 
+                        "UnityEngine.CoreModule.dll", 
+                        "UnityEngine.IMGUIModule.dll",
+                        "UnityEngine.UI.dll", self.at_utils_lib, self.at_utils_ui_lib, self.aniso_lib
+            ])
         self.source_dir.std_compile(
+            exclude=["CC.UI/**/*.cs"],
             references=["Assembly-CSharp.dll", 
                         "Assembly-CSharp-firstpass.dll", 
                         "UnityEngine.dll", 
                         "UnityEngine.CoreModule.dll", 
                         "UnityEngine.IMGUIModule.dll",
-                        "UnityEngine.UI.dll", self.at_utils_lib, self.aniso_lib])
+                        "UnityEngine.UI.dll", self.cc_ui_dir.output, self.at_utils_lib, self.at_utils_ui_lib, self.aniso_lib
+                        ])
 
     def can_install(self):
         return self.source_dir.output.exists()
