@@ -6,8 +6,8 @@ from lib.recipes import Receipt
 
 
 class GroundConstruction(Receipt):
-    depends = ["AT_Utils", "ConfigurableContainers",
-               "MultiAnimators", "ModuleManager"]
+    depends = ["AT_Utils", "ConfigurableContainers","CommunityResourcePack",
+               "AnisotropicPartResizer", "MultiAnimators", "ModuleManager"]
 
     def __init__(self, game_dir, project_dir):
         super().__init__(game_dir, project_dir)
