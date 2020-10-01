@@ -6,7 +6,7 @@ from lib.recipes import Receipt
 
 
 class USI_LS(Receipt):
-    depends = ["CommunityCategoryKit", "CommunityResourcePack", "USITools"]
+    depends = ["CommunityCategoryKit", "CommunityResourcePack", "USITools", "ModuleManager"]
 
     def __init__(self, game_dir, project_dir):
         super().__init__(game_dir, project_dir)

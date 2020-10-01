@@ -6,8 +6,8 @@ from lib.recipes import Receipt
 
 
 class MKS(Receipt):
-    depends = ["ModuleManager", "GroundConstruction",
-               "USITools", "USI_Core", "FireSpitterCore"]
+    depends = ["ModuleManager", "GroundConstruction", "CommunityCategoryKit", 
+               "CommunityResourcePack", "USITools", "USI_Core", "FireSpitterCore"]
 
     def __init__(self, game_dir, project_dir):
         super().__init__(game_dir, project_dir)
@@ -50,6 +50,7 @@ class MKS(Receipt):
     def install(self):
         rm_rf(self.target_dir1)
         rm_rf(self.target_dir2)
+        rm(self.project_dir.joinpath("FOR_RELEASE", "GameData", "UmbraSpaceIndustries", "MKS", "Parts"), "LightGlobe.cfg")
         shutil.copytree(self.project_dir.joinpath(
             "FOR_RELEASE", "GameData", "UmbraSpaceIndustries", "MKS"), self.target_dir1)
         shutil.copytree(self.project_dir.joinpath(

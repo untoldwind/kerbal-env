@@ -59,6 +59,8 @@ class AT_Utils(Receipt):
         rm_rf(self.target_dir)
         rm(self.project_dir.joinpath("GameData", "000_AT_Utils"), "*.ksp")
         rm(self.project_dir.joinpath("GameData", "000_AT_Utils"), "*.bundle")
+        shutil.copy(self.project_dir.parent.parent.joinpath("adopted", "at_utils_ui.bundle"), self.project_dir.joinpath("GameData", "000_AT_Utils", "at_utils_ui.bundle"))
+        shutil.copy(self.project_dir.parent.parent.joinpath("adopted", "cc_ui.bundle"), self.project_dir.joinpath("GameData", "000_AT_Utils", "cc_ui.bundle"))
         shutil.copytree(self.project_dir.joinpath(
             "GameData", "000_AT_Utils"), self.target_dir)
 

@@ -6,7 +6,7 @@ from lib.recipes import Receipt
 
 
 class GroundConstruction(Receipt):
-    depends = ["AT_Utils", "ConfigurableContainers","CommunityResourcePack",
+    depends = ["AT_Utils", "ConfigurableContainers", "CommunityResourcePack",
                "AnisotropicPartResizer", "MultiAnimators", "ModuleManager"]
 
     def __init__(self, game_dir, project_dir):
@@ -46,6 +46,7 @@ class GroundConstruction(Receipt):
         rm_rf(self.target_dir)
         rm(self.project_dir.joinpath("GameData", "GroundConstruction"), "*.ksp")
         rm(self.project_dir.joinpath("GameData", "GroundConstruction"), "*.bundle")
+        shutil.copy(self.project_dir.parent.parent.joinpath("adopted", "gc_ui.bundle"), self.project_dir.joinpath("GameData", "GroundConstruction", "gc_ui.bundle"))
         shutil.copytree(self.project_dir.joinpath(
             "GameData", "GroundConstruction"), self.target_dir)
 

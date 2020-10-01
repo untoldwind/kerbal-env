@@ -63,17 +63,14 @@ source = "https://github.com/Nils277/KSPModFileLocalizer.git"
 [mods.PlanetaryBaseSystems]
 source_type = "git"
 source = "https://github.com/Nils277/KerbalPlanetaryBaseSystems.git"
-enabled = true
 
 [mods.B9PartSwitch]
 source_type = "git"
 source = "https://github.com/blowfishpro/B9PartSwitch.git"
-enabled = true
 
 [mods.NearFutureProps]
 source_type = "git"
 source="https://github.com/ChrisAdderley/NearFutureProps.git"
-enabled = true
 
 [mods.StationPartsExpansionRedux]
 source_type = "git"
@@ -163,14 +160,17 @@ source = "https://github.com/Flupster/KSP-X-Science"
 source_type = "git"
 source = "https://github.com/linuxgurugamer/ClickThroughBlocker.git"
 tag = "0.1.10.1"
+enabled = "false"
 
 [mods.ToolbarControl]
 source_type = "git"
 source = "https://github.com/linuxgurugamer/ToolbarControl.git"
+enabled = false
 
 [mods.KronalVesselViewer]
 source_type = "git"
 source = "https://github.com/linuxgurugamer/KronalVesselViewer.git"
+enabled = false
 patch = '''
 --- a/KronalVesselViewer/VesselViewConfig.cs
 +++ b/KronalVesselViewer/VesselViewConfig.cs
@@ -283,6 +283,7 @@ enabled = false
 [mods.OSEWorkshop]
 source_type = "git"
 source = "https://github.com/linuxgurugamer/Workshop.git"
+enabled = false
 
 [mods.KramaxAutoPilot]
 source_type = "git"
@@ -330,3 +331,4 @@ enabled = false
 [mods.SpaceTuxLibrary]
 source_type = "git"
 source = "https://github.com/linuxgurugamer/SpaceTuxLibrary.git"
+enabled = false
