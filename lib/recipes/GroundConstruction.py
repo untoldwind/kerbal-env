@@ -45,6 +45,7 @@ class GroundConstruction(Receipt):
     def install(self):
         rm_rf(self.target_dir)
         rm(self.project_dir.joinpath("GameData", "GroundConstruction"), "*.ksp")
+        rm(self.project_dir.joinpath("GameData", "GroundConstruction"), "*.bundle")
         shutil.copytree(self.project_dir.joinpath(
             "GameData", "GroundConstruction"), self.target_dir)
 

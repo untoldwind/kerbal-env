@@ -58,6 +58,7 @@ class AT_Utils(Receipt):
     def install(self):
         rm_rf(self.target_dir)
         rm(self.project_dir.joinpath("GameData", "000_AT_Utils"), "*.ksp")
+        rm(self.project_dir.joinpath("GameData", "000_AT_Utils"), "*.bundle")
         shutil.copytree(self.project_dir.joinpath(
             "GameData", "000_AT_Utils"), self.target_dir)
 
