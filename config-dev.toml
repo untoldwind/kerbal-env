@@ -15,10 +15,12 @@ branch = "master"
 source_type = "git"
 source = "https://github.com/KSP-KOS/KOS.git"
 branch = "master"
+enabled = false
 
 [mods.KramaxPluginReload]
 source_type = "git"
 source = "https://github.com/untoldwind/KramaxPluginReload.git"
+enabled = false
 
 [mods.HyperEdit]
 source_type = "git"

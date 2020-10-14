@@ -17,6 +17,7 @@ branch = "master"
 source_type = "git"
 source = "https://github.com/KSP-KOS/KOS.git"
 branch = "master"
+enabled = false
 
 [mods.ModularFlightIntegrator]
 source_type = "git"
@@ -123,6 +124,7 @@ source = "https://github.com/UmbraSpaceIndustries/USI-LS.git"
 [mods.Konstruction]
 source_type = "git"
 source = "https://github.com/BobPalmer/Konstruction.git"
+enabled = false
 
 [mods.SCANsat]
 source_type = "git"
@@ -160,7 +162,7 @@ source = "https://github.com/Flupster/KSP-X-Science"
 source_type = "git"
 source = "https://github.com/linuxgurugamer/ClickThroughBlocker.git"
 tag = "0.1.10.1"
-enabled = "false"
+enabled = false
 
 [mods.ToolbarControl]
 source_type = "git"
@@ -231,22 +233,27 @@ source_type = "git"
 source = "https://github.com/ChrisAdderley/DynamicBatteryStorage.git"
 branch = "dev"
 patchFile = "patches/DynamicBatteryStorage.patch"
+enabled = false
 
 [mods.NearFutureElectrical]
 source_type = "git"
 source = "https://github.com/ChrisAdderley/NearFutureElectrical.git"
+enabled = false
 
 [mods.NearFuturePropulsion]
 source_type = "git"
 source = "https://github.com/ChrisAdderley/NearFuturePropulsion.git"
+enabled = false
 
 [mods.NearFutureSolar]
 source_type = "git"
 source = "https://github.com/ChrisAdderley/NearFutureSolar.git"
+enabled = false
 
 [mods.NearFutureAeronautics]
 source_type = "git"
 source = "https://github.com/ChrisAdderley/NearFutureAeronautics.git"
+enabled = false
 
 [mods.NearFutureConstruction]
 source_type = "git"
@@ -256,14 +263,17 @@ enabled = false
 [mods.NearFutureLaunchVehicles]
 source_type = "git"
 source = "https://github.com/ChrisAdderley/NearFutureLaunchVehicles.git"
+enabled = false
 
 [mods.KerbalActuators]
 source_type = "git"
 source = "https://github.com/Angel-125/KerbalActuators.git"
+enabled = false
 
 [mods.DeployableEngines]
 source_type = "git"
 source = "https://github.com/ChrisAdderley/DeployableEngines.git"
+enabled = false
 
 [mods.FilterExtension]
 source_type = "git"
@@ -302,6 +312,7 @@ enabled = false
 [mods.FTT]
 source_type = "git"
 source = "https://github.com/BobPalmer/FTT.git"
+enabled = false
 
 [mods.RasterPropMonitor]
 source_type = "git"
