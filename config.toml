@@ -231,14 +231,12 @@ source = "https://github.com/UmbraSpaceIndustries/MKS.git"
 [mods.DynamicBatteryStorage]
 source_type = "git"
 source = "https://github.com/ChrisAdderley/DynamicBatteryStorage.git"
-branch = "dev"
-patchFile = "patches/DynamicBatteryStorage.patch"
-enabled = false
+branch = "master"
+#patchFile = "patches/DynamicBatteryStorage.patch"
 
 [mods.NearFutureElectrical]
 source_type = "git"
 source = "https://github.com/ChrisAdderley/NearFutureElectrical.git"
-enabled = false
 
 [mods.NearFuturePropulsion]
 source_type = "git"
@@ -258,7 +256,6 @@ enabled = false
 [mods.NearFutureConstruction]
 source_type = "git"
 source = "https://github.com/ChrisAdderley/NearFutureConstruction.git"
-enabled = false
 
 [mods.NearFutureLaunchVehicles]
 source_type = "git"
