@@ -151,7 +151,7 @@ enabled = false
 
 [mods.scatterer]
 source_type = "http"
-source = "https://github.com/LGhassen/Scatterer/releases/download/0.0331b/scatterer-v0.0331b.zip"
+source = "https://github.com/LGhassen/Scatterer/releases/download/0.0632/scatterer0.0632.zip"
 enabled = false
 
 [mods.X_Science]
@@ -339,4 +339,19 @@ enabled = false
 [mods.SpaceTuxLibrary]
 source_type = "git"
 source = "https://github.com/linuxgurugamer/SpaceTuxLibrary.git"
+enabled = false
+
+[mods.TextureReplacer]
+source_type = "http"
+source = "https://github.com/ducakar/TextureReplacer/releases/download/v4.2.3/TextureReplacer-4.2.3.zip"
+enabled = false
+
+[mods.AVP_Textures]
+source_type = "http"
+source = "https://github.com/themaster402/AstronomersVisualPack/releases/download/v1.11/AVP_8kTextures.zip"
+enabled = false
+
+[mods.AVP]
+source_type = "http"
+source = "https://github.com/themaster402/AstronomersVisualPack/releases/download/v4.05/AVP.v.4.05.zip"
 enabled = false

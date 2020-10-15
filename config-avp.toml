@@ -1,0 +1,16 @@
+include = ["config.toml"]
+
+[mods.EnvironmentalVisualEnhancements]
+enabled = true
+
+[mods.scatterer]
+enabled = true
+
+[mods.TextureReplacer]
+enabled = true
+
+[mods.AVP]
+enabled = true
+
+[mods.AVP_Textures]
+enabled = true
