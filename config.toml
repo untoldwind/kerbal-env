@@ -348,7 +348,7 @@ enabled = false
 
 [mods.AVP_Textures]
 source_type = "http"
-source = "https://github.com/themaster402/AstronomersVisualPack/releases/download/v1.11/AVP_8kTextures.zip"
+source = "https://github.com/themaster402/AstronomersVisualPack/releases/download/v1.11/AVP_4kTextures.zip"
 enabled = false
 
 [mods.AVP]
