@@ -1,9 +1,9 @@
 target_dir = "~/KSP"
 
 [install]
-base = "~/Downloads/ksp-linux-1.10.1.zip"
-dlc1 = "~/Downloads/KSP-Making_History_Expansion-en-us-lin-1.10.1.zip"
-dlc2 = "~/Downloads/KSP-Breaking_Ground_Expansion-en-us-lin-1.5.1.zip"
+base = "~/Downloads/ksp-linux-1.11.0.zip"
+dlc1 = "~/Downloads/KSP-Making_History_Expansion-en-us-lin-1.11.0.zip"
+dlc2 = "~/Downloads/KSP-Breaking_Ground_Expansion-en-us-lin-1.6.0.zip"
 
 [mods.adopted]
 source_type = "adopted"
