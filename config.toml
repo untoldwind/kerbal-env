@@ -1,9 +1,9 @@
 target_dir = "~/KSP"
 
 [install]
-base = "~/Downloads/ksp-linux-1.11.1.zip"
-dlc1 = "~/Downloads/KSP-Making_History_Expansion-en-us-lin-1.11.1.zip"
-dlc2 = "~/Downloads/KSP-Breaking_Ground_Expansion-en-us-lin-1.6.1.zip"
+base = "~/Downloads/ksp-linux-1.12.5.zip"
+dlc1 = "~/Downloads/KSP-Making_History_Expansion-en-us-lin-1.12.1.zip"
+dlc2 = "~/Downloads/KSP-Breaking_Ground_Expansion-en-us-lin-1.7.1.zip"
 
 [mods.adopted]
 source_type = "adopted"
@@ -131,10 +131,10 @@ source_type = "git"
 source = "https://github.com/S-C-A-N/SCANsat.git"
 branch = "release"
 
-[mods.EnvironmentalVisualEnhancements]
+[mods.EVERedux]
 source_type = "http"
-source = "https://github.com/WazWaz/EnvironmentalVisualEnhancements/releases/download/EVE-1.8.0-2/EnvironmentalVisualEnhancements-${version}.zip"
-version = "1.8.0.2"
+source = "https://github.com/LGhassen/EnvironmentalVisualEnhancements/releases/download/Redux1-11-7-1/EVE-Redux${version}.zip"
+version = "1.11.7.1"
 enabled = false
 
 [mods.StockVisualEnhancements]
@@ -151,7 +151,8 @@ enabled = false
 
 [mods.scatterer]
 source_type = "http"
-source = "https://github.com/LGhassen/Scatterer/releases/download/0.0632/scatterer0.0632.zip"
+source = "https://github.com/LGhassen/Scatterer/releases/download/${version}/Scatterer.0.0${version}.zip"
+version = "838"
 enabled = false
 
 [mods.X_Science]
@@ -349,10 +350,10 @@ enabled = false
 
 [mods.AVP_Textures]
 source_type = "http"
-source = "https://github.com/themaster402/AstronomersVisualPack/releases/download/v1.11/AVP_4kTextures.zip"
+source = "https://github.com/themaster402/AstronomersVisualPack/releases/download/v1.13/AVP_2kTextures.zip"
 enabled = false
 
 [mods.AVP]
 source_type = "http"
-source = "https://github.com/themaster402/AstronomersVisualPack/releases/download/v4.05/AVP.v.4.05.zip"
+source = "https://github.com/themaster402/AstronomersVisualPack/releases/download/v4.13/AVP.v.4.13.zip"
 enabled = false
