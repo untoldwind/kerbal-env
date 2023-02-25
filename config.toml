@@ -24,29 +24,13 @@ source_type = "git"
 source = "https://github.com/sarbian/ModularFlightIntegrator.git"
 
 [mods.Kopernicus]
-source_type = "git"
-source = "https://github.com/Kopernicus/Kopernicus.git"
-branch = "1.10"
+#source_type = "git"
+#source = "https://github.com/Kopernicus/Kopernicus.git"
+#branch = "master"
+source_type = "http"
+source = "https://github.com/Kopernicus/Kopernicus/releases/download/release-${version}/Kopernicus-1.12.1-${version}.zip"
+version = "155"
 enabled = true
-patch = '''
---- a/src/Kopernicus/Constants/CompatibilityChecker.cs
-+++ b/src/Kopernicus/Constants/CompatibilityChecker.cs
-@@ -49,7 +49,7 @@ namespace Kopernicus.Constants
-     {
-         // Compatible version
-         internal const Int32 VERSION_MAJOR = 1;
--        internal const Int32 VERSION_MINOR = 9;
-+        internal const Int32 VERSION_MINOR = 10;
-         internal const Int32 REVISION = 1;
-         internal const Int32 KOPERNICUS = 2;
-
---- a/version
-+++ b/version
-@@ -1,2 +1,2 @@
--VERSION="1.8.1-1"
-+VERSION="1.10.1-1"
- MFI="1.2.7"
-'''
 
 [mods.CustomBarnKit]
 source_type = "git"
@@ -356,4 +340,22 @@ enabled = false
 [mods.AVP]
 source_type = "http"
 source = "https://github.com/themaster402/AstronomersVisualPack/releases/download/v4.13/AVP.v.4.13.zip"
+enabled = false
+
+[mods.Parallax]
+source_type = "http"
+source = "https://github.com/Gameslinx/Tessellation/releases/download/${version}/Parallax-${version}.zip"
+version = "2.0.6"
+enabled = false
+
+[mods.Parallax_ScatterTextures]
+source_type = "http"
+source = "https://github.com/Gameslinx/Tessellation/releases/download/${version}/Parallax_ScatterTextures-${version}.zip"
+version = "2.0.1"
+enabled = false
+
+[mods.Parallax_StockTextures]
+source_type = "http"
+source = "https://github.com/Gameslinx/Tessellation/releases/download/${version}/Parallax_StockTextures-${version}.zip"
+version = "2.0.0"
 enabled = false

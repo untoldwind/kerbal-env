@@ -36,7 +36,7 @@ def initialize_project(build_dir, project_dir, name, config):
     if config.source_type == "git":
         logging.info("Checking out %s to: %s" % (config.source, build_dir))
         run_command(cwd=build_dir, command=[
-                    "git", "clone", "--depth", "1", "-b", config.checkout, config.source, name])
+                    "git", "clone", "--recurse-submodules", "--depth", "1", "-b", config.checkout, config.source, name])
     elif config.source_type == "http":
         mkdir_p(project_dir)
         download_dir = pathlib.Path().joinpath("downloads").resolve()
